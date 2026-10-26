@@ -1,0 +1,14 @@
+cat /home/root/lab7/run2.log; cat /sys/class/leds/sys-led /trigger; cat /sys/class/leds/sys-led/brightness; tar -czf /mnt/lab3/lab7/eviden ce-final.tar.gz -C /home/root/lab7 evidence run2.log; echo LAB7_EVIDENCE_SAVED
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/var/volatile/tmp/runtime-root'
+QT_VERSION 5.12.9 LED_DEVICE /sys/class/leds/sys-led ORIGINAL_TRIGGER heartbeat READY true
+LED_TOGGLED 0 -> 1
+LED_VERIFY expected= 1 actual= 1 PASS
+LED_TOGGLED 1 -> 0
+LED_VERIFY expected= 0 actual= 0 PASS
+LED_TOGGLED 0 -> 1
+LED_VERIFY expected= 1 actual= 1 PASS
+LED_VERIFY_COMPLETE failures= 0
+[none] rc-feedback nand-disk mmc0 mmc1 timer oneshot heartbeat backlight gpio 
+1
+LAB7_EVIDENCE_SAVED
+root@ATK-IMX6U:~/lab7# 

@@ -1,0 +1,22 @@
+[
+  {
+    "variant": "asm_off",
+    "entry": "0x87800000",
+    "payload_matches_bin": true
+  },
+  {
+    "variant": "asm_on",
+    "entry": "0x87800000",
+    "payload_matches_bin": true
+  },
+  {
+    "variant": "c_3000",
+    "entry": "0x87800000",
+    "payload_matches_bin": true
+  },
+  {
+    "variant": "c_500",
+    "entry": "0x87800000",
+    "payload_matches_bin": true
+  }
+]

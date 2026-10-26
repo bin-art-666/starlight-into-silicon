@@ -1,0 +1,53 @@
+mkdir -p /home/root/lab7; cp /mnt/lab3/lab7/qt_led_arm /mnt/la b3/lab7/run_on_board.sh /home/root/lab7/; chmod +x /home/root/lab7/qt_led_arm /h ome/root/lab7/run_on_board.sh; ldd /home/root/lab7/qt_led_arm; cat /proc/bus/inp ut/devices; tar -czf /mnt/lab3/lab7/board-drm.tar.gz /usr/lib/libdrm.so*; echo L AB7_DEPLOYED
+	linux-vdso.so.1 (0x7ee5b000)
+	libQt5Widgets.so.5 => /usr/lib/libQt5Widgets.so.5 (0x769d2000)
+	libQt5Gui.so.5 => /usr/lib/libQt5Gui.so.5 (0x764c5000)
+	libQt5Core.so.5 => /usr/lib/libQt5Core.so.5 (0x75f25000)
+	libpthread.so.0 => /lib/libpthread.so.0 (0x75eec000)
+	libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x75dab000)
+	libm.so.6 => /lib/libm.so.6 (0x75d2d000)
+	libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x75d00000)
+	libc.so.6 => /lib/libc.so.6 (0x75bc7000)
+	libGLESv2.so.2 => /usr/lib/libGLESv2.so.2 (0x75bb0000)
+	libpng16.so.16 => /usr/lib/libpng16.so.16 (0x75b79000)
+	libz.so.1 => /lib/libz.so.1 (0x75b57000)
+	libdl.so.2 => /lib/libdl.so.2 (0x75b44000)
+	libglib-2.0.so.0 => /usr/lib/libglib-2.0.so.0 (0x75a47000)
+	/lib/ld-linux-armhf.so.3 (0x76ef5000)
+	libdrm.so.2 => /usr/lib/libdrm.so.2 (0x75a2c000)
+	libglapi.so.0 => /usr/lib/libglapi.so.0 (0x759e4000)
+	libpcre.so.1 => /usr/lib/libpcre.so.1 (0x75996000)
+I: Bus=0019 Vendor=0000 Product=0000 Version=0000
+N: Name="20cc000.snvs:snvs-powerkey"
+P: Phys=snvs-pwrkey/input0
+S: Sysfs=/devices/platform/soc/2000000.aips-bus/20cc000.snvs/20cc000.snvs:snvs-powerkey/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=100000 0 0 0
+
+I: Bus=0018 Vendor=dead Product=beef Version=28bb
+N: Name="goodix-ts"
+P: Phys=input/ts
+S: Sysfs=/devices/virtual/input/input2
+U: Uniq=
+H: Handlers=event1 
+B: PROP=3
+B: EV=b
+B: KEY=e520 0 0 0 0 0 0 0 0 0 0
+B: ABS=2658000 0
+
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="gpio_keys@0"
+P: Phys=gpio-keys/input0
+S: Sysfs=/devices/platform/gpio_keys@0/input/input3
+U: Uniq=
+H: Handlers=kbd event2 
+B: PROP=0
+B: EV=100003
+B: KEY=40000 0 0 0
+
+tar: Removing leading `/' from member names
+LAB7_DEPLOYED
+root@ATK-IMX6U:~# 

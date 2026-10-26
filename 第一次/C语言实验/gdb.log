@@ -1,0 +1,15 @@
+$ gdb -q -batch ... ./scores
+Breakpoint 1 at 0x138e: file scores.c, line 26.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, summarize (scores=0x7fffffffe250, n=5) at scores.c:26
+26	    double sum = 0.0, max = scores[0];
+$1 = 5
+$2 = 80
+Enter 5 scores, one per line (0-100):
+Average: 76.00
+Maximum: 100.00
+Passed: 4/5
+[Inferior 1 (process 2622) exited normally]
+[exit=0]

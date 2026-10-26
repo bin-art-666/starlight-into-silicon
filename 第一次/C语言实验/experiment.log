@@ -1,0 +1,57 @@
+$ date -Iseconds
+2026-10-16T10:40:53+08:00
+[exit=0]
+
+$ whoami
+little
+[exit=0]
+
+$ uname -m
+x86_64
+[exit=0]
+
+$ make -B
+gcc -std=c11 -Wall -Wextra -Werror -O0 -g    scores.c   -o scores
+[exit=0]
+
+$ file scores
+scores: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=151f9e28624f8fb09c4b4c25e2d31f44bacb3cbf, for GNU/Linux 3.2.0, with debug_info, not stripped
+[exit=0]
+
+$ ./scores < normal.in
+Enter 5 scores, one per line (0-100):
+Average: 76.00
+Maximum: 100.00
+Passed: 4/5
+[exit=0]
+
+$ make test
+python3 test_scores.py
+PASS 普通成绩
+PASS 边界成绩
+PASS 小数成绩
+PASS 负数
+PASS 超过满分
+PASS 非数字
+PASS 非有限数
+PASS 输入提前结束
+PASS 尾部非法字符
+9/9 passed
+[exit=0]
+
+$ gdb -q -batch ... ./scores
+Breakpoint 1 at 0x138e: file scores.c, line 26.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, summarize (scores=0x7fffffffe250, n=5) at scores.c:26
+26	    double sum = 0.0, max = scores[0];
+$1 = 5
+$2 = 80
+Enter 5 scores, one per line (0-100):
+Average: 76.00
+Maximum: 100.00
+Passed: 4/5
+[Inferior 1 (process 2622) exited normally]
+[exit=0]
+

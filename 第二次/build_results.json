@@ -1,0 +1,30 @@
+[
+  {
+    "variant": "asm_on",
+    "delay": null,
+    "binary_bytes": 160,
+    "image_bytes": 4256,
+    "sha256": "e9584afbbcb92358af0740b8c5aaea4686ca6304eda8c12e4a60175c5addea2f"
+  },
+  {
+    "variant": "asm_off",
+    "delay": null,
+    "binary_bytes": 160,
+    "image_bytes": 4256,
+    "sha256": "ad602eba6ea8441045af731092edc4d52bf4db9728e3c028f8d6098c23bea6c8"
+  },
+  {
+    "variant": "c_500",
+    "delay": 500,
+    "binary_bytes": 588,
+    "image_bytes": 4684,
+    "sha256": "187fba1078df6fbf56787a731e2ae69008630239aaf6b834e9528bf6729e4f71"
+  },
+  {
+    "variant": "c_3000",
+    "delay": 3000,
+    "binary_bytes": 588,
+    "image_bytes": 4684,
+    "sha256": "e1019003495bd647bad2bb278d1cb2b42eaa67135cb82ffd54d858938510149a"
+  }
+]

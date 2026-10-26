@@ -1,0 +1,36 @@
+echo LAB7_ENV; qmake -query; ls /usr/lib/mkspecs; cat /usr/lib /mkspecs/qconfig.pri; ls -l /usr/lib/libQt5Widgets.so.5.12.9 /usr/lib/libQt5Gui. so.5.12.9 /usr/lib/libQt5Core.so.5.12.9; ls /lib/ld-* /lib/libgcc* /usr/lib/libc _nonshared*; cat /proc/649/environ | tr '\\000' '\\n' | grep -E 'QT_|TSLIB|DISPL AY|FRAMEBUFFER'
+LAB7_ENV
+QT_SYSROOT:
+QT_INSTALL_PREFIX:/usr
+QT_INSTALL_ARCHDATA:/usr/lib
+QT_INSTALL_DATA:/usr/share
+QT_INSTALL_DOCS:/usr/share/doc
+QT_INSTALL_HEADERS:/usr/include
+QT_INSTALL_LIBS:/usr/lib
+QT_INSTALL_LIBEXECS:/usr/lib/libexec
+QT_INSTALL_BINS:/usr/bin
+QT_INSTALL_TESTS:/usr/share/tests
+QT_INSTALL_PLUGINS:/usr/lib/plugins
+QT_INSTALL_IMPORTS:/usr/imports
+QT_INSTALL_QML:/usr/lib/qml
+QT_INSTALL_TRANSLATIONS:/usr/share/translations
+QT_INSTALL_CONFIGURATION:/etc
+QT_INSTALL_EXAMPLES:/usr/share/examples
+QT_INSTALL_DEMOS:/usr/share/examples
+QT_HOST_PREFIX:/usr
+QT_HOST_DATA:/usr/lib
+QT_HOST_BINS:/usr/bin
+QT_HOST_LIBS:/usr/lib
+QMAKE_SPEC:linux-g++
+QMAKE_XSPEC:linux-g++
+QMAKE_VERSION:3.1
+QT_VERSION:5.12.9
+ls: cannot access '/usr/lib/mkspecs': No such file or directory
+cat: /usr/lib/mkspecs/qconfig.pri: No such file or directory
+-rwxr-xr-x 1 root root 5.6M Jul 20 19:12 [0m[01;32m/usr/lib/libQt5Core.so.5.12.9[0m
+-rwxr-xr-x 1 root root 5.0M Jul 20 19:12 [01;32m/usr/lib/libQt5Gui.so.5.12.9[0m
+-rwxr-xr-x 1 root root 5.1M Jul 20 19:12 [01;32m/usr/lib/libQt5Widgets.so.5.12.9[0m
+[0m[01;32m/lib/ld-2.23.so[0m           /lib/libgcc_s.so    /usr/lib/libc_nonshared.a
+[01;36m/lib/ld-linux-armhf.so.3[0m  /lib/libgcc_s.so.1
+Binary file (standard input) matches
+root@ATK-IMX6U:~# 

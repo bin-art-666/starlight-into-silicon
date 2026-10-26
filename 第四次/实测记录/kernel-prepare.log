@@ -1,0 +1,53 @@
+  CHK     include/config/kernel.release
+  CHK     include/generated/uapi/linux/version.h
+  HOSTCC  scripts/genksyms/genksyms.o
+  HOSTCC  scripts/dtc/dtc.o
+  CC      scripts/mod/empty.o
+  HOSTCC  scripts/mod/mk_elfconfig
+  CC      scripts/mod/devicetable-offsets.s
+  HOSTCC  scripts/dtc/flattree.o
+  HOSTCC  scripts/dtc/fstree.o
+  GEN     scripts/mod/devicetable-offsets.h
+  HOSTCC  scripts/genksyms/parse.tab.o
+  HOSTCC  scripts/kallsyms
+  HOSTCC  scripts/genksyms/lex.lex.o
+  MKELF   scripts/mod/elfconfig.h
+  HOSTCC  scripts/mod/modpost.o
+  HOSTCC  scripts/dtc/data.o
+  HOSTCC  scripts/dtc/livetree.o
+  HOSTCC  scripts/pnmtologo
+  HOSTCC  scripts/dtc/treesource.o
+  HOSTLD  scripts/genksyms/genksyms
+  HOSTCC  scripts/mod/file2alias.o
+  HOSTCC  scripts/dtc/srcpos.o
+  HOSTCC  scripts/dtc/checks.o
+  HOSTCC  scripts/dtc/util.o
+  HOSTCC  scripts/conmakehash
+  HOSTCC  scripts/sortextable
+  HOSTCC  scripts/dtc/dtc-lexer.lex.o
+  HOSTCC  scripts/mod/sumversion.o
+  HOSTCC  scripts/dtc/dtc-parser.tab.o
+  CHK     include/generated/utsrelease.h
+  HOSTLD  scripts/mod/modpost
+make[1]: 'include/generated/mach-types.h' is up to date.
+  CC      kernel/bounds.s
+In file included from include/linux/kernel.h:11,
+                 from include/asm-generic/bug.h:13,
+                 from ./arch/arm/include/asm/bug.h:61,
+                 from include/linux/bug.h:4,
+                 from include/linux/page-flags.h:9,
+                 from kernel/bounds.c:9:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CHK     include/generated/bounds.h
+  CC      arch/arm/kernel/asm-offsets.s
+  HOSTLD  scripts/dtc/dtc
+In file included from include/linux/kernel.h:11,
+                 from include/linux/sched.h:17,
+                 from arch/arm/kernel/asm-offsets.c:14:
+include/linux/log2.h:22:1: warning: ignoring attribute ‘noreturn’ because it conflicts with attribute ‘const’ [-Wattributes]
+   22 | int ____ilog2_NaN(void);
+      | ^~~
+  CHK     include/generated/asm-offsets.h
+  CALL    scripts/checksyscalls.sh

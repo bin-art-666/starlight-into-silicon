@@ -1,0 +1,84 @@
+i.MX6ULL             开发板实验3 常见问题记录与解决
+                                          计科231 欧阳朴妍
+    实验环境：
+      主机系统：Ubuntu 16.04（虚拟机，正点原子镜像）
+      开发板：正点原子 i.MX6ULL ALPHA
+      虚拟机 IP：192.168.10.100
+      开发板 IP：192.168.10.50
+      U-Boot 版本：2016.03
+      内核版本：4.1.15
+      连接方式：务必使用ENET2网口
+
+
+1   ：SD卡烧录报 “No ethernet found.”
+现象：
+SD卡烧录后，插入开发板，开发板SD卡启动后出现下图所示界面，与正点原子官网界面不同：
+
+
+
+
+解决方法：
+  参考：https://blog.csdn.net/qq_61456346/article/details/147304953
+  在 虚拟机中找到 mx6ull_alientek_emmc.c 文件，后修改函数：
+     Ubuntu下执行命令：
+       cd ~/alpha/alientek-zzk/uboot-zzk/uboot-imx-rel_imx_4.1.15_2.1.0_ga_alientek
+       vim board/freescale/mx6ull_alientek_emmc/mx6ull_alientek_emmc.c
+
+
+
+      找到setup_iomux_fec函数，在下图红框位置插入时延，具体设置如下图所示：
+
+
+
+
+    之后重新按照《【正点原子】I.MX6U 虚拟机使用参考手册V1.3》第五章 5.1节 编译uboot源码
+
+
+2   ：NFS挂载文件系统失败
+现象：
+配置开发板网络信息成功，TFTP 加载 zImage 和设备树完成后，使用NFS挂载文件系统时，在串口软件中输
+入 boot 命令启动挂载。无法正常启动，出现如下图所示报错：
+解决方法：
+  参考：https://blog.csdn.net/lyndon_li/article/details/129784470?
+    ops_request_misc=%257B%2522request%255Fid%2522%253A%2522deb835d15986430d5ea96d7361d3fc
+    cd%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&reque
+    st_id=deb835d15986430d5ea96d7361d3fccd&biz_id=0&utm_medium=distribute.pc_search_result.none-
+    task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-129784470-null-null.nonecase&utm_term=    挂载
+    NFS&spm=1018.2226.3001.4450
+    进入
+    官网正点原子资料\08、系统镜像\02、教程系统镜像\02、阿尔法V2.4版本及以后和miniV2.2及以后的底板\02、Kernel镜像
+    拷贝其中的zImage和imx6ull-alientek-emmc.dtb文件
+    粘贴于 Ubuntu虚拟机中 home\linux\tftp，如果已经存在则替换原文件
+    开发板EMMC启动，进入uboot界面，进行配置
+     setenv bootargs 'console=ttymxc0,115200 root=/dev/nfs \
+     nfsroot=192.168.10.100:/home/alientek/linux/nfs/rootfs,proto=tcp rw \
+     ip=192.168.10.50:192.168.10.100:192.168.10.1:255.255.255.0::eth0:off'
+     saveenv
+     setenv bootcmd 'tftp 80800000 zImage; tftp 83000000 imx6ull-14x14-evk.dtb; bootz 80800000 - 83000000'
+     saveenv
+     boot
+
+
+最终成功完成NFS文件系统挂载
+问题3：eth0 与 eth1 网口混淆
+现象：
+  使用 eth1 启动时，NFS 挂载失败；
+  使用 eth0 后成功启动。
+原因：
+  开发板存在两个网口（ENET1 / ENET2）；
+  教程默认使用 ENET2（FEC1 → eth0）；
+  内核中虽然注册了 eth1，但设备树中 FEC1 默认未启用。
+解决方法：
+使用 ENET2 网口，并在 bootargs 中写：
+ setenv bootargs 'console=ttymxc0,115200 root=/dev/nfs \
+ nfsroot=192.168.10.100:/home/alientek/linux/nfs/rootfs,proto=tcp rw \
+ ip=192.168.10.50:192.168.10.100:192.168.10.1:255.255.255.0::eth0:off'
+
+
+注意最后是 eth0:off
+
+
+最终确认
+   使用 ENET2 网口（FEC1 → eth0）；
+   bootargs 中必须为 eth0:off ；
+

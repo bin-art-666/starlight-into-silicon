@@ -1,0 +1,10 @@
+cd /home/root/lab5; ls -l /etc/rc*.d/*alsa*; mkdir -p /va r/lib/alsa; if [ -f /var/lib/alsa/asound.state ] && [ ! -f system-asound-before. state ]; then cp -p /var/lib/alsa/asound.state system-asound-before.state; fi; a lsactl -f /var/lib/alsa/asound.state store; echo SYSTEM_STORE_RC=$?; cmp mixer-l ab5.state /var/lib/alsa/asound.state; echo STATE_COMPARE_RC=$?; ls -l /var/lib/a lsa/asound.state; echo NO_REBOOT_PERFORMED
+lrwxrwxrwx 1 root root 20 Jul 21 22:33 [0m[01;36m/etc/rc0.d/K31alsa-state[0m -> ../init.d/alsa-state
+lrwxrwxrwx 1 root root 20 Jul 21 22:33 [01;36m/etc/rc6.d/K31alsa-state[0m -> ../init.d/alsa-state
+lrwxrwxrwx 1 root root 20 Jul 21 22:33 [01;36m/etc/rcS.d/S39alsa-state[0m -> ../init.d/alsa-state
+SYSTEM_STORE_RC=0
+mixer-lab5.state /var/lib/alsa/asound.state differ: byte 12, line 1
+STATE_COMPARE_RC=1
+-rw-r--r-- 1 root root 80K Jul 22 03:58 /var/lib/alsa/asound.state
+NO_REBOOT_PERFORMED
+root@ATK-IMX6U:~/lab5# 

@@ -1,0 +1,52 @@
+cd /home/root/lab5; echo IyEvYmluL3NoCiMgUnVuIGZyb20gL2hv bWUvcm9vdC9sYWI1LiBFeGlzdGluZyByZWNvcmRpbmdzIGFyZSBwcmVzZXJ2ZWQgd2l0aCB0aW1lc3Rh bXBzLgpzZXQgLWV1CmNkICIkKGRpcm5hbWUgIiQwIikiCmNvbW1hbmQgLXYgYXBsYXkgPi9kZXYvbnVs bApjb21tYW5kIC12IGFyZWNvcmQgPi9kZXYvbnVsbApjb21tYW5kIC12IGFtaXhlciA+L2Rldi9udWxs CmNvbW1hbmQgLXYgYWxzYWN0bCA+L2Rldi9udWxsCmlmIFsgISAtZiBtaXhlci1iZWZvcmUuc3RhdGUg XTsgdGhlbgogICAgYWxzYWN0bCAtZiBtaXhlci1iZWZvcmUuc3RhdGUgc3RvcmUKZmkKc2ggcGxheWJh Y2tfY29uZmlnLnNoCnNoIG1pY19jb25maWcuc2ggbGVmdDEKaWYgWyAhIC1mIGxhYjVfbXVzaWMud2F2 IF07IHRoZW4KICAgIHB5dGhvbjMgbWFrZV9tdXNpYy5weQpmaQphcGxheSAtRCBodzowLDAgbGFiNV9t dXNpYy53YXYKZWNobyAnU3BlYWsgdG93YXJkcyB0aGUgb24tYm9hcmQgTUlDIGR1cmluZyB0aGUgbmV4 dCAxMCBzZWNvbmRzLicKcmVjb3JkPSJtaWNfJChkYXRlICslWSVtJWRfJUglTSVTKV8kJC53YXYiCmFy ZWNvcmQgLUQgaHc6MCwwIC1mIGNkIC1kIDEwICIkcmVjb3JkIgphcGxheSAtRCBodzowLDAgIiRyZWNv cmQiCmFsc2FjdGwgLWYgbWl4ZXItbGFiNS5zdGF0ZSBzdG9yZQplY2hvICJMQUI1X1NFUVVFTkNFX09L IHJlY29yZGluZz0kcmVjb3JkIgo= | base64 -d > run_on_board.sh; sh -n run_on_board.s h playback_config.sh mic_config.sh; echo SCRIPT_SYNTAX_RC=$?; amixer -q sset Hea dphone 80,80; alsactl -f mixer-lab5.state restore; echo RESTORE_RC=$?; amixer sg et Headphone; cat /etc/init.d/alsa-state | head -65; ps -ef | grep -E "aplay|are cord|http.server"; echo LAB5_FINAL
+SCRIPT_SYNTAX_RC=0
+RESTORE_RC=0
+Simple mixer control 'Headphone',0
+  Capabilities: pvolume
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 127
+  Mono:
+  Front Left: Playback 105 [83%] [-16.00dB]
+  Front Right: Playback 105 [83%] [-16.00dB]
+#! /bin/sh
+#
+# Copyright Matthias Hentges <devel@hentges.net> (c) 2007
+# License: GPL (see http://www.gnu.org/licenses/gpl.txt for a copy of the license)
+#
+# Filename: alsa-state
+# Date: 20070308 (YMD)
+
+# source function library
+. /etc/init.d/functions
+
+asound_restore(){
+	echo "ALSA: Restoring mixer settings..."
+	if test -x /usr/sbin/alsactl -a -e /var/lib/alsa/asound.state
+	then
+		/usr/sbin/alsactl -f /var/lib/alsa/asound.state restore &
+	fi
+}
+
+asound_store(){
+	echo "ALSA: Storing mixer settings..."
+	if test -x /usr/sbin/alsactl
+	then
+		/usr/sbin/alsactl -f /var/lib/alsa/asound.state store
+	fi
+}
+
+case "$1" in
+start)		asound_restore ;;
+stop)		asound_store ;;
+  status)
+    status /usr/sbin/alsactl;
+    exit $?
+  ;;
+  *)
+    echo "Usage: /etc/init.d/alsa-state {start|stop|status}"
+    exit 1
+  ;;
+esac
+root       982   660  0 03:57 ttymxc0  00:00:00 grep -E aplay|arecord|http.server
+LAB5_FINAL
+root@ATK-IMX6U:~/lab5# 

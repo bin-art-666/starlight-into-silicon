@@ -1,0 +1,14 @@
+cp /mnt/lab4/lab4/gpio_readback /tmp/lab4/; chmod +x / tmp/lab4/gpio_readback; cd /tmp/lab4; insmod beep.ko; ./beepApp /dev/beep 1; ./g pio_readback; sleep 1; ./beepApp /dev/beep 0; ./gpio_readback; dmesg | tail -n 5 [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K5
+[  127.389161] beep: /dev/beep ready, gpio=129, major=247, default OFF
+[  127.411264] beep: ON
+beep: ON
+GPIO5_IO01 DR=0 GDIR=1 PSR=0 (read only)
+[  128.449956] beep: OFF
+beep: OFF
+GPIO5_IO01 DR=1 GDIR=1 PSR=0 (read only)
+[   85.204350] beep: OFF
+[   85.273001] beep: unloaded, OFF
+[  127.389161] beep: /dev/beep ready, gpio=129, major=247, default OFF
+[  127.411264] beep: ON
+[  128.449956] beep: OFF
+root@ATK-IMX6U:/tmp/lab4# 

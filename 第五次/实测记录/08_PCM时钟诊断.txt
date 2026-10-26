@@ -1,0 +1,36 @@
+cd /home/root/lab5; aplay -D hw:0,0 lab5_music.wav > play -diagnostic.log 2>&1 & p=$!; sleep 2; cat /proc/asound/card0/pcm0p/sub0/status;  cat /proc/asound/card0/pcm0p/sub0/hw_params; grep -E "sai|sdma" /proc/interrupts ; sleep 3; cat /proc/asound/card0/pcm0p/sub0/status; kill -TERM $p 2>/dev/null;  sleep 1; cat play-diagnostic.log; echo DIAG_END
+[1] 928
+state: RUNNING
+owner_pid   : 928
+trigger_time: 1494.941542510
+tstamp      : 0.000000000
+delay       : 16384
+avail       : 0
+avail_max   : 12288
+-----
+hw_ptr      : 86016
+appl_ptr    : 102400
+access: RW_INTERLEAVED
+format: S16_LE
+subformat: STD
+channels: 2
+rate: 44100 (44100/1)
+period_size: 4096
+buffer_size: 16384
+ 20:          0       GPC  98 Level     sai
+214:        649       GPC   2 Level     sdma
+state: RUNNING
+owner_pid   : 928
+trigger_time: 1494.941542510
+tstamp      : 0.000000000
+delay       : 16384
+avail       : 0
+avail_max   : 4096
+-----
+hw_ptr      : 225280
+appl_ptr    : 241664
+[1]+  Done                    aplay -D hw:0,0 lab5_music.wav > play-diagnostic.log 2>&1
+Playing WAVE 'lab5_music.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+Aborted by signal Terminated...
+DIAG_END
+root@ATK-IMX6U:~/lab5# 

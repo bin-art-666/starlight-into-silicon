@@ -1,0 +1,7 @@
+cd /home/root/lab5; python3 make_music.py; sh playback_config.sh; aplay -D plughw:0,0 lab5_music.wav; echo MUSIC_PLAY_RC=$?; sh mic_config.sh left1; arecord -D hw:0,0 -f cd -d 10 mic_left1.wav; echo MIC_LEFT_RC=$?; ls -l *.wav
+UPLOADED_mic_config.sh
+root@ATK-IMX6U:~/lab5# cd /home/root/lab5; python3 make_music.py; sh playback_co nfig.sh; aplay -D plughw:0,0 lab5_music.wav; echo MUSIC_PLAY_RC=$?; sh mic_confi g.sh left1; arecord -D hw:0,0 -f cd -d 10 mic_left1.wav; echo MIC_LEFT_RC=$?; ls  -l *.wav
+MUSIC_CREATED: 6.4 seconds, 44100 Hz, S16_LE, stereo
+PLAYBACK_CONFIG_OK
+Playing WAVE 'lab5_music.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+

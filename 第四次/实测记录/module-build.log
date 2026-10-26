@@ -1,0 +1,8 @@
+make -C /tmp/lab4-kernel M=/mnt/d/Develop/Linux/嵌入式/第四次/06_beep ARCH=arm CROSS_COMPILE=/home/little/lab7-sdk/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf- LOCALVERSION=-g3dc0a4b HOSTCFLAGS="-O2 -fcommon" modules
+make[1]: Entering directory '/tmp/lab4-kernel'
+  CC [M]  /mnt/d/Develop/Linux/嵌入式/第四次/06_beep/beep.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /mnt/d/Develop/Linux/嵌入式/第四次/06_beep/beep.mod.o
+  LD [M]  /mnt/d/Develop/Linux/嵌入式/第四次/06_beep/beep.ko
+make[1]: Leaving directory '/tmp/lab4-kernel'

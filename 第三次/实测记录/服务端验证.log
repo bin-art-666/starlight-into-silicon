@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main(void)
+{
+    puts("Lab 3: Linux C program running from NFS.");
+    for (int i = 1; i <= 5; ++i)
+        printf("%d * %d = %d\n", i, i, i * i);
+    return 0;
+}
+/mnt/lab3-nfs-check/hello_nfs_arm: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), statically linked, BuildID[sha1]=3d6de2e34f323a5ae7996df13ec991d3327aca00, for GNU/Linux 3.2.0, with debug_info, not stripped
+486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9  /srv/tftp/ledc.bin
+486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9  ledc_download.bin
+0a54c93977ef22a74de0c95b5565836b20437f86ee46e4c80f12deebaad9d377  /srv/nfs/lab3/hello_nfs_arm
+0a54c93977ef22a74de0c95b5565836b20437f86ee46e4c80f12deebaad9d377  /mnt/lab3-nfs-check/hello_nfs_arm
+TARGET              SOURCE                  FSTYPE OPTIONS
+/mnt/lab3-nfs-check 127.0.0.1:/srv/nfs/lab3 nfs    rw,relatime,vers=3,rsize=1048576,wsize=1048576,namlen=255,hard,nolock,fatal_neterrors=none,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=127.0.0.1,mountvers=3,mountport=32849,mountproto=tcp,local_lock=all,addr=127.0.0.1
+/srv/nfs/lab3 	127.0.0.1(sync,wdelay,hide,no_subtree_check,sec=sys,rw,secure,root_squash,no_all_squash)
+   program vers proto   port  service
+    100000    4   tcp    111  portmapper
+    100000    3   tcp    111  portmapper
+    100000    2   tcp    111  portmapper
+    100000    4   udp    111  portmapper
+    100000    3   udp    111  portmapper
+    100000    2   udp    111  portmapper
+    100024    1   udp  56368  status
+    100024    1   tcp  44781  status
+    100005    1   udp  38972  mountd
+    100005    1   tcp  54213  mountd
+    100005    2   udp  59460  mountd
+    100005    2   tcp  60995  mountd
+    100005    3   udp  44538  mountd
+    100005    3   tcp  32849  mountd
+    100003    3   tcp   2049  nfs
+    100003    4   tcp   2049  nfs
+    100227    3   tcp   2049  nfs_acl
+    100021    1   udp  40909  nlockmgr
+    100021    3   udp  40909  nlockmgr
+    100021    4   udp  40909  nlockmgr
+    100021    1   tcp  38141  nlockmgr
+    100021    3   tcp  38141  nlockmgr
+    100021    4   tcp  38141  nlockmgr
+active
+active
+
+PASS: local TFTP transfers and NFSv3 mount/read checks. Board execution is pending.

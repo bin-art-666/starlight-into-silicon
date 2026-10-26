@@ -1,0 +1,45 @@
+{
+  "hashes": {
+    "mic_left1.wav": {
+      "sha256": "e45fc18a5320d7a9595e949d639b3e7d3f0348af306380ae2f5ffbab68a243af",
+      "bytes": 1764044,
+      "match": true
+    },
+    "mixer-before.state": {
+      "sha256": "27e59c7068f7dd0a7f4b2f3f4ba4f68fcf184010469c4026f9d7ea9ef19d7bb6",
+      "bytes": 10293,
+      "match": true
+    },
+    "mixer-lab5.state": {
+      "sha256": "f5c4c8f29744546dddf9d6047ace384837a7ed509bfbef9d8fa6dcbf3d26bfe6",
+      "bytes": 10297,
+      "match": true
+    }
+  },
+  "recording": {
+    "channels": 2,
+    "sample_width": 2,
+    "rate": 44100,
+    "frames": 441000,
+    "duration_seconds": 10.0,
+    "channels_identical": true,
+    "channel_stats": [
+      {
+        "channel": 1,
+        "peak": 714,
+        "rms": 33.587,
+        "rms_dbfs": -59.786,
+        "nonzero_samples": 394864,
+        "clipped_samples": 0
+      },
+      {
+        "channel": 2,
+        "peak": 714,
+        "rms": 33.587,
+        "rms_dbfs": -59.786,
+        "nonzero_samples": 394864,
+        "clipped_samples": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+mmc dev 1; run loadimage; setenv serverip 192.168.1.100; setenv ipaddr 192.168.1.4; tftp 0x83000000 lab4-beep.dtb; fdt addr 0x83000000; fdt print /beep; fdt print /leds/beep; crc32 0x83000000 ${filesize}
+switch to partitions #0, OK
+mmc1(part 0) is current device
+reading zImage
+6785480 bytes read in 223 ms (29 MiB/s)
+FEC1 Waiting for PHY auto negotiation to complete..... done
+Using FEC1 device
+TFTP from server 192.168.1.100; our IP address is 192.168.1.4
+Filename 'lab4-beep.dtb'.
+Load address: 0x83000000
+Loading: *

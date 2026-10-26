@@ -1,0 +1,3 @@
+dcache off; icache off; go 0x87800000
+## Starting application at 0x87800000 ...
+

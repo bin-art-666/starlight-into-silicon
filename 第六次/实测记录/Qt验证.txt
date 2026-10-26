@@ -1,0 +1,12 @@
+********* Start testing of Verify *********
+Config: Using QtTest library 5.15.13, Qt 5.15.13 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 13.2.0), ubuntu 24.04
+PASS   : Verify::initTestCase()
+QWARN  : Verify::cancelOpen() This plugin does not support propagateSizeHints()
+PASS   : Verify::cancelOpen()
+QWARN  : Verify::roundTrip() This plugin does not support propagateSizeHints()
+QWARN  : Verify::roundTrip() This plugin does not support propagateSizeHints()
+QWARN  : Verify::roundTrip() This plugin does not support propagateSizeHints()
+PASS   : Verify::roundTrip()
+PASS   : Verify::cleanupTestCase()
+Totals: 4 passed, 0 failed, 0 skipped, 0 blacklisted, 1483ms
+********* Finished testing of Verify *********

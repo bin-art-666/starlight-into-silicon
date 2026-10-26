@@ -1,0 +1,17 @@
+cat /home/root/lab7/run.log; cat /sys/class/leds/sys-led/ brightness; ps -ef | grep -E "qt_led_arm|QDesktop" | grep -v grep; tar -czf /mnt /lab3/lab7/evidence.tar.gz -C /home/root/lab7 evidence run.log; echo EVIDENCE_EX PORTED
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/var/volatile/tmp/runtime-root'
+QT_VERSION 5.12.9 LED_DEVICE /sys/class/leds/sys-led ORIGINAL_TRIGGER heartbeat READY true
+LED_TOGGLED 0 -> 1
+LED_VERIFY expected= 1 actual= 1 PASS
+LED_TOGGLED 1 -> 0
+LED_VERIFY expected= 0 actual= 0 PASS
+LED_TOGGLED 0 -> 1
+LED_TOGGLED 1 -> 0
+LED_VERIFY expected= 1 actual= 0 FAIL
+LED_VERIFY_COMPLETE failures= 1
+RESTORE_TRIGGER "heartbeat" true
+[1]+  Done(3)                 nohup sh ./run_on_board.sh --verify > /home/root/lab7/run.log 2>&1 < /dev/null
+255
+root       649     1 12 02:20 ?        00:02:55 /opt/QDesktop
+EVIDENCE_EXPORTED
+root@ATK-IMX6U:~/lab7# 

@@ -1,0 +1,18 @@
+setenv ipaddr 192.168.1.4; setenv serverip 192.168.1.100; setenv netmask 255.255.255.0; ping 192.168.1.100; tftp 0x87800000 ledc.bin
+FEC1 Waiting for PHY auto negotiation to complete..... done
+Using FEC1 device
+
+
+printenv fileaddr filesize; crc32 0x87800000 0x24c; tftp 0x87800000 ledc.bin
+fileaddr=87800000
+filesize=24c
+CRC32 for 87800000 ... 8780024b ==> 2658fc5a
+Using FEC1 device
+TFTP from server 192.168.1.100; our IP address is 192.168.1.4
+Filename 'ledc.bin'.
+Load address: 0x87800000
+Loading: *#
+	 114.3 KiB/s
+done
+Bytes transferred = 588 (24c hex)
+=> 

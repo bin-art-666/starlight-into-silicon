@@ -1,0 +1,25 @@
+cd /home/root/lab5; head -12 /var/lib/alsa/asound.state;  amixer -q sset Headphone 80,80; alsactl -f /var/lib/alsa/asound.state restore; e cho SYSTEM_RESTORE_RC=$?; amixer sget Headphone; alsactl -f system-roundtrip.sta te store; cmp mixer-lab5.state system-roundtrip.state; echo CANONICAL_COMPARE_RC =$?; ls -l system-asound-before.state; echo LAB5_DONE
+state.wm8962audio {
+	control.1 {
+		iface MIXER
+		name 'Input Mixer Switch'
+		value.0 true
+		value.1 true
+		comment {
+			access 'read write'
+			type BOOLEAN
+			count 2
+		}
+	}
+SYSTEM_RESTORE_RC=0
+Simple mixer control 'Headphone',0
+  Capabilities: pvolume
+  Playback channels: Front Left - Front Right
+  Limits: Playback 0 - 127
+  Mono:
+  Front Left: Playback 105 [83%] [-16.00dB]
+  Front Right: Playback 105 [83%] [-16.00dB]
+CANONICAL_COMPARE_RC=0
+-rw-r--r-- 1 root root 80K Jul 22 03:27 system-asound-before.state
+LAB5_DONE
+root@ATK-IMX6U:~/lab5# 

@@ -1,0 +1,19 @@
+cat /sys/kernel/debug/pinctrl/2290000.iomuxc-sn vs/pinmux-pins; cat /sys/kernel/debug/pinctrl/20e0000.iomuxc/pinmux-pins | grep  -i -E 'beep|tamper'; ps | grep cp; ls /sys/bus/platform/drivers | grep -i -E 'be ep|led'; ls /proc/device-tree/leds
+Pinmux settings per pin
+Format: pin (name): mux_owner gpio_owner hog?
+pin 0 (MX6ULL_PAD_BOOT_MODE0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 1 (MX6ULL_PAD_BOOT_MODE1): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 2 (MX6ULL_PAD_SNVS_TAMPER0): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 3 (MX6ULL_PAD_SNVS_TAMPER1): leds (GPIO UNCLAIMED) function imx6ul-evk group beep
+pin 4 (MX6ULL_PAD_SNVS_TAMPER2): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 5 (MX6ULL_PAD_SNVS_TAMPER3): regulators:regulator-gpio (GPIO UNCLAIMED) function imx6ul-evk group dvfsgrp
+pin 6 (MX6ULL_PAD_SNVS_TAMPER4): 202c000.sai (GPIO UNCLAIMED) function imx6ul-evk group sai2_hp_det_grp
+pin 7 (MX6ULL_PAD_SNVS_TAMPER5): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 8 (MX6ULL_PAD_SNVS_TAMPER6): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 9 (MX6ULL_PAD_SNVS_TAMPER7): 2188000.ethernet (GPIO UNCLAIMED) function imx6ul-evk group fec1_resetgrp
+pin 10 (MX6ULL_PAD_SNVS_TAMPER8): 20b4000.ethernet (GPIO UNCLAIMED) function imx6ul-evk group fec2_resetgrp
+pin 11 (MX6ULL_PAD_SNVS_TAMPER9): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+pin 11 (MX6UL_PAD_SNVS_TAMPER4): (MUX UNCLAIMED) (GPIO UNCLAIMED)
+leds-gpio
+[0m[01;34mbeep[0m  compatible  [01;34mled1[0m  name  pinctrl-0  pinctrl-names
+root@ATK-IMX6U:/tmp/lab8-export# 

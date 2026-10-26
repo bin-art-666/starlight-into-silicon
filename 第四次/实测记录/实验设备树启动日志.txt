@@ -1,0 +1,322 @@
+run mmcargs; bootz 0x80800000 - 0x83000000
+Kernel image @ 0x80800000 [ 0x000000 - 0x6789c8 ]
+## Flattened Device Tree blob at 83000000
+   Booting using the fdt blob at 0x83000000
+   reserving fdt memory region: addr=83000000 size=a000
+   Using Device Tree in place at 83000000, end 8300cb3f
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.1.15-g3dc0a4b (alientek@ubuntu) (gcc version 5.3.0 (GCC) ) #1 SMP PREEMPT Thu Aug 18 09:27:40 CST 2022
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c53c7d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Freescale i.MX6 ULL 14x14 EVK Board
+[    0.000000] Reserved memory: created CMA memory pool at 0x98000000, size 128 MiB
+[    0.000000] Reserved memory: initialized node linux,cma, compatible id shared-dma-pool
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] PERCPU: Embedded 12 pages/cpu @97b8f000 s16780 r8192 d24180 u49152
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 375264K/524288K available (8552K kernel code, 449K rwdata, 2964K rodata, 528K init, 452K bss, 17952K reserved, 131072K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xa0800000 - 0xff000000   (1512 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xa0000000   ( 512 MB)
+[    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+[    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+[    0.000000]       .text : 0x80008000 - 0x80b47284   (11517 kB)
+[    0.000000]       .init : 0x80b48000 - 0x80bcc000   ( 528 kB)
+[    0.000000]       .data : 0x80bcc000 - 0x80c3c7e0   ( 450 kB)
+[    0.000000]        .bss : 0x80c3f000 - 0x80cb00c4   ( 453 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	Additional per-CPU info printed with stalls.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] mxc_clocksource_init 3000000
+[    0.000000] Switching to timer-based delay loop, resolution 333ns
+[    0.000016] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 715827882841ns
+[    0.000056] clocksource mxc_timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 637086815595 ns
+[    0.002940] Console: colour dummy device 80x30
+[    0.002980] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
+[    0.003012] pid_max: default: 32768 minimum: 301
+[    0.003241] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.003273] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.004656] CPU: Testing write buffer coherency: ok
+[    0.005155] /cpus/cpu@0 missing clock-frequency property
+[    0.005196] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.005308] Setting up static identity map for 0x80008280 - 0x800082d8
+[    0.041201] Brought up 1 CPUs
+[    0.041240] SMP: Total of 1 processors activated (6.00 BogoMIPS).
+[    0.041261] CPU: All CPU(s) started in SVC mode.
+[    0.042367] devtmpfs: initialized
+[    0.059611] device-tree: Duplicate name in lcdif@021c8000, renamed to "display#1"
+[    0.066363] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.067265] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.077285] pinctrl core: initialized pinctrl subsystem
+[    0.080044] NET: Registered protocol family 16
+[    0.097992] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.121743] cpuidle: using governor ladder
+[    0.151804] cpuidle: using governor menu
+[    0.202417] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.202451] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.206929] imx6ul-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+[    0.207746] imx6ul-pinctrl 2290000.iomuxc-snvs: initialized IMX pinctrl driver
+[    0.279764] mxs-dma 1804000.dma-apbh: initialized
+[    0.286909] SCSI subsystem initialized
+[    0.288276] usbcore: registered new interface driver usbfs
+[    0.288467] usbcore: registered new interface driver hub
+[    0.288680] usbcore: registered new device driver usb
+[    0.291688] i2c i2c-0: IMX I2C adapter registered
+[    0.291736] i2c i2c-0: can't use DMA
+[    0.294099] i2c i2c-1: IMX I2C adapter registered
+[    0.294148] i2c i2c-1: can't use DMA
+[    0.294504] Linux video capture interface: v2.00
+[    0.294732] pps_core: LinuxPPS API ver. 1 registered
+[    0.294756] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.294835] PTP clock support registered
+[    0.297887] MIPI CSI2 driver module loaded
+[    0.298599] Advanced Linux Sound Architecture Driver Initialized.
+[    0.300855] Bluetooth: Core ver 2.20
+[    0.300981] NET: Registered protocol family 31
+[    0.301005] Bluetooth: HCI device and connection manager initialized
+[    0.301044] Bluetooth: HCI socket layer initialized
+[    0.301076] Bluetooth: L2CAP socket layer initialized
+[    0.301161] Bluetooth: SCO socket layer initialized
+[    0.303832] Switched to clocksource mxc_timer1
+[    0.330886] NET: Registered protocol family 2
+[    0.332487] TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.332621] TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.332779] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.332915] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.332976] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.333408] NET: Registered protocol family 1
+[    0.334265] RPC: Registered named UNIX socket transport module.
+[    0.334299] RPC: Registered udp transport module.
+[    0.334319] RPC: Registered tcp transport module.
+[    0.334337] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.337880] imx rpmsg driver is registered.
+[    0.340715] Bus freq driver module loaded
+[    0.342941] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.360163] VFS: Disk quotas dquot_6.6.0
+[    0.360687] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.366491] NFS: Registering the id_resolver key type
+[    0.366605] Key type id_resolver registered
+[    0.366628] Key type id_legacy registered
+[    0.366841] jffs2: version 2.2. (NAND) ?? 2001-2006 Red Hat, Inc.
+[    0.368791] fuse init (API version 7.23)
+[    0.379879] io scheduler noop registered
+[    0.379930] io scheduler deadline registered
+[    0.380393] io scheduler cfq registered (default)
+[    0.381532] imx-weim 21b8000.weim: Driver registered.
+[    0.388456] backlight supply power not found, using dummy regulator
+[    0.389773] MIPI DSI driver module loaded
+[    0.390284] MIPI DSI driver module loaded
+[    0.396650] 21c8000.lcdif supply lcd not found, using dummy regulator
+[    0.504489] mxsfb 21c8000.lcdif: failed to find mxc display driver 
+[    0.518869] Console: switching to colour frame buffer device 128x37
+[    0.555104] mxsfb 21c8000.lcdif: initialized
+[    0.557262] imx-sdma 20ec000.sdma: no event needs to be remapped
+[    0.557477] imx-sdma 20ec000.sdma: loaded firmware 3.3
+[    0.564902] imx-sdma 20ec000.sdma: initialized
+[    0.567278] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 19, base_baud = 5000000) is a IMX
+[    1.255495] console [ttymxc0] enabled
+[    1.261116] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 233, base_baud = 5000000) is a IMX
+[    1.359814] imx-rng 2284000.rngb: iMX RNG Registered.
+[    1.365698] imx sema4 driver is registered.
+[    1.370078] [drm] Initialized drm 1.1.0 20060810
+[    1.376083] [drm] Initialized vivante 1.0.0 20120216 on minor 0
+[    1.407883] brd: module loaded
+[    1.424154] loop: module loaded
+[    1.432781] fsl-quadspi 21e0000.qspi: unrecognized JEDEC id bytes: ff, ff, ff
+[    1.440164] fsl-quadspi 21e0000.qspi: Freescale QuadSPI probe failed
+[    1.452838] spi_imx 2010000.ecspi: probed
+[    1.459852] CAN device driver interface
+[    1.466938] flexcan 2090000.can: device registered (reg_base=a0a00000, irq=26)
+[    1.476671] 20b4000.ethernet supply phy not found, using dummy regulator
+[    1.844951] pps pps0: new PPS source ptp0
+[    1.851475] libphy: fec_enet_mii_bus: probed
+[    1.859758] fec 20b4000.ethernet eth0: registered PHC device 0
+[    1.867573] 2188000.ethernet supply phy not found, using dummy regulator
+[    2.244906] pps pps1: new PPS source ptp1
+[    2.252633] fec 2188000.ethernet eth1: registered PHC device 1
+[    2.260430] PPP generic driver version 2.4.2
+[    2.265402] PPP BSD Compression module registered
+[    2.270163] PPP Deflate Compression module registered
+[    2.275362] PPP MPPE Compression module registered
+[    2.280213] NET: Registered protocol family 24
+[    2.285003] usbcore: registered new interface driver asix
+[    2.290599] usbcore: registered new interface driver ax88179_178a
+[    2.296951] usbcore: registered new interface driver cdc_ether
+[    2.302950] usbcore: registered new interface driver net1080
+[    2.308875] usbcore: registered new interface driver cdc_subset
+[    2.315026] usbcore: registered new interface driver zaurus
+[    2.320878] usbcore: registered new interface driver cdc_ncm
+[    2.326647] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.333216] ehci-mxc: Freescale On-Chip EHCI Host driver
+[    2.339199] usbcore: registered new interface driver usb-storage
+[    2.345499] usbcore: registered new interface driver usb_ehset_test
+[    2.354741] 2184800.usbmisc supply vbus-wakeup not found, using dummy regulator
+[    2.364112] 2184000.usb supply vbus not found, using dummy regulator
+[    2.376235] ci_hdrc ci_hdrc.0: EHCI Host Controller
+[    2.381199] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+[    2.403973] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[    2.411601] hub 1-0:1.0: USB hub found
+[    2.415654] hub 1-0:1.0: 1 port detected
+[    2.421525] 2184200.usb supply vbus not found, using dummy regulator
+[    2.431994] ci_hdrc ci_hdrc.1: EHCI Host Controller
+[    2.437128] ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 2
+[    2.463971] ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
+[    2.471636] hub 2-0:1.0: USB hub found
+[    2.475719] hub 2-0:1.0: 1 port detected
+[    2.482387] mousedev: PS/2 mouse device common for all mice
+[    2.490119] input: 20cc000.snvs:snvs-powerkey as /devices/platform/soc/2000000.aips-bus/20cc000.snvs/20cc000.snvs:snvs-powerkey/input/input0
+[    2.793903] usb 2-1: new high-speed USB device number 2 using ci_hdrc
+[    2.834138] edt_ft5x06 1-0038: touchscreen probe failed
+[    2.839498] edt_ft5x06: probe of 1-0038 failed with error -5
+[    2.845768] <<-GTP-INFO->> GTP driver installing...
+[    2.851371] <<-GTP-INFO->> GTP Driver Version: gt9xx driver Rleased <2021/11/27> Based V2.4
+[    2.860164] <<-GTP-INFO->> GTP I2C Address: 0x5d
+[    2.864947] <<-GTP-INFO->> Guitar reset
+[    2.946530] hub 2-1:1.0: USB hub found
+[    2.950529] hub 2-1:1.0: 4 ports detected
+[    2.993922] 1-005d supply vdd_ana not found, using dummy regulator
+[    3.000278] 1-005d supply vcc_i2c not found, using dummy regulator
+[    3.008121] goodix-ts 1-005d: ID 911, version: 1060
+[    3.043743] <<-GTP-INFO->> X_MAX: 1024, Y_MAX: 600, TRIGGER: 0x01
+[    3.063896] <<-GTP-INFO->> create proc entry gt9xx_config success
+[    3.070730] input: goodix-ts as /devices/virtual/input/input2
+[    3.077484] <<-GTP-INFO->> GTP works in interrupt mode.
+[    3.088414] snvs_rtc 20cc000.snvs:snvs-rtc-lp: rtc core: registered 20cc000.snvs:snvs-r as rtc0
+[    3.097956] i2c /dev entries driver
+[    3.105438] IR NEC protocol handler initialized
+[    3.110069] IR RC5(x/sz) protocol handler initialized
+[    3.115262] IR RC6 protocol handler initialized
+[    3.119876] IR JVC protocol handler initialized
+[    3.124525] IR Sony protocol handler initialized
+[    3.129221] IR SANYO protocol handler initialized
+[    3.134179] IR Sharp protocol handler initialized
+[    3.138966] IR MCE Keyboard/mouse protocol handler initialized
+[    3.144923] IR XMP protocol handler initialized
+[    3.154650] pxp-v4l2 pxp_v4l2: initialized
+[    3.162650] imx2-wdt 20bc000.wdog: use WDOG_B to reboot.
+[    3.169019] imx2-wdt 20bc000.wdog: timeout 60 sec (nowayout=0)
+[    3.175373] Bluetooth: HCI UART driver ver 2.3
+[    3.179857] Bluetooth: HCI UART protocol H4 registered
+[    3.185092] Bluetooth: HCI UART protocol BCSP registered
+[    3.190430] Bluetooth: HCI UART protocol ATH3K registered
+[    3.196139] usbcore: registered new interface driver bcm203x
+[    3.202027] usbcore: registered new interface driver btusb
+[    3.207833] usbcore: registered new interface driver ath3k
+[    3.214539] sdhci: Secure Digital Host Controller Interface driver
+[    3.220763] sdhci: Copyright(c) Pierre Ossman
+[    3.225240] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.233425] /soc/aips-bus@02100000/usdhc@02190000: voltage-ranges unspecified
+[    3.240763] sdhci-esdhc-imx 2190000.usdhc: Got CD GPIO
+[    3.248229] sdhci-esdhc-imx 2190000.usdhc: No vqmmc regulator found
+[    3.296397] mmc0: SDHCI controller on 2190000.usdhc [2190000.usdhc] using ADMA
+[    3.305764] /soc/aips-bus@02100000/usdhc@02194000: voltage-ranges unspecified
+[    3.314061] sdhci-esdhc-imx 2194000.usdhc: No vmmc regulator found
+[    3.320290] sdhci-esdhc-imx 2194000.usdhc: No vqmmc regulator found
+[    3.364980] mmc1: SDHCI controller on 2194000.usdhc [2194000.usdhc] using ADMA
+[    3.422232] usbcore: registered new interface driver usbhid
+[    3.428133] usbhid: USB HID core driver
+[    3.447910] wm8960 1-001a: Failed to issue reset
+[    3.452670] mmc1: MAN_BKOPS_EN bit is not set
+[    3.457630] wm8960: probe of 1-001a failed with error -5
+[    3.472098] fsl-asrc 2034000.asrc: driver registered
+[    3.495165] mmc1: new DDR MMC card at address 0001
+[    3.502350] imx-wm8960 sound: wm8960-hifi <-> 202c000.sai mapping ok
+[    3.508995] mmcblk1: mmc1:0001 8GTF4R 7.28 GiB 
+[    3.516256] imx-wm8960 sound: snd-soc-dummy-dai <-> 2034000.asrc mapping ok
+[    3.523531] imx-wm8960 sound: wm8960-hifi <-> 202c000.sai mapping ok
+[    3.530151] mmcblk1boot0: mmc1:0001 8GTF4R partition 1 4.00 MiB
+[    3.536640] mmcblk1boot1: mmc1:0001 8GTF4R partition 2 4.00 MiB
+[    3.542918] mmcblk1rpmb: mmc1:0001 8GTF4R partition 3 512 KiB
+[    3.559539]  mmcblk1: p1 p2
+[    3.671728] NET: Registered protocol family 26
+[    3.678328] NET: Registered protocol family 10
+[    3.685631] sit: IPv6 over IPv4 tunneling driver
+[    3.691952] NET: Registered protocol family 17
+[    3.696784] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[    3.709517] can: controller area network core (rev 20120528 abi 9)
+[    3.715939] NET: Registered protocol family 29
+[    3.720477] can: raw protocol (rev 20120528)
+[    3.724855] can: broadcast manager protocol (rev 20120528 t)
+[    3.730586] can: netlink gateway (rev 20130117) max_hops=1
+[    3.736913] Bluetooth: RFCOMM TTY layer initialized
+[    3.741866] Bluetooth: RFCOMM socket layer initialized
+[    3.747277] Bluetooth: RFCOMM ver 1.11
+[    3.751105] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    3.756506] Bluetooth: BNEP filters: protocol multicast
+[    3.761784] Bluetooth: BNEP socket layer initialized
+[    3.766851] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    3.772816] Bluetooth: HIDP socket layer initialized
+[    3.777989] 8021q: 802.1Q VLAN Support v1.8
+[    3.782330] Key type dns_resolver registered
+[    3.812586] dhd_module_init in
+[    3.817241] input: gpio_keys@0 as /devices/platform/gpio_keys@0/input/input3
+[    3.825078] snvs_rtc 20cc000.snvs:snvs-rtc-lp: setting system clock to 2021-07-21 19:29:12 UTC (1626895752)
+[    3.848641] gpio_dvfs: disabling
+[    3.851915] VSD_3V3: disabling
+[    3.855077] can-3v3: disabling
+[    3.858417] ALSA device list:
+[    3.861401]   #0: wm8960-audio
+[    3.875698] kjournald starting.  Commit interval 5 seconds
+[    3.881359] EXT3-fs (mmcblk1p2): using internal journal
+[    3.886734] EXT3-fs (mmcblk1p2): mounted filesystem with ordered data mode
+[    3.893678] VFS: Mounted root (ext3 filesystem) on device 179:2.
+[    3.900809] devtmpfs: mounted
+[    3.904603] Freeing unused kernel memory: 528K (80b48000 - 80bcc000)
+INIT: version 2.88 booting
+Starting udev
+[    4.624136] udevd[129]: starting version 3.1.5
+[    4.636865] random: udevd urandom read with 23 bits of entropy available
+bootlogd: cannot allocate pseudo tty: No such file or directory
+[    5.555906] 1-003c supply DOVDD not found, using dummy regulator
+[    5.562028] 1-003c supply DVDD not found, using dummy regulator
+[    5.686679] 1-003c supply AVDD not found, using dummy regulator
+[    5.804450] ov5640_read_reg:write reg error:reg=300a
+[    5.809441] camera ov5640 is not found
+[    8.208555] FAT-fs (mmcblk1p1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+[    8.235987] FAT-fs (mmcblk1p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+ALSA: Restoring mixer settings...
+INIT: Entering runlevel: 5
+Configuring network interfaces... [    8.984036] fec 20b4000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=20b4000.ethernet:01, irq=-1)
+[    9.023948] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+done.
+Starting system message bus: dbus.
+Starting Xserver
+Starting Connection Manager
+Starting Dropbear SSH server: dropbear.
+Starting rpcbind daemon...[   10.044278] fec 2188000.ethernet eth1: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=20b4000.ethernet:02, irq=-1)
+[   10.104259] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+done.
+Starting watchdog: [1;34m[[1;32m  OK  [1;34m][0;39m
+starting statd: done
+Starting advanced power management daemon: apmd.
+apmd[575]: apmd 3.2.1 interfacing with apm driver 1.13 and APM BIOS 1.2
+Starting atd: OK
+exportfs: can't open /etc/exports for reading
+NFS daemon support not enabled in kernel
+Starting system log daemon...0
+Starting kernel log daemon...0
+ * Starting Avahi mDNS/DNS-SD Daemon: avahi-daemon
+[A[74G[ ok ]
+Starting Telephony daemon
+Starting Linux NFC daemon
+* starting FTP Server: vsftpd... done.
+Starting crond: OK
+Running local boot scripts (/etc/rc.local).
+
+7[r[999;999H[6n[   12.984376] fec 20b4000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[   12.992093] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+root@ATK-IMX6U:~# [   16.850757] ICM20608 ID = 0XAE
+[   20.753917] random: nonblocking pool is initialized
+

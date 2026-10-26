@@ -1,0 +1,27 @@
+uname -r; ls -ld /proc/device-tree/beep; ls /sys/class/leds; i fconfig eth0 192.168.1.4 netmask 255.255.255.0 up; ping -c 1 192.168.1.100; mkdi r -p /mnt/lab4 /tmp/lab4; mount -t nfs -o vers=3,proto=tcp,nolock,soft,timeo=20, retrans=1 192.168.1.100:/lab3 /mnt/lab4; cp /mnt/lab4/lab4/beep.ko /tmp/lab4/; c p /mnt/lab4/lab4/beepApp /tmp/lab4/; chmod +x /tmp/lab4/beepApp; insmod /tmp/lab 4/beep.ko; echo INSMOD_EXIT=$?; ls -l /dev/beep; dmesg | tail -n 8; cat /sys/ker nel/debug/gpio | grep -A2 -B2 lab4
+4.1.15-g3dc0a4b
+drwxr-xr-x 2 root root 0 Jul 22 03:30 [0m[01;34m/proc/device-tree/beep[0m
+[0m[01;36mmmc0::[0m  [01;36mmmc1::[0m  [01;36msys-led[0m
+PING 192.168.1.100 (192.168.1.100) 56(84) bytes of data.
+64 bytes from 192.168.1.100: icmp_seq=1 ttl=128 time=2.86 ms
+
+--- 192.168.1.100 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 2.868/2.868/2.868/0.000 ms
+[   63.759460] beep: /dev/beep ready, gpio=129, major=247, default OFF
+INSMOD_EXIT=0
+crw------- 1 root root 247, 0 Jul 22 03:30 [0m[01;33m/dev/beep[0m
+[    9.023948] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   10.044278] fec 2188000.ethernet eth1: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=20b4000.ethernet:02, irq=-1)
+[   10.104259] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   12.984376] fec 20b4000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[   12.992093] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   16.850757] ICM20608 ID = 0XAE
+[   20.753917] random: nonblocking pool is initialized
+[   63.759460] beep: /dev/beep ready, gpio=129, major=247, default OFF
+
+GPIOs 128-159, platform/20ac000.gpio, 20ac000.gpio:
+ gpio-129 (lab4-beep           ) out lo    
+ gpio-131 (?                   ) out lo    
+ gpio-135 (phy-reset           ) out lo    
+root@ATK-IMX6U:~# 

@@ -1,0 +1,7 @@
+ls /usr/lib/libts* /usr/lib/libinput* /usr/lib/libudev*; cat / sys/class/leds/sys-led/trigger
+ls: cannot access '/usr/lib/libinput*': No such file or directory
+ls: cannot access '/usr/lib/libudev*': No such file or directory
+[0m[01;32m/usr/lib/libts.la[0m  [01;36m/usr/lib/libts.so.0[0m
+[01;36m/usr/lib/libts.so[0m  [01;32m/usr/lib/libts.so.0.9.1[0m
+none rc-feedback nand-disk mmc0 mmc1 timer oneshot [heartbeat] backlight gpio 
+root@ATK-IMX6U:~# 

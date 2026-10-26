@@ -1,0 +1,1357 @@
+[
+  {
+    "path": "第一次/C语言实验/experiment.log",
+    "bytes": 1244,
+    "sha256": "d89bb142cb3701617ffe95a2beb0f52dbc24a12883e0b25886de54072f0a8e60"
+  },
+  {
+    "path": "第一次/C语言实验/gdb.log",
+    "bytes": 458,
+    "sha256": "01eb5cf3b02b4db1df57f981794dcaf844a7eb23edd7b2891c08865063f26137"
+  },
+  {
+    "path": "第一次/C语言实验/Makefile",
+    "bytes": 125,
+    "sha256": "a3dd33fa24681aeb9b0fa66b3b929abdfd0bed8cc430477f0e29dec2d6819256"
+  },
+  {
+    "path": "第一次/C语言实验/normal.in",
+    "bytes": 16,
+    "sha256": "96ff7d3418751c5a7822eaa0d7712e2b644fbaf4964faa130d559f8f6a5c9cb1"
+  },
+  {
+    "path": "第一次/C语言实验/run_experiment.py",
+    "bytes": 1208,
+    "sha256": "1b6497ed7ae099082e7e7b53367a005753533319247e6776a065a906e27c9cc6"
+  },
+  {
+    "path": "第一次/C语言实验/scores.c",
+    "bytes": 1222,
+    "sha256": "f4b0ae2535d97b6593681b32c13d8ae0ba356545692b56499a3f7949b2160892"
+  },
+  {
+    "path": "第一次/C语言实验/test_results.json",
+    "bytes": 1937,
+    "sha256": "95c4a3bd2dd73d473597ad4f4d0d913319a819b41ae9ad2d53dee762f056fbfe"
+  },
+  {
+    "path": "第一次/C语言实验/test_scores.py",
+    "bytes": 1564,
+    "sha256": "44db32e7716c3c34ce9d5551d5d6b919d273eac8803097b999a263ce103a84f9"
+  },
+  {
+    "path": "第一次/实测记录/WSL环境实测.txt",
+    "bytes": 664,
+    "sha256": "bfc6687f0bdc1529121f5e1bd2722fef3e7648975fd8b388307dc00f44771581"
+  },
+  {
+    "path": "第一次/实测记录/01_CH340设备状态.png",
+    "bytes": 42745,
+    "sha256": "129ead797dca6f80d446530f9172f9645c46dd8d0fdae89d849870cfc8ffc9a4"
+  },
+  {
+    "path": "第一次/实测记录/02_串口参数.png",
+    "bytes": 14303,
+    "sha256": "c9433472b5986616eac098cc9a93078293d209755bd18b1af6ce142ad2a16073"
+  },
+  {
+    "path": "第一次/实测记录/03_二进制显示问题.png",
+    "bytes": 252563,
+    "sha256": "8ea3f551b122bc52d95d2b1cdb0a74d0e5f63c332bf0cfc724ea968621beef4e"
+  },
+  {
+    "path": "第一次/实测记录/04_Linux启动成功.png",
+    "bytes": 147913,
+    "sha256": "d096869a7ed33f54611132f2d5a8a3518add637ffca270261c6ef5d90b4568a9"
+  },
+  {
+    "path": "第二次/flash_sd.py",
+    "bytes": 2836,
+    "sha256": "e933b5eb142a65b758b747fc57babf1fca9a90d4ab5bf8bdf053856fba8314c2"
+  },
+  {
+    "path": "第二次/prepare_build.py",
+    "bytes": 2814,
+    "sha256": "20580300a1dda8391693214394f5db4a2c4dde7cd0fd89a0d686924b7e0f86cf"
+  },
+  {
+    "path": "第二次/build_results.json",
+    "bytes": 737,
+    "sha256": "394e489aece2deaabc344a34b44ea56c01b6fb149fabe77267de5cc0382918b6"
+  },
+  {
+    "path": "第二次/实验操作说明.md",
+    "bytes": 6185,
+    "sha256": "c90989f620728db0568c0e2a79f5549032637008e814194afd1618ed1f6743ac"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/build.log",
+    "bytes": 1762,
+    "sha256": "224c760e47d39bdffb7a62e38bb522952b2739ac5fe61003991a67a905dea11c"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/led.bin",
+    "bytes": 160,
+    "sha256": "7c111977049eb8391a113c23c97610b674944e704fc63b2a029621752c358c91"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/led.dis",
+    "bytes": 6933,
+    "sha256": "1ebf9de0e9e1f3101a2d5f6c32a00d78a915452d633f742f3afe5cfde8f2a9fd"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/led.elf",
+    "bytes": 5684,
+    "sha256": "e65220a6e230e6f5554f84f78a12f18724e9cb25cc0fc9893a9bd49c4f2bcd62"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/led.s",
+    "bytes": 2152,
+    "sha256": "2d21a501e873f2ae0c0676183666829ef8fffe33f71d5a9e4f1709f53350b56e"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/load.imx",
+    "bytes": 3232,
+    "sha256": "c326cb8568830db8f5a412671dad868e91f9cdcce7a92d8b3e6981aa4ae60724"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/Makefile",
+    "bytes": 333,
+    "sha256": "0883f14f7f863d0a3993321857f7710d0c44c84753d1c9cd755ecfc72d8b6396"
+  },
+  {
+    "path": "第二次/工作工程/asm_off/sd-image.img",
+    "bytes": 4256,
+    "sha256": "ad602eba6ea8441045af731092edc4d52bf4db9728e3c028f8d6098c23bea6c8"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/build.log",
+    "bytes": 1763,
+    "sha256": "3e0359d70fc97fd1532c9c4fa8b7db1afcd00a4614f11e01bf37c3c55be5da30"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/led.bin",
+    "bytes": 160,
+    "sha256": "3c2e27c523e7265890a842ec3efc8ffdc487c3b73b91364ae54d18728f42c7c9"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/led.dis",
+    "bytes": 6890,
+    "sha256": "9cfae47d34b3c460cec51563adadf9b3800c7dc9e4593b10628a70c86dec239f"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/led.elf",
+    "bytes": 5684,
+    "sha256": "3ab02301f9ec57cd392080d52b6b513fd37aa130b8b256aa7f8d1235f036cf05"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/led.s",
+    "bytes": 2241,
+    "sha256": "f75935987fa657d366c252e39afbd39a7673080018996ab9ef4f28d9678a1c79"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/load.imx",
+    "bytes": 3232,
+    "sha256": "ff9b8592832e61dc1fd54b7c83069debfc08247811d7e1fc7893d3cedbdd32d8"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/Makefile",
+    "bytes": 333,
+    "sha256": "0883f14f7f863d0a3993321857f7710d0c44c84753d1c9cd755ecfc72d8b6396"
+  },
+  {
+    "path": "第二次/工作工程/asm_on/sd-image.img",
+    "bytes": 4256,
+    "sha256": "e9584afbbcb92358af0740b8c5aaea4686ca6304eda8c12e4a60175c5addea2f"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/build.log",
+    "bytes": 2113,
+    "sha256": "c6e558947ccbac330a373b8e900b082e9b1bbd04cb42f10cda4088fdde03640a"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/imx6ul.lds",
+    "bytes": 247,
+    "sha256": "e41e6bfc9f0cf7efa0c29814ba763c8c6235ff272cdf4d73145f08fdd7d6463f"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/ledc.bin",
+    "bytes": 588,
+    "sha256": "9fd87f48995cf34ad17937fe3849cfd50e18cc50a8e35f5e906491e28e1e91bd"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/ledc.dis",
+    "bytes": 6284,
+    "sha256": "20be3ea590a055e557ab2247a7aebe3f77ed23355f7c6d5150cd689f765e9e16"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/ledc.elf",
+    "bytes": 5356,
+    "sha256": "14b44b6f34e1b807491748f47c7061a0351cfe9e61ef336e47d3e6e409b72cc6"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/load.imx",
+    "bytes": 3660,
+    "sha256": "d92438d0577f026af293cb7be2fd94f35f0afe8f508f2da6f2f8f5e812174422"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/main.c",
+    "bytes": 2720,
+    "sha256": "5b6d5a637bfde4b3688d73dc6887dcbdf63734bad2b5d6ca1a6e1b14d47ea50b"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/main.h",
+    "bytes": 1569,
+    "sha256": "74666f216eef165bdefa8d159b258bab35022615d0c68dbd8f911b39fbebc2bd"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/Makefile",
+    "bytes": 597,
+    "sha256": "0e11033a508640ec36237a7aeceea9e06fec6b87617b08ed97024177b46c9107"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/sd-image.img",
+    "bytes": 4684,
+    "sha256": "e1019003495bd647bad2bb278d1cb2b42eaa67135cb82ffd54d858938510149a"
+  },
+  {
+    "path": "第二次/工作工程/c_3000/start.S",
+    "bytes": 983,
+    "sha256": "322027692a117828aabdb125121a224563287cdd563394f6a79fb1f01f769d43"
+  },
+  {
+    "path": "第二次/工作工程/c_500/build.log",
+    "bytes": 2113,
+    "sha256": "81f60b90d9bf1fd5f63e59575ce751dd79d7c5ac6cae69f248921b33c4f15c3a"
+  },
+  {
+    "path": "第二次/工作工程/c_500/imx6ul.lds",
+    "bytes": 247,
+    "sha256": "e41e6bfc9f0cf7efa0c29814ba763c8c6235ff272cdf4d73145f08fdd7d6463f"
+  },
+  {
+    "path": "第二次/工作工程/c_500/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/工作工程/c_500/ledc.bin",
+    "bytes": 588,
+    "sha256": "486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9"
+  },
+  {
+    "path": "第二次/工作工程/c_500/ledc.dis",
+    "bytes": 6282,
+    "sha256": "f53cc38fee04dcd9d76165a20500996b5812524092240a1fe3cda156a7ccfc46"
+  },
+  {
+    "path": "第二次/工作工程/c_500/ledc.elf",
+    "bytes": 5356,
+    "sha256": "dec2f1de32f0cf83733e5a75d35aba861359477a3a0821ec50274afe07e9a025"
+  },
+  {
+    "path": "第二次/工作工程/c_500/load.imx",
+    "bytes": 3660,
+    "sha256": "382cfec3d7644fc7b3b1ccbb41f9cadeb31219bf67124960742183447bfe8602"
+  },
+  {
+    "path": "第二次/工作工程/c_500/main.c",
+    "bytes": 2847,
+    "sha256": "f8eeebacf19c07e60455c887800f0f615ef5a526fb7d8322461beb43d16a9da3"
+  },
+  {
+    "path": "第二次/工作工程/c_500/main.h",
+    "bytes": 1569,
+    "sha256": "74666f216eef165bdefa8d159b258bab35022615d0c68dbd8f911b39fbebc2bd"
+  },
+  {
+    "path": "第二次/工作工程/c_500/Makefile",
+    "bytes": 597,
+    "sha256": "0e11033a508640ec36237a7aeceea9e06fec6b87617b08ed97024177b46c9107"
+  },
+  {
+    "path": "第二次/工作工程/c_500/sd-image.img",
+    "bytes": 4684,
+    "sha256": "187fba1078df6fbf56787a731e2ae69008630239aaf6b834e9528bf6729e4f71"
+  },
+  {
+    "path": "第二次/工作工程/c_500/start.S",
+    "bytes": 983,
+    "sha256": "322027692a117828aabdb125121a224563287cdd563394f6a79fb1f01f769d43"
+  },
+  {
+    "path": "第二次/实测记录/flash_log.jsonl",
+    "bytes": 1344,
+    "sha256": "7c6d8e1f4defe99b7a14cc2c111880e794df863aa226b236903641a51f3ac408"
+  },
+  {
+    "path": "第二次/实测记录/image_validation.json",
+    "bytes": 374,
+    "sha256": "4f8ad3d23521abe592fb37cb914fb990a603e3622aa3e1ecfde404eadc276486"
+  },
+  {
+    "path": "第二次/实测记录/LED实验现象记录.md",
+    "bytes": 4825,
+    "sha256": "5ec3ac703feba0844b0f992efec1e9ed0fa09786c20b44f8cc65a5950fe17d65"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/led.bin",
+    "bytes": 160,
+    "sha256": "931972e31ce7aa3f3768e5b65b17af5dc7afa145ac947af1a2e783862b162ced"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/led.dis",
+    "bytes": 5698,
+    "sha256": "3ec843ec43d961d3b27e0c5cc06d269f5efd2761e4ac0127352d1d69e32d2da9"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/led.elf",
+    "bytes": 66966,
+    "sha256": "5f7d8304358d072e00f0d513436a0612d1386d92db12acfee1185c986e12fe83"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/led.s",
+    "bytes": 2241,
+    "sha256": "f75935987fa657d366c252e39afbd39a7673080018996ab9ef4f28d9678a1c79"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/leds.code-workspace",
+    "bytes": 60,
+    "sha256": "69e7b37e2ebdaf8fc313bf6cb74882fed65895e5f853736e65759bafb333bc6b"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/load.imx",
+    "bytes": 3268,
+    "sha256": "2a55061ee4dd8ca51d2fc5f69449d45ac8e52774af88a566f2800f3998c0e6f3"
+  },
+  {
+    "path": "第二次/官方裸机例程/1_leds/Makefile",
+    "bytes": 286,
+    "sha256": "b3ad75dbd9212b435892c22632289fe314fa13b85d7e7438c5ea2a7e24110236"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/imx6ul.lds",
+    "bytes": 247,
+    "sha256": "e41e6bfc9f0cf7efa0c29814ba763c8c6235ff272cdf4d73145f08fdd7d6463f"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/imxdownload",
+    "bytes": 13488,
+    "sha256": "b38e1ff2f5af8d7f8b68b65592df16b10f4a8eb6510d408b6e8f6c1b793c4d75"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/ledc.code-workspace",
+    "bytes": 60,
+    "sha256": "69e7b37e2ebdaf8fc313bf6cb74882fed65895e5f853736e65759bafb333bc6b"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/load.imx",
+    "bytes": 3800,
+    "sha256": "c75291503451c87426092c652dd33e0d1c6879d394cd03f78bd002ea621a4c38"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/main.c",
+    "bytes": 2847,
+    "sha256": "f8eeebacf19c07e60455c887800f0f615ef5a526fb7d8322461beb43d16a9da3"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/main.h",
+    "bytes": 1569,
+    "sha256": "74666f216eef165bdefa8d159b258bab35022615d0c68dbd8f911b39fbebc2bd"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/Makefile",
+    "bytes": 479,
+    "sha256": "3a4549611a0ce4aeafdc43191145bdec7a8159cee2ef976122c75fcb878f916b"
+  },
+  {
+    "path": "第二次/官方裸机例程/2_ledc/start.S",
+    "bytes": 983,
+    "sha256": "322027692a117828aabdb125121a224563287cdd563394f6a79fb1f01f769d43"
+  },
+  {
+    "path": "第三次/add_server_route.ps1",
+    "bytes": 561,
+    "sha256": "75b67328d2baaf42263e42931119d64d267f085b90fdcd59ec283c72cdef944b"
+  },
+  {
+    "path": "第三次/allow_forward_reply.ps1",
+    "bytes": 999,
+    "sha256": "4dc3da3596bff53f036b18fa66773ad1b58a356768d2461420b784f873ca43c1"
+  },
+  {
+    "path": "第三次/allow_native_services.ps1",
+    "bytes": 578,
+    "sha256": "d8db2946e47b03219c75aebfd3136292b616c91ebffab081993a189842b51040"
+  },
+  {
+    "path": "第三次/configure_routing.ps1",
+    "bytes": 936,
+    "sha256": "7fa8ec1140effe1cafebb32df9e8dfe8ceb5178a5a29ef78d76bfd51c204b37a"
+  },
+  {
+    "path": "第三次/configure_windows.ps1",
+    "bytes": 1815,
+    "sha256": "435782a8dcc7272072a8d9dacec588ca6298aa504d1d6c94882c22f32bf0515f"
+  },
+  {
+    "path": "第三次/fix_mirrored_ports.ps1",
+    "bytes": 338,
+    "sha256": "b5808eba2fa5c72c3669abe57f999048c4f6746ac3e09fdbbf2b1cefcf0a4b1f"
+  },
+  {
+    "path": "第三次/hello_nfs.c",
+    "bytes": 187,
+    "sha256": "748942bd4dd87a987514dd864dc19e18d8e0bdbada30cb0d3c5719a03070427c"
+  },
+  {
+    "path": "第三次/hello_nfs_arm",
+    "bytes": 425032,
+    "sha256": "0a54c93977ef22a74de0c95b5565836b20437f86ee46e4c80f12deebaad9d377"
+  },
+  {
+    "path": "第三次/restore_trial_settings.ps1",
+    "bytes": 630,
+    "sha256": "d6d243685e3c13d2911a4c67d09c66161b89b5ab26a0bcd85913712a90dd61d1"
+  },
+  {
+    "path": "第三次/return-rule-result.txt",
+    "bytes": 9,
+    "sha256": "421a244564c34296e185cdcf70d2269227ae102f2e7eeef94afddd495c4e06c2"
+  },
+  {
+    "path": "第三次/routing-result.txt",
+    "bytes": 9,
+    "sha256": "421a244564c34296e185cdcf70d2269227ae102f2e7eeef94afddd495c4e06c2"
+  },
+  {
+    "path": "第三次/routing.log",
+    "bytes": 1087,
+    "sha256": "2c4a4b99292e9cc20dd891e83034fb0a93b457cc7613702a0cf27ab046127a24"
+  },
+  {
+    "path": "第三次/server-route-result.txt",
+    "bytes": 9,
+    "sha256": "421a244564c34296e185cdcf70d2269227ae102f2e7eeef94afddd495c4e06c2"
+  },
+  {
+    "path": "第三次/setup_server.sh",
+    "bytes": 1977,
+    "sha256": "5d54ac108f370dbf413fc18e2e2644dc7e9dc33d932681372a8dbc29a90a7e2e"
+  },
+  {
+    "path": "第三次/start_tftp.py",
+    "bytes": 391,
+    "sha256": "4065e8af1c5ca12501012ba6a58101835acb8ddbd3ff7eeb1e57d49d7234cbf3"
+  },
+  {
+    "path": "第三次/udp-range-after.txt",
+    "bytes": 212,
+    "sha256": "18acaa90e81b8f5802190dbc8605e77efd26ac6241265ac6bc32fa89e9c93dc6"
+  },
+  {
+    "path": "第三次/udp-range-before.txt",
+    "bytes": 212,
+    "sha256": "8f8fb36b702994861adf812d06a2c940bbda1f61b7fac5d831f6ad089e9a2578"
+  },
+  {
+    "path": "第三次/启动实验服务.ps1",
+    "bytes": 2180,
+    "sha256": "84c116090eaea494b3ad6b6754f43301450faa7d456b8aa6792b486c8037286c"
+  },
+  {
+    "path": "第三次/实验完成记录.md",
+    "bytes": 3376,
+    "sha256": "12e0bc71983c6a6db2dcf1f3421430f7495da1d7241bf08ab2da01dbf4b47ee5"
+  },
+  {
+    "path": "第三次/实验进度与接线.md",
+    "bytes": 3557,
+    "sha256": "a532d8f590bab164651ff015e5577468bd2164b63df1ae3681417de51bc5f334"
+  },
+  {
+    "path": "第三次/实测记录/config-backup-20261016-140557/tftpd-hpa",
+    "bytes": 117,
+    "sha256": "3fdf9c3463bb21b50015ef02a93ded261d56c2c19b0135be1b70d392c75b71d6"
+  },
+  {
+    "path": "第三次/实测记录/ledc_download.bin",
+    "bytes": 588,
+    "sha256": "486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9"
+  },
+  {
+    "path": "第三次/实测记录/tftp_download.txt",
+    "bytes": 25,
+    "sha256": "1b8f38c34dc42c41657d5b3e3c287f490a7a07e903b7754aeacbf40b68bc185d"
+  },
+  {
+    "path": "第三次/实测记录/UBoot_TFTP下载.txt",
+    "bytes": 580,
+    "sha256": "509025935a61a387959d1dce72ea35a19e962898b5fcdc927adb3ab6837573e5"
+  },
+  {
+    "path": "第三次/实测记录/UBoot_裸机C程序跳转.txt",
+    "bytes": 84,
+    "sha256": "36bee8b6d6643c77f025a360f5338bf3b4f1b5d8f5c446efc370a9fa963ea776"
+  },
+  {
+    "path": "第三次/实测记录/UBoot内存与原网络参数.txt",
+    "bytes": 1001,
+    "sha256": "c7e5ba4b3c1c3db36192a2e301592cd869ff6350c3e064eff01e5509a6d62ec5"
+  },
+  {
+    "path": "第三次/实测记录/Windows_NFS.log",
+    "bytes": 33185,
+    "sha256": "8267b30a01bbde1fb7a10ad06b1ecc9542734407b1f35d14bc5f49bd6cfdc13c"
+  },
+  {
+    "path": "第三次/实测记录/Windows_NFS_error.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第三次/实测记录/Windows_TFTP.log",
+    "bytes": 5877,
+    "sha256": "9559766d6b21e7ea4a59103f8a92f2bf815b5cc78435fd746065d6b0aae50c28"
+  },
+  {
+    "path": "第三次/实测记录/Windows_TFTP_error.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第三次/实测记录/Windows网络配置.log",
+    "bytes": 2751,
+    "sha256": "1d37928af048cd9a7cb141d2b6fe6f71935464e950405e5609755aaafb56b619"
+  },
+  {
+    "path": "第三次/实测记录/Windows配置结果.txt",
+    "bytes": 9,
+    "sha256": "421a244564c34296e185cdcf70d2269227ae102f2e7eeef94afddd495c4e06c2"
+  },
+  {
+    "path": "第三次/实测记录/实验3问题整理.txt",
+    "bytes": 3434,
+    "sha256": "0d617c2bd442d82b38f71fa2c3474d0a7b7c33c5b266c89763671a0ea577ac74"
+  },
+  {
+    "path": "第三次/实测记录/开发板NFS运行.txt",
+    "bytes": 586,
+    "sha256": "f21821ebb0c98368c34a1d9212e13353774c728649665b456d2e173b9c616547"
+  },
+  {
+    "path": "第三次/实测记录/开发板下载与NFS运行验证.txt",
+    "bytes": 718,
+    "sha256": "249a111f80aa7a4e0d6e15af71c71bd97fa60235f4edde3c3991fc9f75d428a0"
+  },
+  {
+    "path": "第三次/实测记录/开发板网络初检.txt",
+    "bytes": 2441,
+    "sha256": "8310d7316f8f737654b0cc983fcb3cb52899c3b8411d49705b0e457c85305f93"
+  },
+  {
+    "path": "第三次/实测记录/服务端验证.log",
+    "bytes": 2227,
+    "sha256": "33e2f099d4e58ddeffc1d10aedfc7fe671db15a3170f8e5064eec6060376d48c"
+  },
+  {
+    "path": "第三次/实测记录/本机服务进程.json",
+    "bytes": 39,
+    "sha256": "75518152052d49f705a0de7757b8aaae52dbf9f60660b7d9ae357c72337417d5"
+  },
+  {
+    "path": "第三次/实测记录/软件安装.log",
+    "bytes": 6093,
+    "sha256": "07088edf55aad0c0d65cef4845dc18acba5c85ae5a5b0b03371a1a21ecd5564f"
+  },
+  {
+    "path": "第三次/实测记录/重启进入UBoot.txt",
+    "bytes": 1858,
+    "sha256": "56e7d18ca4bb42a7a85173eb08f77417053c3cc5001804be6ed3dd850839a24c"
+  },
+  {
+    "path": "第三次/tools/WinNFSd.exe",
+    "bytes": 274944,
+    "sha256": "35cb5a74b2bf2aaa94302f5c9ed70786b61f245b96dc1f20214fe337c24af6b2"
+  },
+  {
+    "path": "第三次/tftp/ledc.bin",
+    "bytes": 588,
+    "sha256": "486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9"
+  },
+  {
+    "path": "第三次/tftp/tftp_test.txt",
+    "bytes": 26,
+    "sha256": "203083d54a0062b6a5ba23f47f613af484aced8e436b22fafcec1e4a9a897276"
+  },
+  {
+    "path": "第三次/nfs/hello_nfs.c",
+    "bytes": 187,
+    "sha256": "748942bd4dd87a987514dd864dc19e18d8e0bdbada30cb0d3c5719a03070427c"
+  },
+  {
+    "path": "第三次/nfs/hello_nfs_arm",
+    "bytes": 425032,
+    "sha256": "0a54c93977ef22a74de0c95b5565836b20437f86ee46e4c80f12deebaad9d377"
+  },
+  {
+    "path": "第四次/串口命令.ps1",
+    "bytes": 869,
+    "sha256": "81858f29de8586b61bf49112823ededff85e7ec5b9cb66f25fce6ed1b176024f"
+  },
+  {
+    "path": "第四次/构建实验.sh",
+    "bytes": 1230,
+    "sha256": "2e6bbd81d6ee782520a83295e752a3b84cbe957a5283ea2f92ceab7272343ea4"
+  },
+  {
+    "path": "第四次/实验步骤.md",
+    "bytes": 6067,
+    "sha256": "e4a9fbd1a4957c086f59d0546d79f85f62c287658c9006984698fe684fe33f3b"
+  },
+  {
+    "path": "第四次/实验执行记录.md",
+    "bytes": 4235,
+    "sha256": "deee6a29f4be84a9c51527f1d6b55515bce10fa50f826825143319f35b9ecda8"
+  },
+  {
+    "path": "第四次/实验资料说明.md",
+    "bytes": 3713,
+    "sha256": "aba7512fc1073d034b285a2b2af948de23fa3195a332588aff4a5b24a2815396"
+  },
+  {
+    "path": "第四次/06_beep/beep.c",
+    "bytes": 3491,
+    "sha256": "936ce3485135a8ac1c21b8ce453481487e923717b27fdc57e43a367bca56c811"
+  },
+  {
+    "path": "第四次/06_beep/beep.ko",
+    "bytes": 8272,
+    "sha256": "241d79e1d9bcff467a944f99cea549b7d106f99473f9477da39309c50681e9b6"
+  },
+  {
+    "path": "第四次/06_beep/beep.mod.c",
+    "bytes": 2176,
+    "sha256": "0a0fe9c2044c2e7f88893ff74e1ab78c1a2e53374f1e0ea3af076e31b5ad0011"
+  },
+  {
+    "path": "第四次/06_beep/beepApp",
+    "bytes": 447804,
+    "sha256": "e52b25f84ff429d7ede11ec88307111c6ba6be0782be65cef2203ae53806c350"
+  },
+  {
+    "path": "第四次/06_beep/beepApp.c",
+    "bytes": 727,
+    "sha256": "3705f24567a25b64b21afaf229b4be8e70a26b3918db4554aadae2d731387dfb"
+  },
+  {
+    "path": "第四次/06_beep/gpio_readback",
+    "bytes": 447812,
+    "sha256": "e00ce5a8a2b1e0f15b1bc634167d21e29d3ba3ebd91af265228dd2c2cad7fd2b"
+  },
+  {
+    "path": "第四次/06_beep/gpio_readback.c",
+    "bytes": 710,
+    "sha256": "530f7c1bba089961f1c7e55425f664dc2a9e8f08107b6698977f3b0d4a1c7796"
+  },
+  {
+    "path": "第四次/06_beep/Makefile",
+    "bytes": 478,
+    "sha256": "0c3abf479cd10b404738d4464f2f1754bdd6d1f08b8647bdef2122564fc28a87"
+  },
+  {
+    "path": "第四次/06_beep/Module.symvers",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第四次/06_beep/modules.order",
+    "bytes": 64,
+    "sha256": "a1ede5554de291dd5959a670fa2be7a72efffb4c33d1ea70a893e6fe2d7944e7"
+  },
+  {
+    "path": "第四次/06_beep_原始例程/beep.c",
+    "bytes": 5540,
+    "sha256": "4e11306eb509f2ff8467297db1d1636c31ab77d37606566c1cf2c0d7587c3292"
+  },
+  {
+    "path": "第四次/06_beep_原始例程/beepApp.c",
+    "bytes": 1590,
+    "sha256": "9c99ec51f44f24f5228be577592fb9be9b67ad0435a9b7ad8fe0be4f24b248c5"
+  },
+  {
+    "path": "第四次/06_beep_原始例程/Makefile",
+    "bytes": 303,
+    "sha256": "ffa82243751e95ead7b7165c9fa58d25fe15adfca61fa8b70f347b1b26eddc92"
+  },
+  {
+    "path": "第四次/实测记录/board-config.gz",
+    "bytes": 24915,
+    "sha256": "bf7359d284630f1fc56056e6c2b7c8757d51b4f640a268eda6b3e4644896f9b7"
+  },
+  {
+    "path": "第四次/实测记录/board-original.dts",
+    "bytes": 50008,
+    "sha256": "50ee52992a0f107ba4e4317173af0f3e3eed6c1fe55dfad73acf81a11e29d659"
+  },
+  {
+    "path": "第四次/实测记录/board.dtb",
+    "bytes": 40960,
+    "sha256": "a522e059264c498518294d49b010b5ea94e165e4beb36c6da5e46ee79bb59fa2"
+  },
+  {
+    "path": "第四次/实测记录/dtc.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第四次/实测记录/GPIO输出寄存器核验.txt",
+    "bytes": 907,
+    "sha256": "fa170928a10b3196d7f961126cb832b7146d3b75206b73a1ee61afd542da4ebf"
+  },
+  {
+    "path": "第四次/实测记录/kernel-build-gcc5.log",
+    "bytes": 101222,
+    "sha256": "b7bd9a4491138a4cffd5c34c6e5979b62e81198d7037daf79207a9af546acfdd"
+  },
+  {
+    "path": "第四次/实测记录/kernel-build.log",
+    "bytes": 391758,
+    "sha256": "917246628f35f6a30a012dc12beb1a197b2c7653faa66dd3d3399b2f45d31499"
+  },
+  {
+    "path": "第四次/实测记录/kernel-Module.symvers",
+    "bytes": 446950,
+    "sha256": "1f9ed2401186755c6ea65818b72c1571705776be08fe4bbff2fba4b1280fe074"
+  },
+  {
+    "path": "第四次/实测记录/kernel-prepare.log",
+    "bytes": 2137,
+    "sha256": "9e23bc4871dbac831a8d9c05d9f8ef910c4449698fce328da23b30ba27b744cb"
+  },
+  {
+    "path": "第四次/实测记录/module-build.log",
+    "bytes": 600,
+    "sha256": "447aec74e9b144c775fca00980051031619a118b63961c76d8aef2d8deea6418"
+  },
+  {
+    "path": "第四次/实测记录/NFS-server-error.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第四次/实测记录/NFS-server.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第四次/实测记录/NFS与模块预检.txt",
+    "bytes": 1175,
+    "sha256": "e812fb666705e22eaf477c55dddc64eb09aab86e4bd7e56458ee5d45fce20756"
+  },
+  {
+    "path": "第四次/实测记录/UBoot传输后续.txt",
+    "bytes": 2,
+    "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  {
+    "path": "第四次/实测记录/UBoot加载实验设备树.txt",
+    "bytes": 532,
+    "sha256": "7ed41fe54f0c553a5a172679094ef3e9f8ba43d9a0122953814dbec3cc45e8f7"
+  },
+  {
+    "path": "第四次/实测记录/UBoot启动参数.txt",
+    "bytes": 1370,
+    "sha256": "20686e8f14b2cde6bd62ed3c6a489a91ad847bf115b9e6371b543bee73984394"
+  },
+  {
+    "path": "第四次/实测记录/UBoot设备树校验.txt",
+    "bytes": 284,
+    "sha256": "3294834505cace75e9916a49b82c12b1d8606077ea2dcf0cafbee91a7cdf694f"
+  },
+  {
+    "path": "第四次/实测记录/内核符号与启动参数.txt",
+    "bytes": 947,
+    "sha256": "7df1910ac3185bfe8e9cf30d27481ed00ba63220893c579125cf03ec4f74ce3e"
+  },
+  {
+    "path": "第四次/实测记录/实验设备树启动日志.txt",
+    "bytes": 19645,
+    "sha256": "3848c3b761ae2f9b3f47285e2cef7268b00e35179b0813825dc5aa1fb9facc67"
+  },
+  {
+    "path": "第四次/实测记录/实验驱动加载.txt",
+    "bytes": 1897,
+    "sha256": "2ff197edb860ab1619fab26c55e5057fd4c2c7ae3650395d1f4ca9675d5b1300"
+  },
+  {
+    "path": "第四次/实测记录/开发板初检.txt",
+    "bytes": 1864,
+    "sha256": "b0cc50170a17679a058dab179346dbb0fc0fcd09512eee0a1c62c37a7993a2f3"
+  },
+  {
+    "path": "第四次/实测记录/引脚占用.txt",
+    "bytes": 1504,
+    "sha256": "2129ed856e23181bc0b49a3df5aee9428a87d00fb61dc78d2859f87fb16f78d8"
+  },
+  {
+    "path": "第四次/实测记录/蜂鸣器开关与卸载.txt",
+    "bytes": 824,
+    "sha256": "bc56bbb06556d1710f278c352a1717bf9a68fa60a71c17429ca12e512ac94fae"
+  },
+  {
+    "path": "第四次/实测记录/蜂鸣器硬件预检.txt",
+    "bytes": 300,
+    "sha256": "d54a3929f8367d7fda2fc76815574bcafdb6f481003691c45e9cbee12226ca0c"
+  },
+  {
+    "path": "第四次/实测记录/设备与网络检查.txt",
+    "bytes": 2468,
+    "sha256": "e46bbc3bbca62505790828eb6a7472e633f887bac00d0fb1e424d787fc3ec767"
+  },
+  {
+    "path": "第四次/实测记录/配置备份串口.txt",
+    "bytes": 90337,
+    "sha256": "9872a7fb6f2c13e16254eda579051e5964142044292595ec6412fd0ae818a687"
+  },
+  {
+    "path": "第四次/实测记录/重启进入UBoot.txt",
+    "bytes": 1916,
+    "sha256": "9eab4aeef09fcca97ff16f092f89cc054a7c543b29e9577c6ad8877977573378"
+  },
+  {
+    "path": "第四次/设备树/lab4-beep.dtb",
+    "bytes": 39744,
+    "sha256": "325d94bf2e3a79cd66a0e9cf5604fcc25cca873ab70555387b58d1e89bc6f3d3"
+  },
+  {
+    "path": "第四次/设备树/lab4-beep.dts",
+    "bytes": 51935,
+    "sha256": "51dde7422fb8f2473c842910fed489e516cba062d394ceacbc9004cbba60f0f4"
+  },
+  {
+    "path": "第五次/串口命令.ps1",
+    "bytes": 869,
+    "sha256": "81858f29de8586b61bf49112823ededff85e7ec5b9cb66f25fce6ed1b176024f"
+  },
+  {
+    "path": "第五次/实验步骤.md",
+    "bytes": 3391,
+    "sha256": "ed07a5eda54864491fc201396bf50f92f34f2d736e84947f97a781354c99d28f"
+  },
+  {
+    "path": "第五次/mic_config.sh",
+    "bytes": 1106,
+    "sha256": "e4af1ef73668d3d63ac5b63c666b519ab98d8d942b03f681047c45c9aedfdfb7"
+  },
+  {
+    "path": "第五次/playback_config.sh",
+    "bytes": 531,
+    "sha256": "4ba5c7fc78bdc7f9364765605d1df2ab8c71d3e1ebeae7b04653e1d1820a7b7f"
+  },
+  {
+    "path": "第五次/run_on_board.sh",
+    "bytes": 704,
+    "sha256": "f06db83a1ff658691d7f34383886bfa96c56b715fb2e58134f60972463fdb7f2"
+  },
+  {
+    "path": "第五次/tools/export_evidence.py",
+    "bytes": 656,
+    "sha256": "e2bf5c63208be52dcb0687ee053a5720364d401ebe1aca40a882b9a95d29496e"
+  },
+  {
+    "path": "第五次/tools/make_music.py",
+    "bytes": 889,
+    "sha256": "392f6a9ce05b7f60c79a44078363e3d66e154dade1a55406e3ca754430da212c"
+  },
+  {
+    "path": "第五次/tools/receive_serial.ps1",
+    "bytes": 1248,
+    "sha256": "05fa2467778ef85865c9ab539963290ebb71a1e5ce98ae977147392e5a7d825f"
+  },
+  {
+    "path": "第五次/tools/verify_audio.py",
+    "bytes": 2583,
+    "sha256": "e9fc8befcabc5d95955f0ce6fbed78bf83f3e28f934763e34f41bd21dab9cde4"
+  },
+  {
+    "path": "第五次/参考资料/实验要求.png",
+    "bytes": 91572,
+    "sha256": "533f2088a0026802c7aa1ca1fd50f73a74df961372653e062bd2cd4d200fe6b7"
+  },
+  {
+    "path": "第五次/参考资料/音频章节摘录.txt",
+    "bytes": 58573,
+    "sha256": "816302d04166406b08bd6eb1f11f37e2608ffcc9a30ab79d28e472f751a9ee26"
+  },
+  {
+    "path": "第五次/实测记录/01_开发板音频初检.txt",
+    "bytes": 1984,
+    "sha256": "0bd4044590c0f92a5002e316cfbd72907e74fb4f20cef71168e6bb947b72960a"
+  },
+  {
+    "path": "第五次/实测记录/02_驱动与混音器基线.txt",
+    "bytes": 10410,
+    "sha256": "f1fe98281c702e865a318ef0ddabb2c82abaf8857eb498ca6484fdee037cdc32"
+  },
+  {
+    "path": "第五次/实测记录/03_板型与音频路由核对.txt",
+    "bytes": 1902,
+    "sha256": "b445c6fbc37e193f4e737d942038449bc5910b3a599aa457e1238d372663e1d1"
+  },
+  {
+    "path": "第五次/实测记录/04_音乐播放与首次录音.txt",
+    "bytes": 669,
+    "sha256": "4e88d8e479a21761b2ef187ae272c44a94fd7de05808bce6ca524cb3592a3249"
+  },
+  {
+    "path": "第五次/实测记录/05_播放录音执行后续.txt",
+    "bytes": 153,
+    "sha256": "f997a29f2b4bc0b856c24bd100045b2b90c34d757b10563f0a5544e6891aef95"
+  },
+  {
+    "path": "第五次/实测记录/06_中断异常播放.txt",
+    "bytes": 31,
+    "sha256": "95d608ec16ad084ca57e844778f3cdb6f00f723ed8eefa8cd713d7bf27f83b1c"
+  },
+  {
+    "path": "第五次/实测记录/07_播放等待诊断.txt",
+    "bytes": 2451,
+    "sha256": "7e3fcc3189268ff74fb35db773dea751bfe6dd4cd15393fdff5a05c7e09d77e0"
+  },
+  {
+    "path": "第五次/实测记录/08_PCM时钟诊断.txt",
+    "bytes": 1228,
+    "sha256": "ba9e8ea3ffc963d5c0325986f3438b75771d755ba7cfec0024f15d191d18442b"
+  },
+  {
+    "path": "第五次/实测记录/09_播放录音回放实测.txt",
+    "bytes": 776,
+    "sha256": "36c651516a85fa5cf271b356f1bcde66b3b9b3e66347f8c05f8152fdecd8c423"
+  },
+  {
+    "path": "第五次/实测记录/11_配置持久化检查.txt",
+    "bytes": 433,
+    "sha256": "4ecc62d26962e626c14ce4c51a490f076609a3d5d4d24aea92f0ca02bfd16aaa"
+  },
+  {
+    "path": "第五次/实测记录/12_持久化检查后续.txt",
+    "bytes": 2,
+    "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  {
+    "path": "第五次/实测记录/13_证据原始校验值.txt",
+    "bytes": 1401,
+    "sha256": "af48484dd7d774b03bd2ebd611330c7022b3e3ffdd8fe2a867c2619521bb7e68"
+  },
+  {
+    "path": "第五次/实测记录/14_恢复验证与最终状态.txt",
+    "bytes": 2565,
+    "sha256": "d0b7912d395a5cf10643b41a88b749b1593fc24f0f8df1dcf9873d574acbf3dd"
+  },
+  {
+    "path": "第五次/实测记录/15_开机恢复配置保存.txt",
+    "bytes": 960,
+    "sha256": "dd9a89544ca61eaf70c2fadad6e47841458d487e6cb4847861931d2238733854"
+  },
+  {
+    "path": "第五次/实测记录/16_系统配置恢复核验.txt",
+    "bytes": 931,
+    "sha256": "bc98949ebb41d98451d7e8ad340173c8ba3facd86264e7e81bd3c2d9fd7ef366"
+  },
+  {
+    "path": "第五次/实测记录/mixer-before.state",
+    "bytes": 10293,
+    "sha256": "27e59c7068f7dd0a7f4b2f3f4ba4f68fcf184010469c4026f9d7ea9ef19d7bb6"
+  },
+  {
+    "path": "第五次/实测记录/mixer-lab5.state",
+    "bytes": 10297,
+    "sha256": "f5c4c8f29744546dddf9d6047ace384837a7ed509bfbef9d8fa6dcbf3d26bfe6"
+  },
+  {
+    "path": "第五次/实测记录/传输_make_music.py.txt",
+    "bytes": 1353,
+    "sha256": "ef8d6f00a39ff4d59e22fa3afb0f2bab2569f19b59bda1a921e72f2f2e7e04b2"
+  },
+  {
+    "path": "第五次/实测记录/传输_mic_config.sh.txt",
+    "bytes": 1600,
+    "sha256": "b38b11e2683889516731d6e50eeac3bbea0e961494e996cefe18089143c60ae7"
+  },
+  {
+    "path": "第五次/实测记录/传输_playback_config.sh.txt",
+    "bytes": 876,
+    "sha256": "8f8a9b7054fa7aec4aa2cccdb0089068c066b42341614d3b08522cae2d14d566"
+  },
+  {
+    "path": "第五次/实测记录/现场确认.md",
+    "bytes": 528,
+    "sha256": "4facdf037107dc40117fadc0e373b6554ba9a616934ee26c31a6e39f692f88b4"
+  },
+  {
+    "path": "第五次/实测记录/音频校验.json",
+    "bytes": 1089,
+    "sha256": "9d24d8e7fef6ee461676851b5f60aba74cec9babbb824e6eca047678578ebde2"
+  },
+  {
+    "path": "第五次/音频/lab5_music.wav",
+    "bytes": 1129004,
+    "sha256": "1ae9be416fb30951e51a86c70591c3e2576e882d5c98a13f1fcc1e818d329422"
+  },
+  {
+    "path": "第五次/音频/mic_left1.wav",
+    "bytes": 1764044,
+    "sha256": "e45fc18a5320d7a9595e949d639b3e7d3f0348af306380ae2f5ffbab68a243af"
+  },
+  {
+    "path": "第六次/启动实验.ps1",
+    "bytes": 247,
+    "sha256": "959ddd5c855fce0dbcc319a4258fa03a9e0bb491d3fe8a2d530d671409e8d206"
+  },
+  {
+    "path": "第六次/qt_text_io/main.cpp",
+    "bytes": 184,
+    "sha256": "46018af95e7b339c8f327aa62d11366da3a2b3cf8762754693656df78490c71a"
+  },
+  {
+    "path": "第六次/qt_text_io/mainwindow.cpp",
+    "bytes": 3759,
+    "sha256": "1469d9b4c6e8142d1818448a155e94aa52963a74e7ebfd73fb5129333b37a223"
+  },
+  {
+    "path": "第六次/qt_text_io/mainwindow.h",
+    "bytes": 579,
+    "sha256": "9c19618c9c575e861e3d5cca193b23c7abcbd6c4ffe49bd3429157feb8d8d902"
+  },
+  {
+    "path": "第六次/qt_text_io/qt_text_io.pro",
+    "bytes": 118,
+    "sha256": "299459bb0bbfdf27644eb0c293110ff5af4750837808cb968029d7df85753faf"
+  },
+  {
+    "path": "第六次/qt_text_io/verify.cpp",
+    "bytes": 4445,
+    "sha256": "98ea30e2321ade0113871a9f1ad97a459b4f43260bf5525cf717da8aedd07a6e"
+  },
+  {
+    "path": "第六次/qt_text_io/verify.pro",
+    "bytes": 149,
+    "sha256": "f45d05e66262fd89d30016d324ce095d7307a5c7b4e9604d8d27fe67ad5bd804"
+  },
+  {
+    "path": "第六次/qt_text_io/测试.txt",
+    "bytes": 147,
+    "sha256": "1bb4f0d4123d65139c455921fa8cd211cbcb2f509e102f83bd848ff40f687ae1"
+  },
+  {
+    "path": "第六次/参考例程/01_qfile/01_qfile.pro",
+    "bytes": 960,
+    "sha256": "6064ce2566a9992099e59c4a508df8eb9a979b4f174d3fe0ae6d34b9d8f0ba5a"
+  },
+  {
+    "path": "第六次/参考例程/01_qfile/main.cpp",
+    "bytes": 172,
+    "sha256": "dd25ef9509272b4b2e4209b28a690b06b877441bae6a9e7102ac365d09ae7007"
+  },
+  {
+    "path": "第六次/参考例程/01_qfile/mainwindow.cpp",
+    "bytes": 3396,
+    "sha256": "3f53874624e48b872a3fc9d047ff1ccb59dfbbbb0d4388c459bb8fed53783fa0"
+  },
+  {
+    "path": "第六次/参考例程/01_qfile/mainwindow.h",
+    "bytes": 1283,
+    "sha256": "419da1039dd23810b4a3340da94a67dc15af288813a15509c714bb2fd245e45e"
+  },
+  {
+    "path": "第六次/参考例程/01_qfile/测试.txt",
+    "bytes": 27,
+    "sha256": "228a7e09b73f9d1d77be2432b49d691eecec131bdc35210cb77c103ce384ce0c"
+  },
+  {
+    "path": "第六次/实测记录/01_editing.png",
+    "bytes": 18639,
+    "sha256": "46d639b8dc113a4d6ce85090b2d8876da904d737db3f0fc3c9bfb5ac6b6663f5"
+  },
+  {
+    "path": "第六次/实测记录/02_saved.png",
+    "bytes": 24232,
+    "sha256": "8fe3102070762f9bad1f2e2294ed72ba9c6dc4ca0da707133208c7f46f01cf22"
+  },
+  {
+    "path": "第六次/实测记录/Qt验证.txt",
+    "bytes": 732,
+    "sha256": "cd7a0f11e61102c460be059e769c114e89e278f1bea464ac476a51707a06f5ae"
+  },
+  {
+    "path": "第六次/实测记录/roundtrip_result.txt",
+    "bytes": 33,
+    "sha256": "640493c5de71a5dd77a77a39695aae1828a0da57b504d19c1825d90f013e62c3"
+  },
+  {
+    "path": "第六次/实测记录/手册295页.png",
+    "bytes": 353170,
+    "sha256": "dabe0911c42e9ee9977fc2efffbfef066135edb59246398226d27a1df2f75dc8"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/00_opened.png",
+    "bytes": 21683,
+    "sha256": "ea9027bf9605b788dbf9a1c415a5048cf4378ccc61a07ee605711e518573e718"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/01_editing.png",
+    "bytes": 32552,
+    "sha256": "6edc871862ef19bc8e4cfcbd12e1234994e04363f15a70865c7e1181ce839756"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/02_saved.png",
+    "bytes": 22835,
+    "sha256": "2548e4cfece5b1a5ee5b2a30c4f38466f4c8efa84b263a041d857c7a61d7776d"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/03_reopened.png",
+    "bytes": 32552,
+    "sha256": "6edc871862ef19bc8e4cfcbd12e1234994e04363f15a70865c7e1181ce839756"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/Qt验证.txt",
+    "bytes": 415,
+    "sha256": "efd4f245aacf777b8c106ff0cd707efd7d939e4d69507329a8e7f3e92afa17ed"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/roundtrip_result.txt",
+    "bytes": 169,
+    "sha256": "7177a5585ac39da846e472d20844e880d3195b2ec1b7de47ce830ab199cd5228"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/存证说明.md",
+    "bytes": 1262,
+    "sha256": "06fc7e180c1b1563d5b22fe5dae62427333bdc853e568451bad48ade255ce0f2"
+  },
+  {
+    "path": "第六次/实测记录/重新运行截图/截图验证.txt",
+    "bytes": 169,
+    "sha256": "7177a5585ac39da846e472d20844e880d3195b2ec1b7de47ce830ab199cd5228"
+  },
+  {
+    "path": "第六次/bin/qt_text_io",
+    "bytes": 51304,
+    "sha256": "052cac2374c1b24b87e76c5def05f2c45846de4a01d3c5516b585fb74bd93ff4"
+  },
+  {
+    "path": "第六次/构建记录/app.log",
+    "bytes": 2234,
+    "sha256": "726431acad39d4c2a7f1fff34b6e77d1ee5d4332095ff44b0fdea74918905e55"
+  },
+  {
+    "path": "第六次/构建记录/verify.log",
+    "bytes": 1615,
+    "sha256": "4b6321f3d4720613441fc6f8111efe27a50f46b5a9feb0866c64e94e69ff7e77"
+  },
+  {
+    "path": "第七次/run_on_board.sh",
+    "bytes": 578,
+    "sha256": "f1b6ebb995df279a8483360aac4475a5a9bd04c4eade8f286c0b6c93e140c71e"
+  },
+  {
+    "path": "第七次/实验完成记录.md",
+    "bytes": 5416,
+    "sha256": "2a0dab1c669e9a66ad06cfa3b40baaf99dd36435b0b7207d16fe2183349fb7d9"
+  },
+  {
+    "path": "第七次/qt_led/main.cpp",
+    "bytes": 7142,
+    "sha256": "c8a299f79819e3cf041588350549263ae8b52e7144193399c8a60997e3efd703"
+  },
+  {
+    "path": "第七次/qt_led/qt_led.pro",
+    "bytes": 75,
+    "sha256": "ab623f4f2c2946dc15267c05538e51f906e18d8dbdf17c39bb2571428090b93a"
+  },
+  {
+    "path": "第七次/tools/board.ps1",
+    "bytes": 574,
+    "sha256": "ed420fbc3b9a45f01096373a146bc4a0bec07ab53896aa64dec6ac6a58cb34dd"
+  },
+  {
+    "path": "第七次/tools/build_arm.sh",
+    "bytes": 1397,
+    "sha256": "984194c8cd05d5f43ef0babc37682eab02a655bc048c165ee6a8875d1af0160a"
+  },
+  {
+    "path": "第七次/tools/prepare_sdk.sh",
+    "bytes": 1284,
+    "sha256": "3e6abfe8fd109dcc0b716dba6eaf588cd2901b5b0687227c7b5167abccd375f3"
+  },
+  {
+    "path": "第七次/tools/qtbase.sha256",
+    "bytes": 102,
+    "sha256": "29ef464e7c16e0d7c66bafc9abdd99db37df40beacdfce8e12491a002edf65fa"
+  },
+  {
+    "path": "第七次/参考例程/01_led.pro",
+    "bytes": 960,
+    "sha256": "6064ce2566a9992099e59c4a508df8eb9a979b4f174d3fe0ae6d34b9d8f0ba5a"
+  },
+  {
+    "path": "第七次/参考例程/main.cpp",
+    "bytes": 172,
+    "sha256": "dd25ef9509272b4b2e4209b28a690b06b877441bae6a9e7102ac365d09ae7007"
+  },
+  {
+    "path": "第七次/参考例程/mainwindow.cpp",
+    "bytes": 3305,
+    "sha256": "a8fa57e6ce7236f499bf618438d2942a3f74bd729ba34a3155e0ddd5e13c39ad"
+  },
+  {
+    "path": "第七次/参考例程/mainwindow.h",
+    "bytes": 884,
+    "sha256": "8c54dee9306c536b2fabdd08619873164a3536ce6637460468008815fc9b76f2"
+  },
+  {
+    "path": "第七次/实测记录/ARM符号版本.txt",
+    "bytes": 4326,
+    "sha256": "8bccce3c3e1a470b076bc4c5db6d10db912ec9dd65b2973e42d765af2b80f642"
+  },
+  {
+    "path": "第七次/实测记录/NFS服务.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第七次/实测记录/NFS错误.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "第七次/实测记录/Qt控制LED最终验证.txt",
+    "bytes": 741,
+    "sha256": "ac85b21a6c5a7699fbd865156e4549e438f6af1647dbb74be5cafdf471911659"
+  },
+  {
+    "path": "第七次/实测记录/Qt控制LED板端验证.txt",
+    "bytes": 898,
+    "sha256": "53738c71c5657d453ad78f988c03d173f5f2f7e44d28079d9e5a9d5ebb81f535"
+  },
+  {
+    "path": "第七次/实测记录/人工确认后状态.txt",
+    "bytes": 720,
+    "sha256": "6a262d46dfb90be9aec440e4676a0e55a84ffce9364a678bd992def0a1e9b9ee"
+  },
+  {
+    "path": "第七次/实测记录/导出检查.txt",
+    "bytes": 455,
+    "sha256": "b6061e1fca76c766635ea4180657493b020d5bfb5a2ce33175c5fe6a228835d6"
+  },
+  {
+    "path": "第七次/实测记录/屏幕与输入配置.txt",
+    "bytes": 508,
+    "sha256": "8022623e4fe046a36c982fcbaf670ec67901e6dcb941003c82a7565f5166d072"
+  },
+  {
+    "path": "第七次/实测记录/最终板端截图/evidence/01_LED_on.png",
+    "bytes": 29221,
+    "sha256": "6f4d32598550ca3518c4f4e04cfdee0742e160d95634a4b83f8dcc8ebcddafa1"
+  },
+  {
+    "path": "第七次/实测记录/最终板端截图/evidence/02_LED_off.png",
+    "bytes": 29087,
+    "sha256": "0f117363aab0264b056d085502343573ceae85c4d0adb94315a06e6a3a5bc9f1"
+  },
+  {
+    "path": "第七次/实测记录/最终板端截图/evidence/03_LED_on_again.png",
+    "bytes": 29221,
+    "sha256": "6f4d32598550ca3518c4f4e04cfdee0742e160d95634a4b83f8dcc8ebcddafa1"
+  },
+  {
+    "path": "第七次/实测记录/最终板端截图/run2.log",
+    "bytes": 382,
+    "sha256": "3bc20a95f2d47268ef0ece7dc6f0712eccd15892f5014e2167c0711787a336ca"
+  },
+  {
+    "path": "第七次/实测记录/板端截图/evidence/01_LED_on.png",
+    "bytes": 29221,
+    "sha256": "6f4d32598550ca3518c4f4e04cfdee0742e160d95634a4b83f8dcc8ebcddafa1"
+  },
+  {
+    "path": "第七次/实测记录/板端截图/evidence/02_LED_off.png",
+    "bytes": 29092,
+    "sha256": "b0d079b6f545e172bdb20f297553e8a5654a03b97c8168767bc09c268ddc07f2"
+  },
+  {
+    "path": "第七次/实测记录/板端截图/evidence/03_LED_on_again.png",
+    "bytes": 29087,
+    "sha256": "0f117363aab0264b056d085502343573ceae85c4d0adb94315a06e6a3a5bc9f1"
+  },
+  {
+    "path": "第七次/实测记录/板端截图/run.log",
+    "bytes": 434,
+    "sha256": "3fc4f1ce95ba931fce24f0cb90f1442f952b9df9176dea6291287c8e49dd3223"
+  },
+  {
+    "path": "第七次/实测记录/板端环境.txt",
+    "bytes": 1643,
+    "sha256": "3a208b1b4c174fd443b9fccfeab8e5669f0aef81af397baff5045d6fa4e280a2"
+  },
+  {
+    "path": "第七次/实测记录/输入与LED状态.txt",
+    "bytes": 465,
+    "sha256": "10dd42c7a4e6024e6c58f768c8ba37947648db5c21c94e7948ef086202ebc969"
+  },
+  {
+    "path": "第七次/实测记录/部署与动态库检查.txt",
+    "bytes": 2093,
+    "sha256": "cebceb28bf9d1ece687563efbdb9998ec55bf6208167066ff3656e0f5b64082b"
+  },
+  {
+    "path": "第七次/实测记录/首次板端运行.txt",
+    "bytes": 477,
+    "sha256": "82aa800a5eab5f12eacc1bab9042ca67741af67e15389e35a821d0d43442b68d"
+  },
+  {
+    "path": "第七次/资料核对/问题整理-1.png",
+    "bytes": 412412,
+    "sha256": "ac15870bd95bed67cad677b59367097e72cbb48d9c61fda1c9b4fc08983e7d9b"
+  },
+  {
+    "path": "第七次/资料核对/问题整理-2.png",
+    "bytes": 143102,
+    "sha256": "4239393b7ba493fa09ff58f52976652c9d399b3ad95265db75e94628d1834065"
+  },
+  {
+    "path": "第七次/资料核对/问题整理-3.png",
+    "bytes": 468605,
+    "sha256": "2d9f48b23f07ede8047a21d7a9d44254bdfa506f2a9f9bf558023e20fc03dfbb"
+  },
+  {
+    "path": "第七次/bin/qt_led_arm",
+    "bytes": 57708,
+    "sha256": "615df43ba8b8075d28484f88101216b2448f3b2359cebb3718a6aa49020a8272"
+  },
+  {
+    "path": "第七次/构建记录/arm.log",
+    "bytes": 1257,
+    "sha256": "e06afa0e0fd636d588006a87586652e1eed24b91959ec1c1f53234d831f6c4d4"
+  }
+]

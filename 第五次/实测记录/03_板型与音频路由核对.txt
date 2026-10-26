@@ -1,0 +1,59 @@
+echo ROUTING; tr "\000" "\n" < /proc/device-tree/sound/au dio-routing; echo CODEC; cat /sys/bus/i2c/devices/0-001a/name; ls /usr/share/als a; ls -l /usr/share/sounds/alsa; amixer -c 0 controls | grep -E "Capture|PCM|ADC  Data"; python3 --version; ls /etc/init.d/*alsa*; cat /proc/asound/card0/codec*  2>/dev/null
+ROUTING
+Headphone Jack
+HP_L
+Headphone Jack
+HP_R
+Ext Spk
+SPK_LP
+Ext Spk
+SPK_LN
+Ext Spk
+SPK_RP
+Ext Spk
+SPK_RN
+LINPUT2
+Mic Jack
+LINPUT3
+Mic Jack
+RINPUT1
+Main MIC
+RINPUT2
+Main MIC
+Mic Jack
+MICB
+Main MIC
+MICB
+CPU-Playback
+ASRC-Playback
+Playback
+CPU-Playback
+ASRC-Capture
+CPU-Capture
+CPU-Capture
+Capture
+CODEC
+wm8960
+alsa.conf    [0m[01;34mcards[0m  [01;34mpcm[0m          sndo-mixer.alisp  [01;34mtopology[0m
+[01;34malsa.conf.d[0m  [01;34minit[0m   smixer.conf  [01;34mspeaker-test[0m      [01;34mucm[0m
+total 1.3M
+-rw-r--r-- 1 root root 134K Jul 20 17:29 Front_Center.wav
+-rw-r--r-- 1 root root 139K Jul 20 17:29 Front_Left.wav
+-rw-r--r-- 1 root root 144K Jul 20 17:29 Front_Right.wav
+-rw-r--r-- 1 root root 133K Jul 20 17:29 Noise.wav
+-rw-r--r-- 1 root root 128K Jul 20 17:29 Rear_Center.wav
+-rw-r--r-- 1 root root 124K Jul 20 17:29 Rear_Left.wav
+-rw-r--r-- 1 root root 144K Jul 20 17:29 Rear_Right.wav
+-rw-r--r-- 1 root root 132K Jul 20 17:29 Side_Left.wav
+-rw-r--r-- 1 root root 127K Jul 20 17:29 Side_Right.wav
+numid=17,iface=MIXER,name='PCM Playback -6dB Switch'
+numid=41,iface=MIXER,name='ADC Data Output Select'
+numid=36,iface=MIXER,name='ADC PCM Capture Volume'
+numid=2,iface=MIXER,name='Capture Volume ZC Switch'
+numid=3,iface=MIXER,name='Capture Switch'
+numid=1,iface=MIXER,name='Capture Volume'
+numid=47,iface=MIXER,name='Left Output Mixer PCM Playback Switch'
+numid=44,iface=MIXER,name='Right Output Mixer PCM Playback Switch'
+Python 3.5.1
+[0m[01;32m/etc/init.d/alsa-state[0m
+root@ATK-IMX6U:~/lab5# 

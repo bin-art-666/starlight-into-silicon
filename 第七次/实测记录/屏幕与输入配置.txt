@@ -1,0 +1,10 @@
+ls -l /dev/input; ls /usr/share/fonts/ttf | head; cat /proc/cm dline
+total 0
+drwxr-xr-x 2 root root      80 Jul 22 02:20 [0m[01;34mby-path[0m
+crw-rw---- 1 root input 13, 64 Jul 22 02:20 [01;33mevent0[0m
+crw-rw---- 1 root input 13, 65 Jul 22 02:20 [01;33mevent1[0m
+crw-rw---- 1 root input 13, 66 Jul 22 02:20 [01;33mevent2[0m
+crw-rw---- 1 root input 13, 63 Jul 22 02:20 [01;33mmice[0m
+SourceHanSansCN-Regular.otf
+console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw
+root@ATK-IMX6U:~# 

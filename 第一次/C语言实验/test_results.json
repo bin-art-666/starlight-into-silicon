@@ -1,0 +1,74 @@
+[
+  {
+    "name": "普通成绩",
+    "input": "80\n90\n60\n50\n100\n",
+    "returncode": 0,
+    "stdout": "Enter 5 scores, one per line (0-100):\nAverage: 76.00\nMaximum: 100.00\nPassed: 4/5\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "name": "边界成绩",
+    "input": "0\n59\n60\n100\n100\n",
+    "returncode": 0,
+    "stdout": "Enter 5 scores, one per line (0-100):\nAverage: 63.80\nMaximum: 100.00\nPassed: 3/5\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "name": "小数成绩",
+    "input": "59.5\n60.5\n80\n90\n100\n",
+    "returncode": 0,
+    "stdout": "Enter 5 scores, one per line (0-100):\nAverage: 78.00\nMaximum: 100.00\nPassed: 4/5\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "name": "负数",
+    "input": "-1\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 1\n",
+    "passed": true
+  },
+  {
+    "name": "超过满分",
+    "input": "101\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 1\n",
+    "passed": true
+  },
+  {
+    "name": "非数字",
+    "input": "abc\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 1\n",
+    "passed": true
+  },
+  {
+    "name": "非有限数",
+    "input": "nan\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 1\n",
+    "passed": true
+  },
+  {
+    "name": "输入提前结束",
+    "input": "80\n90\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 3\n",
+    "passed": true
+  },
+  {
+    "name": "尾部非法字符",
+    "input": "80x\n",
+    "returncode": 1,
+    "stdout": "Enter 5 scores, one per line (0-100):\n",
+    "stderr": "Invalid score at position 1\n",
+    "passed": true
+  }
+]

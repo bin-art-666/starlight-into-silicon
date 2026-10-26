@@ -1,0 +1,4 @@
+MIC_LEFT_RC=0
+-rw-r--r-- 1 root root 1.1M Jul 22 03:53 lab5_music.wav
+-rw-r--r-- 1 root root 1.7M Jul 22 03:53 mic_left1.wav
+root@ATK-IMX6U:~/lab5# 

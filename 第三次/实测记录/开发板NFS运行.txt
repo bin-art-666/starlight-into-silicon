@@ -1,0 +1,15 @@
+tftp --help; mkdir -p /mnt/lab3; mount -t nfs -o vers=3,proto= tcp,nolock,soft,timeo=20,retrans=1 192.168.1.100:/lab3 /mnt/lab3; echo MOUNT_RES ULT=\True; ls -l /mnt/lab3; /mnt/lab3/hello_nfs_arm
+BusyBox v1.24.1 (2021-07-20 16:18:59 CST) multi-call binary.
+
+Usage: tftp [OPTIONS] HOST [PORT]
+MOUNT_RESULT=True
+total 416K
+-rwxrwxrwx 1 root root 416K Oct 16  2026 [0m[01;32mhello_nfs_arm[0m
+-rwxrwxrwx 1 root root  187 Oct 16  2026 [01;32mhello_nfs.c[0m
+Lab 3: Linux C program running from NFS.
+1 * 1 = 1
+2 * 2 = 4
+3 * 3 = 9
+4 * 4 = 16
+5 * 5 = 25
+root@ATK-IMX6U:~# 

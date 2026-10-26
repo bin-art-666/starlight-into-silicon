@@ -1,0 +1,31 @@
+echo LAB5_BEGIN; uname -a; cat /proc/asound/cards; cat  /proc/asound/pcm; ls -l /dev/snd; which aplay arecord amixer alsamixer; ip addr  show eth0; mount | grep nfs; ps -ef | grep -E "aplay|arecord|QDesktop|qt_"
+LAB5_BEGIN
+Linux ATK-IMX6U 4.1.15-g3dc0a4b #1 SMP PREEMPT Thu Aug 18 09:27:40 CST 2022 armv7l armv7l armv7l GNU/Linux
+ 0 [wm8960audio    ]: wm8960-audio - wm8960-audio
+                      wm8960-audio
+00-00: HiFi wm8960-hifi-0 :  : playback 1 : capture 1
+00-01: HiFi-ASRC-FE (*) :  : playback 1 : capture 1
+total 0
+drwxr-xr-x 2 root root       60 Jul 22 03:29 [0m[01;34mby-path[0m
+crw-rw---- 1 root audio 116,  0 Jul 22 03:29 [01;33mcontrolC0[0m
+crw-rw---- 1 root audio 116, 24 Jul 22 03:29 [01;33mpcmC0D0c[0m
+crw-rw---- 1 root audio 116, 16 Jul 22 03:29 [01;33mpcmC0D0p[0m
+crw-rw---- 1 root audio 116, 25 Jul 22 03:29 [01;33mpcmC0D1c[0m
+crw-rw---- 1 root audio 116, 17 Jul 22 03:29 [01;33mpcmC0D1p[0m
+crw-rw---- 1 root audio 116, 33 Jul 22 03:29 [01;33mtimer[0m
+/usr/bin/aplay
+/usr/bin/arecord
+/usr/bin/amixer
+/usr/bin/alsamixer
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 88:60:10:f3:88:9d brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.4/24 brd 192.168.1.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 169.254.52.68/16 brd 169.254.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8a60:10ff:fef3:889d/64 scope link 
+       valid_lft forever preferred_lft forever
+192.168.1.100:/lab3 on /mnt/lab4 type nfs (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,soft,nolock,proto=tcp,timeo=20,retrans=1,sec=sys,mountaddr=192.168.1.100,mountvers=3,mountport=1058,mountproto=tcp,local_lock=all,addr=192.168.1.100)
+root       649     1 12 03:29 ?        00:02:33 /opt/QDesktop
+root       852   660  0 03:49 ttymxc0  00:00:00 grep -E aplay|arecord|QDesktop|qt_
+root@ATK-IMX6U:/tmp/lab4# 

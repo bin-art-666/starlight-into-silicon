@@ -1,0 +1,49 @@
+ls -l /lib/modules/4.1.15-g3dc0a4b; ls /boot; l s /sys/class/gpio; cat /sys/kernel/debug/gpio; ls /proc/config.gz; ls /sys/firmw are/fdt; ping -c 2 192.168.1.100
+total 192K
+-rw-r--r-- 1 root root  13K Jul 22  2021 ipu_bg_overlay_sdc.ko
+-rw-r--r-- 1 root root  10K Jul 22  2021 ipu_csi_enc.ko
+-rw-r--r-- 1 root root  15K Jul 22  2021 ipu_fg_overlay_sdc.ko
+-rw-r--r-- 1 root root  13K Jul 22  2021 ipu_prp_enc.ko
+-rw-r--r-- 1 root root 7.0K Jul 22  2021 ipu_still.ko
+drwxr-xr-x 3 root root 4.0K Jul 22  2021 [0m[01;34mkernel[0m
+-rw-r--r-- 1 root root  255 Jul 22  2021 modules.alias
+-rw-r--r-- 1 root root  396 Jul 22  2021 modules.alias.bin
+-rw-r--r-- 1 root root    0 Jul 22  2021 modules.builtin.bin
+-rw-r--r-- 1 root root  257 Jul 22  2021 modules.dep
+-rw-r--r-- 1 root root  560 Jul 22  2021 modules.dep.bin
+-rw-r--r-- 1 root root   52 Jul 22  2021 modules.devname
+-rw-r--r-- 1 root root   55 Jul 22  2021 modules.softdep
+-rw-r--r-- 1 root root  777 Jul 22  2021 modules.symbols
+-rw-r--r-- 1 root root 1.1K Jul 22  2021 modules.symbols.bin
+-rw-r--r-- 1 root root  39K Jul 22  2021 mxc_v4l2_capture.ko
+-rw-r--r-- 1 root root  38K Jul 22  2021 ov5640_camera.ko
+-rw-r--r-- 1 root root 6.2K Jul 22  2021 v4l2-int-device.ko
+export  [0m[01;36mgpiochip0[0m  [01;36mgpiochip128[0m  [01;36mgpiochip32[0m  [01;36mgpiochip64[0m  [01;36mgpiochip96[0m  unexport
+GPIOs 0-31, platform/209c000.gpio, 209c000.gpio:
+ gpio-3   (?                   ) out lo    
+ gpio-9   (Goodix-Ts IRQ PIN   ) in  hi    
+ gpio-18  (USER-KEY1           ) in  hi    
+ gpio-19  (cd                  ) in  hi    
+
+GPIOs 32-63, platform/20a0000.gpio, 20a0000.gpio:
+
+GPIOs 64-95, platform/20a4000.gpio, 20a4000.gpio:
+
+GPIOs 96-127, platform/20a8000.gpio, 20a8000.gpio:
+
+GPIOs 128-159, platform/20ac000.gpio, 20ac000.gpio:
+ gpio-129 (?                   ) out lo    
+ gpio-131 (?                   ) out lo    
+ gpio-135 (phy-reset           ) out lo    
+ gpio-136 (phy-reset           ) out lo    
+ gpio-137 (Goodix-Ts reset PIN ) out lo    
+/proc/config.gz
+/sys/firmware/fdt
+PING 192.168.1.100 (192.168.1.100) 56(84) bytes of data.
+64 bytes from 192.168.1.100: icmp_seq=1 ttl=128 time=1.55 ms
+64 bytes from 192.168.1.100: icmp_seq=2 ttl=128 time=1.54 ms
+
+--- 192.168.1.100 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 1.543/1.551/1.559/0.008 ms
+root@ATK-IMX6U:/tmp/lab8-export# 

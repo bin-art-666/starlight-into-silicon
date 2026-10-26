@@ -1,0 +1,8 @@
+echo CHECK_EXTRA; cat /tmp/lab7-extra.log; ls -l /mnt/lab3/lab 7; cat /proc/mounts | grep lab3; ls /usr/lib/libGLES* /usr/lib/libGAL*
+CHECK_EXTRA
+tar: Removing leading `/' from member names
+tar: /usr/lib/libGAL*: Cannot stat: No such file or directory
+tar: /usr/lib/libVSC*: Cannot stat: No such file or directory
+tar (child): /mnt/lab3/lab7/board-extra.tar.gz: Cannot open: Input/output error
+tar (child): Error is not recoverable: exiting now
+

@@ -1,0 +1,6 @@
+echo LAB4_BUILTIN_TEST; echo 1 > /sys/class/led s/beep/brightness; cat /sys/class/leds/beep/brightness; sleep 1; echo 0 > /sys/c lass/leds/beep/brightness; cat /sys/class/leds/beep/brightness; echo LAB4_BUILTI N_DONE
+LAB4_BUILTIN_TEST
+1
+0
+LAB4_BUILTIN_DONE
+root@ATK-IMX6U:/tmp/lab8-export# 

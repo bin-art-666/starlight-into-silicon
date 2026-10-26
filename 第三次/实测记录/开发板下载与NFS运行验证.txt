@@ -1,0 +1,13 @@
+tftp -g -r ledc.bin -l /tmp/lab3_ledc.bin 192.168.1.100; echo  TFTP_EXIT=$?; wc -c /tmp/lab3_ledc.bin; sha256sum /tmp/lab3_ledc.bin; cat /proc/ mounts | grep /mnt/lab3; /mnt/lab3/hello_nfs_arm; echo NFS_RUN_EXIT=$?
+TFTP_EXIT=0
+588 /tmp/lab3_ledc.bin
+486f6e908074d25b2c80813b93de430dd0d9ad288fb50e49eb97b3c501d8f0a9  /tmp/lab3_ledc.bin
+192.168.1.100:/lab3 /mnt/lab3 nfs rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,soft,nolock,proto=tcp,timeo=20,retrans=1,sec=sys,mountaddr=192.168.1.100,mountvers=3,mountport=1058,mountproto=tcp,local_lock=all,addr=192.168.1.100 0 0
+Lab 3: Linux C program running from NFS.
+1 * 1 = 1
+2 * 2 = 4
+3 * 3 = 9
+4 * 4 = 16
+5 * 5 = 25
+NFS_RUN_EXIT=0
+root@ATK-IMX6U:~# 

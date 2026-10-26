@@ -1,0 +1,12 @@
+cat /proc/kallsyms | grep -E ' __crc_(module_la yout|gpio_request|gpio_free|gpio_direction_output|__gpio_set_value|of_find_node_ by_path|of_get_named_gpio_flags|alloc_chrdev_region|cdev_init|cdev_add|cdev_del| __class_create|device_create|device_destroy|class_destroy|unregister_chrdev_regi on|__copy_from_user|printk|of_node_put)$'; ls /sys/class/leds; ls /sys/bus/platf orm/drivers/leds-gpio; cat /proc/cmdline; lsblk; df -h /mnt/lab3
+[0m[01;36mbeep[0m  [01;36mmmc0::[0m  [01;36mmmc1::[0m  [01;36msys-led[0m
+bind  [0m[01;36mleds[0m  uevent  unbind
+console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw
+NAME         MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+mmcblk1rpmb  179:24   0  512K  0 disk 
+mmcblk1boot0 179:8    0    4M  1 disk 
+mmcblk1boot1 179:16   0    4M  1 disk 
+mmcblk1      179:0    0  7.3G  0 disk 
+??????mmcblk1p1  179:1    0  128M  0 part /run/media/mmcblk1p1
+??????mmcblk1p2  179:2    0  7.2G  0 part /
+

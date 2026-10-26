@@ -1,0 +1,39 @@
+echo STATUS; ps -ef | grep -E "aplay|arecord"; cat /proc/ asound/card0/pcm0p/sub0/status; cat /proc/asound/card0/pcm0p/sub0/hw_params; dme sg | tail -25; ip addr show eth0
+STATUS
+root       922   660  0 03:53 ttymxc0  00:00:00 grep -E aplay|arecord
+closed
+closed
+[    3.904603] Freeing unused kernel memory: 528K (80b48000 - 80bcc000)
+[    4.624136] udevd[129]: starting version 3.1.5
+[    4.636865] random: udevd urandom read with 23 bits of entropy available
+[    5.555906] 1-003c supply DOVDD not found, using dummy regulator
+[    5.562028] 1-003c supply DVDD not found, using dummy regulator
+[    5.686679] 1-003c supply AVDD not found, using dummy regulator
+[    5.804450] ov5640_read_reg:write reg error:reg=300a
+[    5.809441] camera ov5640 is not found
+[    8.208555] FAT-fs (mmcblk1p1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+[    8.235987] FAT-fs (mmcblk1p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+[    8.984036] fec 20b4000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=20b4000.ethernet:01, irq=-1)
+[    9.023948] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   10.044278] fec 2188000.ethernet eth1: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=20b4000.ethernet:02, irq=-1)
+[   10.104259] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   12.984376] fec 20b4000.ethernet eth0: Link is Up - 100Mbps/Full - flow control off
+[   12.992093] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   16.850757] ICM20608 ID = 0XAE
+[   20.753917] random: nonblocking pool is initialized
+[   63.759460] beep: /dev/beep ready, gpio=129, major=247, default OFF
+[   84.108990] beep: ON
+[   85.204350] beep: OFF
+[   85.273001] beep: unloaded, OFF
+[  127.389161] beep: /dev/beep ready, gpio=129, major=247, default OFF
+[  127.411264] beep: ON
+[  128.449956] beep: OFF
+3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 88:60:10:f3:88:9d brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.4/24 brd 192.168.1.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 169.254.52.68/16 brd 169.254.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::8a60:10ff:fef3:889d/64 scope link 
+       valid_lft forever preferred_lft forever
+root@ATK-IMX6U:~/lab5# 

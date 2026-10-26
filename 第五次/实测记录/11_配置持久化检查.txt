@@ -1,0 +1,3 @@
+cd /home/root/lab5; alsactl -f mixer-lab5.state store; ec ho STORE_RC=$?; python3 -c "import zlib,os; print([(p,os.path.getsize(p),len(zli b.compress(open(p,chr(114)+chr(98)).read(),9))) for p in [chr(109)+chr(105)+chr( 99)+chr(95)+chr(108)+chr(101)+chr(102)+chr(116)+chr(49)+chr(46)+chr(119)+chr(97) +chr(118)]] )"; head -65 /etc/init.d/alsa-state; echo I2C_BINDING; readlink /sys /bus/i2c/devices/0-001a/driver
+STORE_RC=0
+

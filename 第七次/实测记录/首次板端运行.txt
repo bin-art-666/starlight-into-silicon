@@ -1,0 +1,9 @@
+cd /home/root/lab7; nohup sh ./run_on_board.sh --verify > /hom e/root/lab7/run.log 2>&1 < /dev/null & echo LAB7_STARTED; sleep 2; cat run.log;  cat /sys/class/leds/sys-led/brightness
+[1] 916
+LAB7_STARTED
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/var/volatile/tmp/runtime-root'
+QT_VERSION 5.12.9 LED_DEVICE /sys/class/leds/sys-led ORIGINAL_TRIGGER heartbeat READY true
+LED_TOGGLED 0 -> 1
+LED_VERIFY expected= 1 actual= 1 PASS
+1
+root@ATK-IMX6U:~/lab7# 

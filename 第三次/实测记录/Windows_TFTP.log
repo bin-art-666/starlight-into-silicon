@@ -1,0 +1,89 @@
+2026-10-16 14:21:32,953 INFO Server requested on ip 192.168.1.100, port 69
+2026-10-16 14:21:32,955 INFO Starting receive loop...
+2026-10-16 14:22:08,454 INFO Setting tidport to 55314
+2026-10-16 14:22:08,454 INFO requested file is in the server root - good
+2026-10-16 14:22:08,454 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\ledc.bin for reading
+2026-10-16 14:22:08,474 INFO Currently handling these sessions:
+2026-10-16 14:22:08,474 INFO     192.168.1.4:55314 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF46240>
+2026-10-16 14:22:08,475 INFO Reached EOF on file ledc.bin
+2026-10-16 14:22:08,477 INFO Received ACK to final DAT, we're done.
+2026-10-16 14:22:08,477 INFO Successful transfer.
+2026-10-16 14:22:08,477 INFO 
+2026-10-16 14:22:08,477 INFO Session 192.168.1.4:55314 complete
+2026-10-16 14:22:08,478 INFO Transferred 588 bytes in 0.02 seconds
+2026-10-16 14:22:08,478 INFO Average rate: 187.59 kbps
+2026-10-16 14:22:08,478 INFO 0.00 bytes in resent data
+2026-10-16 14:22:08,478 INFO 0 duplicate packets
+2026-10-16 14:23:14,658 INFO Setting tidport to 3248
+2026-10-16 14:23:14,658 INFO Dropping unsupported option 'timeout'
+2026-10-16 14:23:14,658 INFO requested file is in the server root - good
+2026-10-16 14:23:14,658 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\ledc.bin for reading
+2026-10-16 14:23:14,658 INFO Currently handling these sessions:
+2026-10-16 14:23:14,659 INFO     192.168.1.4:3248 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF740E0>
+2026-10-16 14:23:14,660 INFO Reached EOF on file ledc.bin
+2026-10-16 14:23:14,661 INFO Received ACK to final DAT, we're done.
+2026-10-16 14:23:14,661 INFO Successful transfer.
+2026-10-16 14:23:14,661 INFO 
+2026-10-16 14:23:14,661 INFO Session 192.168.1.4:3248 complete
+2026-10-16 14:23:14,662 INFO Transferred 588 bytes in 0.00 seconds
+2026-10-16 14:23:14,662 INFO Average rate: 968.37 kbps
+2026-10-16 14:23:14,662 INFO 0.00 bytes in resent data
+2026-10-16 14:23:14,662 INFO 0 duplicate packets
+2026-10-16 14:23:45,729 INFO Setting tidport to 3599
+2026-10-16 14:23:45,729 INFO Dropping unsupported option 'timeout'
+2026-10-16 14:23:45,730 INFO requested file is in the server root - good
+2026-10-16 14:23:45,730 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\ledc.bin for reading
+2026-10-16 14:23:45,730 INFO Currently handling these sessions:
+2026-10-16 14:23:45,730 INFO     192.168.1.4:3599 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF740E0>
+2026-10-16 14:23:45,731 INFO Reached EOF on file ledc.bin
+2026-10-16 14:23:45,733 INFO Received ACK to final DAT, we're done.
+2026-10-16 14:23:45,733 INFO Successful transfer.
+2026-10-16 14:23:45,733 INFO 
+2026-10-16 14:23:45,733 INFO Session 192.168.1.4:3599 complete
+2026-10-16 14:23:45,733 INFO Transferred 588 bytes in 0.00 seconds
+2026-10-16 14:23:45,733 INFO Average rate: 1233.84 kbps
+2026-10-16 14:23:45,733 INFO 0.00 bytes in resent data
+2026-10-16 14:23:45,733 INFO 0 duplicate packets
+2026-10-16 15:24:37,855 INFO Setting tidport to 46751
+2026-10-16 15:24:37,856 INFO requested file is in the server root - good
+2026-10-16 15:24:37,856 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\lab8_qt_camera_arm for reading
+2026-10-16 15:24:37,860 INFO Currently handling these sessions:
+2026-10-16 15:24:37,860 INFO     192.168.1.4:46751 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF74650>
+2026-10-16 15:24:38,112 INFO Reached EOF on file lab8_qt_camera_arm
+2026-10-16 15:24:38,112 INFO Received ACK to final DAT, we're done.
+2026-10-16 15:24:38,112 INFO Successful transfer.
+2026-10-16 15:24:38,112 INFO 
+2026-10-16 15:24:38,112 INFO Session 192.168.1.4:46751 complete
+2026-10-16 15:24:38,112 INFO Transferred 73808 bytes in 0.26 seconds
+2026-10-16 15:24:38,112 INFO Average rate: 2240.30 kbps
+2026-10-16 15:24:38,112 INFO 0.00 bytes in resent data
+2026-10-16 15:24:38,112 INFO 0 duplicate packets
+2026-10-16 15:24:38,126 INFO Setting tidport to 60290
+2026-10-16 15:24:38,126 INFO requested file is in the server root - good
+2026-10-16 15:24:38,126 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\lab8_run.sh for reading
+2026-10-16 15:24:38,134 INFO Reached EOF on file lab8_run.sh
+2026-10-16 15:24:38,134 INFO Currently handling these sessions:
+2026-10-16 15:24:38,135 INFO     192.168.1.4:60290 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF74500>
+2026-10-16 15:24:38,136 INFO Received ACK to final DAT, we're done.
+2026-10-16 15:24:38,136 INFO Successful transfer.
+2026-10-16 15:24:38,136 INFO 
+2026-10-16 15:24:38,136 INFO Session 192.168.1.4:60290 complete
+2026-10-16 15:24:38,137 INFO Transferred 473 bytes in 0.01 seconds
+2026-10-16 15:24:38,137 INFO Average rate: 351.43 kbps
+2026-10-16 15:24:38,137 INFO 0.00 bytes in resent data
+2026-10-16 15:24:38,137 INFO 0 duplicate packets
+2026-10-16 15:49:21,048 INFO Setting tidport to 1469
+2026-10-16 15:49:21,049 INFO Dropping unsupported option 'timeout'
+2026-10-16 15:49:21,049 INFO requested file is in the server root - good
+2026-10-16 15:49:21,049 INFO Opening file D:\Develop\Linux\嵌入式\第三次\tftp\lab4-beep.dtb for reading
+2026-10-16 15:49:21,058 INFO Currently handling these sessions:
+2026-10-16 15:49:21,058 INFO     192.168.1.4:1469 <tftpy.TftpStates.TftpStateExpectACK object at 0x000002096EF74620>
+2026-10-16 15:49:21,100 INFO Reached EOF on file lab4-beep.dtb
+2026-10-16 15:49:21,101 INFO Received ACK to final DAT, we're done.
+2026-10-16 15:49:21,101 INFO Successful transfer.
+2026-10-16 15:49:21,101 INFO 
+2026-10-16 15:49:21,101 INFO Session 192.168.1.4:1469 complete
+2026-10-16 15:49:21,102 INFO Transferred 39744 bytes in 0.05 seconds
+2026-10-16 15:49:21,102 INFO Average rate: 5765.36 kbps
+2026-10-16 15:49:21,102 INFO 0.00 bytes in resent data
+2026-10-16 15:49:21,102 INFO 0 duplicate packets

@@ -1,0 +1,13 @@
+cd /home/root/lab5; date; aplay -D hw:0,0 lab5_music.wav;  echo MUSIC_PLAY_RC=$?; sh mic_config.sh left1; arecord -D hw:0,0 -f cd -d 10 mi c_left1.wav; echo MIC_LEFT_RC=$?; aplay -D hw:0,0 mic_left1.wav; echo RECORD_REP LAY_RC=$?; date; ls -l *.wav
+Thu Jul 22 03:54:34 HKT 2021
+Playing WAVE 'lab5_music.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+MUSIC_PLAY_RC=0
+MIC_CONFIG_OK:left1
+Recording WAVE 'mic_left1.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+MIC_LEFT_RC=0
+Playing WAVE 'mic_left1.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+RECORD_REPLAY_RC=0
+Thu Jul 22 03:55:01 HKT 2021
+-rw-r--r-- 1 root root 1.1M Jul 22 03:53 lab5_music.wav
+-rw-r--r-- 1 root root 1.7M Jul 22 03:54 mic_left1.wav
+root@ATK-IMX6U:~/lab5# 

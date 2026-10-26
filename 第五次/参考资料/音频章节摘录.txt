@@ -1,0 +1,1067 @@
+=== PAGE 1576 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1576 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+第六十五章 Linux 音频驱动实验 
+ 
+ 音频是我们最常用到的功能， 音频也是linux 和安卓的重点应用场合。I.MX6ULL 带有 SAI
+接口， 正点原子的I.MX6ULL ALPHA 开发板通过此接口外接了一个 WM8960 音频 DAC 芯片，
+本章我们就来学习一下如何使能 WM8960 驱动，并且通过 WM8960 芯片来完成音乐播放与录
+音。 
+ 
+  
+=== PAGE 1577 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1577 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+65.1 音频接口简介 
+65.1.1 为何需要音频编解码芯片？ 
+ 处理器要想 “听到” 外界的声音必须要把外界的声音转化为自己能够理解的 “语言” ， 处理
+器能理解的就是 0 和 1，也就是二进制数据。所以我们需要先把外界的声音转换为处理器能理
+解的 0 和 1，在信号处理领域，外界的声音是模拟信号，处理器能理解的是数字信号，因此这
+里就涉及到一个模拟信号转换为数字信号的过程，而完成这个功能的就是ADC 芯片。 
+ 同理， 如果处理器要向外界传达自己的 “心声” ， 也就是放音， 那么就涉及到将处理器能理
+解的 0 和 1 转化为外界能理解的连续变化的声音，这个过程就是将数字信号转化为模拟信号，
+而完成这个功能的是 DAC 芯片。 
+ 现在我们知道了，处理器如果既想“听到”外界的声音，又想向外界传达自己的“心声” ，
+那么就需要同时用到 DAC 和 ADC 这两款芯片。 那是不是买两颗DAC 和 ADC 芯片就行了呢？
+答案肯定是可以的，但是音频不单单是能出声、能听到就行。我们往往需要听到的声音动听、
+录进去的语音贴近真实、可以调节音效、对声音能够进行一些处理(需要 DSP 单元)、拥有统一
+的标准接口，方便开发等等。将这些针对声音的各种要求全部叠加到DAC 和 ADC 芯片上，那
+么就会得到一个专门用于音频的芯片，也就是音频编解码芯片，英文名字就是Audio CODEC，
+所以我们在手机或者电脑的介绍中看到“CODEC”这个词语，一般说的都是音频编解码。 
+ 既然音频 CODEC 的本质是 ADC 和 DAC，那么采样率和采样位数就是衡量一款音频
+CODEC 最重要的指标。比如常见音频采样率有 8K、44.1K、48K、192K 甚至 384K 和 768K，
+采样位数常见的有 8 位、16 位、24 位、32 位。采样率和采样位数越高，那么音频 CODEC 越
+能真实的还原声音，也就是大家说的HIFI。因此大家会看到高端的音频播放器都会有很高的采
+样率和采样位数，同样的价格也会越高。当然了，实际的效果还与其他部分有关，采样率和采
+样位数只是其中重要的指标之一。 
+65.1.2 WM8960 简介 
+前面我们已经分析了为何需要音频编解码芯片，那是因为专用的音频编解码芯片提供了很
+多针对音频的特性。我们就以正点原子ALPHA 开发板所使用的 WM8960 这颗芯片为例，来看
+一下专用的音频编解码芯片都有哪些特性。 
+WM8960 是一颗由 wolfson(欧胜)公司出品的音频编解码芯片，是一颗低功耗、高质量的立
+体声音频 CODEC。集成 D 类喇叭功放，每个通道可以驱动一个 1W 喇叭(8Ω)。内部集成 3 个
+立体声输入源，可以灵活配置，拥有一路完整的麦克风接口。WM8960 内部 ADC 和 DAC 都为
+24 位，WM8960 主要特性如下所示： 
+①、DAC 的 SNR(信噪比)为 98dB，3.3V、48KHz 下 THD(谐波失真)为-84dB。 
+②、ADC 的 SNR(信噪比)为 94dB，3.3V、48KHz 下 THD(谐波失真)为-82dB。 
+③、3D 增强。 
+④、立体声 D 类功放，可以直接外接喇叭，8Ω负载下每通道 1W。 
+⑤、集成耳机接口。 
+⑥、集成麦克风接口。 
+⑦、采样率支持 8K、11.025K、12K、16K、22.05K、24K、32K、44.1K 和 48K。 
+…… 
+WM8960 整体框图如图 65.1.2.1 所示： 
+=== PAGE 1578 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1578 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.1.2.1 WM8960 框图 
+ 依次来看一下图 65.1.2.1 中这四部分接口都是什么功能： 
+ ①、此部分是 WM8960 提供的输入接口，作为立体声音频输入源，一共提供了三路，分别
+为 LINPUT1/RINPUT1、LINPUT2/RINPUT2、LINPUT3/RINPUT3。 麦克风或线路输入就连接到
+此接口上， 这部分是需要硬件工程师重点关心的， 因为音频选择从哪一路进入需要在画PCB 的
+时候就应该定好。 
+②、此部分是 WM8960 的输出接口，比如输出给耳机或喇叭，SPK_LP/SPK_LN 用于连接
+左声道的喇叭，支持 1W 的 8Ω喇叭。SPK_RP/SPK_RN 用于连接右声道的喇叭，同样支持1W
+的 8Ω喇叭，最后就是 HP_L/HP_R，用于连接耳机。 
+③、此部分是数字音频接口，用于和主控制器连接，有5 根线，用于主控制器和 WM8960
+之间进行数据“沟通” 。主控制器向WM8960 的 DAC 发送的数据，WM8960 的 ADC 向主控制
+传递的数据都是通过此音频接口来完成的。这个接口非常重要，是我们驱动开发人员重点关注
+的，此接口支持 I2S 格式。此接口 5 根线的作用如下： 
+ADCDAT：ADC 数据输出引脚， 采集到的音频数据转换为数字信号以后通过此引脚传输给
+主控制器。 
+ADCLRC：ADC 数据对齐时钟，也就是帧时钟(LRCK)，用于切换左右声道数据，此信号
+的频率就是采样率。 此引脚可以配置为GPIO 功能， 配置为GPIO 以后 ADC 就会使用 DACLRC
+引脚作为帧时钟。 
+DACDAT：DAC 数据输入引脚，主控器通过此引脚将数字信号输入给 WM8960 的 DAC。 
+DACLRC：DAC 数据对齐时钟， 功能和ADCLRC 一样， 都是帧时钟(LRCK)， 用于切换左
+右声道数据，此信号的频率等于采样率。 
+BCLK：位时钟，用于同步。 
+MCLK：主时钟，WM8960 工作的时候还需要一路主时钟，此时钟由 I.MX6ULL 提供，
+MCLK 频率等于采样率的 256 或 384 倍，因此大家在 WM8960 的数据手册里面常看到
+MCLK=256fs 或 MCLK=384fs。 
+
+=== PAGE 1579 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1579 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+④、此部分为控制接口，是一个标准的 I2C 接口，WM8960 要想工作必须对其进行配置，
+这个 I2C 接口就是用于配置 WM8960 的。 
+65.1.3 I2S 总线接口 
+ I2S(Inter-IC Sound)总线有时候也写作 IIS，I2S 是飞利浦公司提出的一种用于数字音频设备
+之间进行音频数据传输的总线。和 I2C、SPI 这些常见的通信协议一样，I2S 总线用于主控制器
+和音频 CODEC 芯片之间传输音频数据。 因此， 要想使用I2S 协议， 主控制器和音频CODEC 都
+得支持 I2S 协议，I.MX6ULL 的 SAI 外设就支持 I2S 协议，WM8960 同样也支持 I2S， 所以本章
+实验就是使用 I2S 协议来完成的。I2S 接口需要 3 根信号线(如果需要实现收和发，那么就要 4
+根信号线，收和发分别使用一根信号线)： 
+ SCK：串行时钟信号， 也叫做位时钟(BCLK)， 音频数据的每一位数据都对应一个SCK，立
+体声都是双声道的， 因此SCK=2×采样率×采样位数。 比如采样率为44.1KHz、16 位的立体声
+音频，那么 SCK=2×44100×16=1411200Hz=1.4112MHz。 
+ WS：字段(声道)选择信号， 也叫做LRCK， 也叫做帧时钟， 用于切换左右声道数据，WS 为
+“1”表示正在传输左声道的数据，WS 为“0”表示正在传输右声道的数据。WS 的频率等于采
+样率，比如采样率为 44.1KHz 的音频，WS=44.1KHz。 
+ SD：串行数据信号，也就是我们实际的音频数据，如果要同时实现放音和录音，那么就需
+要 2 根数据线，比如 WM8960 的 ADCDAT 和 DACDAT，就是分别用于录音和放音。不管音频
+数据是多少位的，数据的最高位都是最先传输的。数据的最高位总是出现在一帧开始后(LRCK
+变化)的第 2 个 SCK 脉冲处。 
+ 另外，有时候为了使音频 CODEC 芯片与主控制器之间能够更好的同步，会引入另外一个
+叫做 MCLK 的信号，也叫做主时钟或系统时钟，一般是采样率的 256 倍或 384 倍。 
+ 图 65.1.3.1 就是一帧立体声音频时序图： 
+LEFT RIGHT
+D15 D14 D13 D12 D15 D14 D13 D12 D0D0
+ 
+图 65.1.3.1 I2S 时序图 
+ 图 65.1.3.2 就是笔者采用逻辑分析仪抓取到的一帧真实的音频时序图： 
+=== PAGE 1580 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1580 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.1.3.2 真实的 I2S 时序图 
+ 图 65.1.3.2 中通道 0 是 LRCK 时钟，通道 1 为 BCLK，通道 2 是 DACDATA，通道 3 是
+MCLK。随着技术的发展，在统一的 I2S 接口下，出现了不同的数据格式，根据 DATA数据相
+对于 LRCK 和 SCLK 位置的不同，出现了 Left Justified(左对齐)和 Right Justified(右对齐)两种格
+式，这两种格式的时序图如图 65.1.3.3 所示： 
+LEFT RIGHT
+D15 D14 D13 D15 D14 D13 D0D0
+D15 D14 D13 D15 D14 D13 D0D0
+ 
+图 65.1.3.3 I2S 左对齐和右对齐数据格式 
+65.1.4 I.MX6ULL SAI 简介  
+ 音频 CODEC 支持 I2S 协议，那么主控制器也必须支持 I2S 协议，大家如果学过
+STM32F4/F7/H7 的话应该知道 SAI 接口，因为在 STM32 中就是通过 SAI 接口来连接音频
+CODEC。I.MX6ULL 也提供了一个叫做 SAI 的外设，全称为 Synchronous Audio Interface，翻译
+过来就是同步音频接口。 
+I.MX6ULL 的 SAI 是一个全双工、 支持帧同步的串行接口， 支持I2S、AC97、TDM 和音频
+DSP，SAI 主要特性如下： 
+①、帧最大为 32 个字。 
+②、字大小可选择 8bit 或 32bit。 
+③、每个接收和发送通道拥有 32×32bit 的 FIFO。 
+④、FIFO 错误以后支持平滑重启。 
+ I.MX6ULL 的 SAI 框图如图 65.1.4.1 所示： 
+
+=== PAGE 1581 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1581 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.1.4.1 SAI 框图 
+ 图 65.1.4.1 中右侧“SAI_TX”和“SAI_RX”开头的就是 SAI 外设提供给外部连接音频
+CODEC 的信号线，具体连接方法查看 65.2 小节的原理图。 
+65.2 硬件原理图分析 
+ V2.4 版本以前底板音频原理图如图 65.2.1 所示： 
+ 
+图 65.2.1 V2.4 版本以前底板音频原理图 
+ V2.4 及后面版本的底板音频原理图如图 65.2.2 所示： 
+
+=== PAGE 1582 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1582 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.2.2 V2.4 及以后版本底板音频原理图 
+ 图 65.2.1 和 65.2.2 中唯一的区别就是 WM8960 所连接的 I2C 接口，一个是 I2C2，一个是
+I2C1，其他都是一模一样的。 
+ 我们重点关注两个接口，SAI 和 I2C，我们依次来看一下这两个接口： 
+ ①、SAI 接口一共用到了 6 根数据线， 这6 根数据线用于 I.MX6ULL 与 WM8960 之间的音
+频数据收发。 
+ ②、WM8960 在使用的时候需要进行配置，配置接口为 I2C，V2.4 以前版本 连接到了
+I.MX6ULL 的 I2C2 上，V2.4 及以后版本连接到了 I2C1 上 
+65.3 音频驱动使能 
+ NXP 官方已经写好了 WM8960 驱动，因此我们直接配置内核使能 WM8960 驱动即可，按
+照如下所示步骤使能 WM8960 驱动。 
+65.3.1 修改设备树 
+ 前面分析原理图的时候已经说过了，WM8960 与 I.MX6ULL 之间有两个通信接口：I2C 和
+SAI，因此设备树中会涉及到 I2C 和 SAI 两个设备节点。其中 I2C 用于配置 WM8960，SAI 接
+口用于音频数据传输，我们依次来配置一下这两个接口。 
+ 1、wm8960 i2c 接口设备树 
+ 首先配置一下 I2C 接口，根据原理图我们知道 V2.4 以前版本底板 WM8960 连接到了
+I.MX6ULL 的 I2C2 接口上，因此在设备树中的“i2c2”节点下需要添加 wm8960 信息。V2.4
+及以后版本 WM8960 连接到了 I2C1 上， 因此需要在设备树中的 “i2c1” 节点下需要添加wm8960
+信息。 
+如果去添加肯定是要看设备树的绑定手册，打开
+Documentation/devicetree/bindings/sound/wm8960.txt，此文件仅仅用于描述如何在 I2C 节点下添
+加 WM8960 相关信息，此文档适用于所有的主控，不局限于 I.MX6ULL。 
+
+=== PAGE 1583 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1583 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 有 2 个必要的属性： 
+ compatible：兼容属性，属性值要设置为“wlf,wm8960” 。所以大家在linux 内核里面全局
+搜索 “wlf,wm8960” 的话就会找到WM8960的 I2C 驱动文件， 此文件为sound/soc/codecs/wm8960.c。 
+ reg：设置 WM8960 的 I2C 地址，在正点原子的 ALPHA 开发板中 WM8960 的 I2C 地址为
+0X1A。 
+ 还要几个其他的可选属性： 
+ wlf,shared-lrclk：这是一个 bool 类型的属性，如果添加了此属性，WM8960 的 R24 寄存器
+的 LRCM 位(bit2)就会置 1。当LRCM 为 1 的时候只有当 ADC 和 DAC 全部关闭以后 ADCLRC
+和 DACLRC 时钟才会关闭。 
+ wlf,capless：这也是一个 bool 类型的属性，如果添加了此属性，OUT3 引脚将会使能， 并且
+为了响应耳机插入响应事件，HP_L 和 HP_R 这两个引脚都会关闭。 
+ 绑定文档给出的参考节点内容如下所示： 
+示例代码 65.3.1.1 wm8960 i2c 参考节点 
+codec: wm8960@1a { 
+    compatible = "wlf,wm8960"; 
+    reg = <0x1a>; 
+ 
+    wlf,shared-lrclk; 
+}; 
+ 根据 wm8960.txt 这份绑定文档我们就可以在任意一个主控的I2C 节点下添加 wm8960 相关
+信息了，NXP 官方 I.MX6ULL EVK 开发板使用的也是 WM8960，因此在设备树中添加设备节
+点这些工作 NXP 已经帮我们做了。 打开imx6ull-alientek-emmc.dts，根据自己所使用的底板版本
+号，找到名为“i2c2”或“i2c1”的节点，将如下 wm8960 节点信息添加到对应的 i2c 节点下： 
+示例代码 65.3.1.2 wm8960 的 i2c2 子节点内容 
+1 codec: wm8960@1a { 
+2    compatible = "wlf,wm8960"; 
+3    reg = <0x1a>; 
+4    clocks = <&clks IMX6UL_CLK_SAI2>; 
+5    clock-names = "mclk"; 
+6    wlf,shared-lrclk; 
+7 }; 
+ 可以看出， 示例代码65.3.1.2 中的内容基本和 wm8960.txt 这个绑定文档中的示例内容一致，
+只是多了第 4 和第 5 这两行，这两行用于描述时钟相关信息。第4 行指定时钟源为 SAI2，第 5
+行指定时钟的名字为 “mclk” 。 前面我们说过， 为了更好的同步， 一般都会额外提供一条MCLK
+时钟。 
+ V2.4 以前版本的底板添加到 I2C2 节点下，如图 65.3.1.1 所示： 
+=== PAGE 1584 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1584 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.3.1.1 V2.4 版本以前的底板 I2C 信息 
+ V2.4 及以后版本的底板添加到 I2C1 节点下，如图 65.3.1.2 所示： 
+ 
+图 65.3.1.2 V2.4 及以后版本的底板 I2C 信息 
+ 至此，关于 wm8960 的 I2C 配置接口设备树就已经添加好了。 
+ 2、I.MX6ULL SAI 音频接口设备树 
+ 接下来就是 I.MX6ULL 的 SAI 音频接口设备树相关内容的修改了， 同样的， 先查阅一下相
+应的绑定文档：Documentation/devicetree/bindings/sound/fsl-sai.txt。 和我们前面讲过的IIC 接口、
+ECSPI 等接口一样，在 imx6ull.dtsi 文件中会有关于 SAI 相关接口的描述，这部分是 NXP 原厂
+编写的，我们不需要做任何修改，SAI2 的设备子节点内容如下所示： 
+示例代码 65.3.1.2 I.MX6ULL SAI2 接口子节点 
+1  sai2: sai@0202c000 { 
+2    compatible = "fsl,imx6ul-sai", 
+3             "fsl,imx6sx-sai"; 
+4    reg = <0x0202c000 0x4000>; 
+5    interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>; 
+6    clocks = <&clks IMX6UL_CLK_SAI2_IPG>, 
+7         <&clks IMX6UL_CLK_DUMMY>, 
+8         <&clks IMX6UL_CLK_SAI2>, 
+9         <&clks 0>, <&clks 0>; 
+10   clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3"; 
+11   dma-names = "rx", "tx"; 
+
+=== PAGE 1585 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1585 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+12   dmas = <&sdma 37 24 0>, <&sdma 38 24 0>; 
+13   status = "disabled"; 
+14 }; 
+ 直接搜索 compatible 属性中的两个兼容值， 那么你就会找到I.MX6ULL 的 SAI 接口驱动文
+件， 路径为sound/soc/fsl/fsl_sai.c， 此驱动文件不需要我们去研究， 除非你在NXP 上班， 而你的
+工作恰好是给 NXP 的 I.MX 系列芯片编写 SAI 驱动的。从第 13 行可以看出，SAI2 默认是关闭
+的，因此我们需要将其打开，也就是设置status 属性的值为“okay” ，这个工作肯定是在具体板
+子对应的.dts 文件中完成的， 其实就是向sai2 节点里面追加或者修改一些属性值。 打开imx6ull-
+alientek-emmc.dts 文件，找到如下内容： 
+示例代码 65.3.1.3 向 sai2 节点追加或修改的内容 
+1  &sai2 { 
+2    pinctrl-names = "default"; 
+3     pinctrl-0 = <&pinctrl_sai2 
+4            &pinctrl_sai2_hp_det_b>; 
+5    assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>, 
+6             <&clks IMX6UL_CLK_SAI2>; 
+7    assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>; 
+8    assigned-clock-rates = <0>, <12288000>; 
+9    status = "okay"; 
+10 }; 
+ 示例代码 65.3.1.3 中的内容是 NXP 针对自己的 I.MX6ULL EVK 开发板而添加的，主要是
+对 sai2 节点做了三个方面的修改：SAI2 接口的 pinctrl、 相应的时钟、 修改status 为“okay” 。 我
+们重点来看一下 pinctrl 的设置，因为关系到SAI2 接口的 IO 设置， 从pinctrl-0 属性可以看出这
+里一共有两组 IO：pinctrl_sai2 和 pinctrl_sai2_hp_det_b，这两组 IO 内容如下： 
+示例代码 65.3.1.3 向 sai2 节点追加或修改的内容 
+1  pinctrl_sai2: sai2grp { 
+2    fsl,pins = < 
+3         MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK     0x17088 
+4          MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC     0x17088 
+5          MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA  0x11088 
+6          MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA     0x11088 
+7          MX6UL_PAD_JTAG_TMS__SAI2_MCLK         0x17088 
+8     >; 
+9   }; 
+10  
+11  pinctrl_sai2_hp_det_b: sai2_hp_det_grp { 
+12   fsl,pins = < 
+13        MX6ULL_PAD_SNVS_TAMPER4__GPIO5_IO04    0x17059 
+14   >; 
+15 }; 
+ pinctrl_sai2 描述的是 SAI2 接口的 IO 配置，这个要根据自己板子的实际硬件情况修改，正
+点原子的 ALPHA 开发板上 SAI2 所使用的 IO 和 NXP 的 EVK 开发板一样，因此这里不需要做
+任何修改。pinctrl_sai2_hp_det_b 描述的是耳机插入检测引脚，wm8960 支持耳机插入检测，这
+=== PAGE 1586 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1586 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+样当耳机插入以后就会通过耳机播放音乐，当耳机拔出来以后就会通过喇叭播放音乐。 
+  对于正点原子的 ALPHA 开发板，SAI 部分的设备树信息不需要做任何修改， 直接使用NXP
+官方写好的即可。 
+ 3、I.MX6ULL sound 节点 
+ 最后我们需要在根节点“/”下创建一个名为“sound”的子节点，笔者并没有在 linux 内核
+中找到此节点的绑定信息。只有一份在 I.MX 系列芯片中使用 WM8962 芯片的 sound 节点绑定
+文档， 路径为：Documentation/devicetree/bindings/sound/imx-audio-wm8962.txt。 虽然不是wm8960
+的绑定文档， 但是我们也可以参考imx-audio-wm8962.txt。NXP 官方已经针对 EVK 开发板编写
+了 sound 节点，我们可以在此基础上针对我们所使用的平台来修改出对应的 sound 节点，修改
+完成以后的 sound 节点内容如下所示： 
+示例代码 65.3.1.4 sound 节点内容 
+1  sound { 
+2    compatible = "fsl,imx6ul-evk-wm8960", 
+3           "fsl,imx-audio-wm8960"; 
+4    model = "wm8960-audio"; 
+5    cpu-dai = <&sai2>; 
+6    audio-codec = <&codec>; 
+7    asrc-controller = <&asrc>; 
+8    codec-master; 
+9    gpr = <&gpr 4 0x100000 0x100000>; 
+10   /* 
+11       * hp-det = <hp-det-pin hp-det-polarity>; 
+12     * hp-det-pin: JD1 JD2  or JD3 
+13     * hp-det-polarity = 0: hp detect high for headphone 
+14     * hp-det-polarity = 1: hp detect high for speaker 
+15     */ 
+16   hp-det = <3 0>; 
+17   /*hp-det-gpios = <&gpio5 4 0>; 
+18   mic-det-gpios = <&gpio5 4 0>;*/ 
+19   audio-routing = 
+20       "Headphone Jack", "HP_L", 
+21       "Headphone Jack", "HP_R", 
+22       "Ext Spk", "SPK_LP", 
+23       "Ext Spk", "SPK_LN", 
+24       "Ext Spk", "SPK_RP", 
+25       "Ext Spk", "SPK_RN", 
+26       "LINPUT2", "Mic Jack", 
+27       "LINPUT3", "Mic Jack", 
+28       "RINPUT1", "Main MIC", 
+29       "RINPUT2", "Main MIC", 
+30       "Mic Jack", "MICB", 
+31       "Main MIC", "MICB", 
+32       "CPU-Playback", "ASRC-Playback", 
+=== PAGE 1587 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1587 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+33       "Playback", "CPU-Playback", 
+34       "ASRC-Capture", "CPU-Capture", 
+35       "CPU-Capture", "Capture"; 
+36 }; 
+ 简单看一下 sound 节点中几个重要的属性： 
+ compatible：非常重要，用于匹配相应的驱动文件，有两个属性值，在整个linux 内核源码
+中搜索这两个属性值即可找到对应的驱动文件，这里找到的驱动文件为： sound/soc/fsl/imx-
+wm8960.c。 
+ model：最终用户看到的此声卡名字，这里设置为“wm8960-audio”。 
+ cpu-dai：CPU DAI(Digital Audio Interface)句柄，这里是 sai2 这个节点。 
+ audio-codec：音频解码芯片句柄，也就是 WM8960 芯片，这里为“codec”这个节点。 
+ asrc-controller：asrc 控制器，asrc 全称为 Asynchronous Sample Rate Converters，翻译过来
+就是异步采样频率转化器。 
+ hp-det：耳机插入检测引脚设置， 第一个参数为检测引脚，3 表示 JD3 为检测引脚。 第二个
+参数设置检测电平， 设置为0 的时候，hp 检测到高电平表示耳机插入； 设置为1 的时候，hp 检
+测到高电平表示是喇叭，也就是耳机拔出了。 
+ audio-routing：音频器件一系列的连接设置，每个条目都是一对字符串，第一个字符串是
+连接的 sink，第二个是连接的 source(源)。 
+65.3.2 使能内核的 WM8960 驱动 
+ 设备树配置完成以后就可以使能内核自带的 WM8960 驱动了， 直接通过图形化界面配置即
+可，输入如下命令打开 linux 内核的图形化配置界面： 
+make menuconfig 
+ 1、取消 ALSA 模拟 OSS API 
+ 首先取消 ALSA 模拟 OSS，进入如下路径： 
+-> Device Drivers                                                                           
+     -> Sound card support (SOUND [=y])                                                      
+         -> Advanced Linux Sound Architecture (SND [=y])  
+    -> <> OSS Mixer API        //不选择 
+    -> <> OSS PCM (digital audio) API       //不选择 
+ 结果如图 65.5.2.1 所示： 
+=== PAGE 1588 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1588 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.5.2.1 取消 OSS API 接口 
+ 2、使能 I.MX6ULL 的 WM8960 驱动 
+ 接下来使能 WM8960 驱动，进入如下路径： 
+ -> Device Drivers                                                                         
+-> Sound card support (SOUND [=y])                                                      
+   -> Advanced Linux Sound Architecture (SND [=y])                                       
+        -> ALSA for SoC audio support (SND_SOC [=y])                                        
+            -> SoC Audio for Freescale CPUs 
+     -> <*> Asynchronous Sample Rate Converter (ASRC) module support //选中 
+     -> <*> SoC Audio support for i.MX boards with wm8960       //选中 
+ 结果如图 65.5.2.2 所示： 
+ 
+图 65.5.2.3 使能 ASRC 和 wm8960 驱动 
+ 驱动使能以后重新编译 linux 内核，编译完成以后使用新的 zImage 和.dtb 文件启动，如果
+
+=== PAGE 1589 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1589 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+设备树和驱动都使能的话系统启动过程中就会如图 65.5.2.4 所示的 log 信息： 
+图 65.5.2.4 wm8960 信息 
+ 系统最终启动以后会打印出 ALSA 设备列表，现在的音频CODEC 驱动基本都是 ALSA 架
+构的，本章的 WM8960 驱动也是根据 ALSA 架构编写的。因此在 ALSA 设备列表中就会找到
+“wm8960-audio”这个声卡，如图 65.5.2.5 所示： 
+ 
+图 65.5.2.5 wm8960 声卡 
+ 进入系统以后查看一下/dev/snd 目录，看看有没有如图 65.5.2.6 所示文件： 
+ 
+图 65.5.2.6 alsa 驱动设备文件  
+ 图 65.5.2.6 中的这些文件就是ALSA 音频驱动框架对应的设备文件， 这些文件的作用如下： 
+ controlC0：用于声卡控制，C0 表示声卡 0。 
+ pcmC0D0c 和 pcmC0D1c：用于录音的 pcm 设备，其中的“COD0”和“C0D1”分别表示
+声卡 0 中的设备 0 和设备 1，最后面的“c”是 capture 的缩写，表示录音。 
+ pcmC0D0p 和 pcmC0D1p：用于播放的 pcm 设备，其中的“COD0”和“C0D1”分别表示
+声卡 0 中的设备 0 和设备 1，最后面的“p”是 playback 的缩写，表示放音。 
+ timer：定时器。 
+ 音频驱动使能以后还不能直接播放音乐或录音，我们还需要移植 alsa-lib 和 alsa-utils 这两
+个东西。 
+ 挖个坑，关于音频以及 ALSA 驱动框架的详细讲解我们将会出专题！一切得等把驱动教程
+和视频做完以后。 
+65.4 alsa-lib 和 alsa-utils 移植 
+ 首先 下载 alsa-lib 和 alsa-utils 源码，下载地址为：  http://www.alsa-
+project.org/main/index.php/Main_Page。当前最新版本为 1.2.2，如图 65.4.1 所示： 
+图
+
+=== PAGE 1590 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1590 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+65.4.1 alsa-lib 和 alsa-utils 下载页面 
+ alsa-lib 和 alsa-utils 已经放到了开发板光盘中， 路径为：1、 例程源码-》7、 第三方库源码-》
+alsa-lib-1.2.2.tar.bz2 和 alsa-utils-1.2.2.tar.bz2。 
+65.4.1 alsa-lib 移植 
+ 注意 alsa-lib 编译过程中会生成一些配置文件， 而这些配置信息的路径都是绝对路径， 因此
+为了保证 ubuntu 和开发板根文件系统中的路径一致！我们需要在 ubuntu 和开发板中各创建一
+个路径和名字完全一样的目录，这里我们都创建一个/usr/share/arm-alsa 目录，ubuntu 中创建命
+令如下： 
+cd /usr/share       //进入 ubuntu 的/usr/share 目录 
+sudo mkdir arm-alsa     //创建 arm-alsa 目录  
+最后在开发板根文件系统中也创建一个/usr/share/arm-alsa 目录，命令如下： 
+mkdir /usr/share/arm-alsa (空格) -p  //开发板根文件系统创建 arm-alsa 目录 
+ 这样 ubuntu 和开发板根文件系统都有一个“/usr/share/arm-alsa”目录，我们交叉编译的时
+候就不怕存在引用绝对路径了，因为 ubuntu 和开发板中的配置文件路径都是一模一样的。 
+由于 alsa-utils 要用到 alsa-lib 库，因此要先编译 alsa-lib 库。alsa-lib 就是 ALSA 相关库文
+件， 应用程序通过调用ALSA 库来对 ALSA 框架下的声卡进行操作。 先创建一个名为 “alsa-lib”
+的目录用来保存 alsa-lib 的编译结果， 然后将alsa-lib-1.2.2.tar.bz2 拷贝到 ubuntu 中并解压， 命令
+如下： 
+tar -vxjf alsa-lib-1.2.2.tar.bz2   //解压 alsa-lib 
+ 解压完成以后就会得到一个名为 “alsa-lib-1.2.2” 的文件夹， 这个就是alsa-lib 的源码。 进入
+alsa-lib-1.2.2 目录，然后配置并编译，命令如下： 
+cd alsa-lib-1.2.2/       //进入 alsa-lib 源码目录 
+./configure --host=arm-linux-gnueabihf --prefix=/home/zuozhongkai/linux/IMX6ULL/tool/alsa-
+lib --with-configdir=/usr/share/arm-alsa    //配置 
+ 注意， “--with-configdir”用于设置alsa-lib 编译出来的配置文件存放位置， 这里设置为前
+面创建的“/usr/share/arm-alsa”目录。 
+ 配置完成以后就可以编译了，命令如下： 
+make         //编译 
+sudo make install       //安装 
+ 可能会出现如图 65.4.1.1 所示的错误提示： 
+ 
+图 65.4.1.1 错误提示 
+ 图 65.4.1.1 中提示 libatopology.la 编译失败，这是因为 sudo 会切换到 root 用户下，但是此
+时 root 用户下的环境变量中没有交叉编译器路径， 因此会提示找不到 “arm-linux-gnueabihf-gcc”，
+从而导致 libatopology.la 编译失败。解决方法就是先切换到 root 用户，重新执行一下/etc/profile
+文件，然后直接 make install 即可，命令如下： 
+sudo -s     //切换到 root 用户 
+
+=== PAGE 1591 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1591 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+source /etc/profile   //执行/etc/profile 
+make install    //安装，此时已经工作在 root 下，因此不需要加“sudo” 
+su zuozhongkai   //编译完成以后回原来的用户 
+编译完成以后前面创建的“alsa-lib”目录就会保存相应的编译结果，如图 65.4.1.2 所示： 
+ 
+图 65.4.1.2 alsa-lib 编译结果 
+ ubuntu 中/usr/share/arm-alsa 目录下的内容如图 65.4.1.3 所示： 
+ 
+图 65.4.1.3 编译出来的配置文件。 
+将图 65.4.1.2 中 lib 目录下的所有文件拷贝到开发板根文件系统的 /usr/lib 目录下，将图
+65.4.1.3 中/usr/share/arm-alsa 目录下的所有文件拷贝到开发板的/usr/share/arm-alsa 目录下， 命令
+如下： 
+cd alsa-lib    //进入 alsa-lib 
+sudo cp lib/* /home/zuozhongkai/linux/nfs/rootfs/lib/ -af 
+cd /usr/share/arm-alsa  //进入 arm-alsa 目录，拷贝配置文件 
+sudo cp * /home/zuozhongkai/linux/nfs/rootfs/usr/share/arm-alsa/ -raf 
+65.4.2 alsa-utils 移植 
+ alsa-utils 是 ALSA 的一些小工具集合， 我们可以通过这些小工具还测试我们的声卡。 将alsa-
+utils-1.2.2.tar.bz2 复制到 ubuntu 中并解压，命令如下： 
+tar -vxjf alsa-utils-1.2.2.tar.bz2 //解压 
+ 解压成功以后会得到一个名为“alsa-utils-1.2.2”的文件夹，此文件夹就是 alsa-utils 源码。
+重新创建一个名为“alsa-utils”的目录用于存放 alsa-utils-1.2.2 的编译结果。按照如下命令编译
+alsa-utils： 
+cd alsa-utils-1.2.2/      //进入 
+./configure --host=arm-linux-gnueabihf --prefix=/home/zuozhongkai/linux/IMX6ULL/tool/alsa-
+utils --with-alsa-inc-prefix=/home/zuozhongkai/linux/IMX6ULL/tool/alsa-lib/include/ --with-alsa-
+prefix=/home/zuozhongkai/linux/IMX6ULL/tool/alsa-lib/lib/ --disable-alsamixer --disable-xmlto  
+make         //编译 
+sudo make install 
+ 注意！上面在配置 alsa-utils 的时候使用了“--disable-alsamixer”来禁止编译 alsamixer 这个
+工具，但是这个工具确非常重要，它是一个图形化的声卡控制工具，需要 ncurses 库的支持。
+ncurses 库笔者已经交叉编译成功了(参考 63.5 小节)，但是尝试了很多次设置，就是无法编译
+alsa-utils 中的 alsamixer 工具。网上也没有找到有效的解决方法，大家都是禁止编译 alsamixer
+的。所以这里就没法使用 alsamixer 这个工具了，但是可以使用 alsa-utils 提供的另外一个工具：
+amixer，alsamixer 其实就是 amixer 的图形化版本。 两者的功能都是一样的， 只是alsamixer 使用
+起来更人性化一点。在这里希望知道如何编译出 alsa-utils 中 alsamixer 工具的朋友能够指点迷
+津， 可以在www.openedv.com 论坛上发帖。 本章最后会教大家如何借助其他方法得到 alsamixer
+这个强大的声卡控制软件。 
+
+=== PAGE 1592 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1592 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+编译完成以后就会在前面创建的 “alsa-utils” 目录下生成bin、sbin 和 share 三个文件夹， 如
+图 65.4.2.1 所示： 
+ 
+图 65.4.2.1 编译得到的 alsa-utils 文件 
+ 将图 65.4.2.1 中 bin、sbin 和 share 这三个目录中的所有文件分别拷贝到开发板根目录下的
+/bin、/sbin 和/usr/share/alsa 目录下，命令如下： 
+cd alsa-utils 
+sudo cp bin/* /home/zuozhongkai/linux/nfs/rootfs/bin/ -rfa 
+sudo cp sbin/* /home/zuozhongkai/linux/nfs/rootfs/sbin/ -rfa 
+sudo cp share/* /home/zuozhongkai/linux/nfs/rootfs/usr/share/ -rfa 
+ 打开开发板根文件系统中的/etc/profile 文件，在里面加入如下所示内容： 
+export ALSA_CONFIG_PATH=/usr/share/arm-alsa/alsa.conf 
+ ALSA_CONFIG_PATH用于指定 alsa 的配置文件，这个配置文件是 alsa-lib 编译出来的。 
+65.5 声卡设置与测试 
+65.5.1 amixer 使用方法 
+ 1、查看帮助信息 
+ 声卡相关选型默认都是关闭的，比如耳机和喇叭的左右声道输出等。因此我们在使用之前
+一定要先设置好声卡，alsa-utils 自带了 amixer 这个声卡设置工具。 输入如下命令即可查看amixer
+的帮助信息： 
+amixer --help    //查看 amixer 帮助信息 
+ 结果如图 65.5.1.1 所示： 
+ 
+图 65.5.1.1 amixer 帮助信息 
+
+=== PAGE 1593 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1593 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 从图 65.5.1.1 可以看出，amixer 软件命令分为两组，scontrols、scontents、sset 和 sget 为一
+组。controls、contents、cset 和 cget 为另一组。这两组的基本功能都是一样的，只不过“s”开
+头的是 simple(简单)组，这一组命令是简化版，本教程最终使用“s”开头的命令设置声卡，因
+为少输入很多字符。 
+ 2、查看设置项 
+ 我们要先看一下都有哪些设置项，先来看一下 scontrols 对应的设置项，输入如下命令： 
+amixer scontrols   //查看所有设置项 
+ 结果如图 65.5.1.2 所示： 
+ 
+图 65.5.1.2 scontrols 命令对应的设置项 
+ 再来看一下 controls 对应的设置项，输入如下命令： 
+amixer controls   //查看所有设置项 
+ 结果如图 65.5.1.3 所示： 
+ 
+图 65.5.1.3 controls 命令对应的设置项 
+ 图 65.5.1.2 和 65.5.1.3 由于篇幅原因只列出了一部分设置项，整体设置项目还是比较多的，
+很多设置项目我们都不知道是啥意思，毕竟不是从事音频专业的。这里我们只关注一些最常用
+的设置即可，比如设置耳机和喇叭音量、设置左右声道音量、设置输入音量等等。 
+ 3、查看设置值 
+不同的设置项对应的设置值类型不同， 先查看一下scontents 对应的设置值， 输入如下命令： 
+
+=== PAGE 1594 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1594 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+amixer scontents //查看设置值 
+ 结果如图 65.5.1.4 所示： 
+ 
+图 65.5.1.4 scontrols 命令对应的设置项 
+ 从图 65.5.1.4 可以看出“Headphone”项目就是设置耳机音量的，音量范围为 0-127，当前
+音量为 0。有些设置项是 bool 类型，只有 on 和 off 两种状态。关于 controls 对应的设置值大家
+自行输入“amixer controls”命令查看即可。 
+ 4、设置声卡 
+ 知道了设置项和设置值，那么设置声卡就很简单了，直接使用下面命令即可： 
+amixer sset 设置项目 设置值   
+或： 
+amixer cset 设置项目 设置值 
+ 5、获取声卡设置值 
+ 如果要读取当前声卡某项设置值的话使用如下命令： 
+amixer sget 设置项目 
+或： 
+amixer cget 设置项目 
+65.5.2 音乐播放测试 
+ 1、使用 amixer 设置声卡 
+ 第一次使用声卡之前一定要先使用 amixer 设置声卡， 打开耳机和喇叭， 并且设置喇叭和耳
+机音量，输入如下命令： 
+amixer sset Headphone 100,100 
+
+=== PAGE 1595 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1595 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+amixer sset Speaker 120,120 
+amixer sset 'Right Output Mixer PCM' on 
+amixer sset 'Left Output Mixer PCM' on 
+ 2、使用 aplay 播放 WA V格式音乐 
+ 声卡设置好以后就可以使用 aplay 软件播放 wav 格式的音乐测试一下，aplay 也是 alsa-utils
+提供的。可以在开发板根文件系统下创建一个名为“music”的目录来存放音频文件， 然后找一
+首 wav 格式的音乐放到开发板根文件系统中，然后输入如下命令播放： 
+aplay test.wav   //播放歌曲 
+ 如果一切设置正常的话就会开始播放音乐， 因为ALPHA 开发板支持喇叭和耳机自动切换，
+因此如果不插耳机的话默认从喇叭播放音乐。插上耳机以后喇叭就会停止播放音乐，改为耳机
+播放音乐。 
+65.5.3 MIC 录音测试 
+ ALPHA 开发板上有一个麦克风，如图 65.5.3.1 所示： 
+ 
+图 65.5.3.1 板载麦克风 
+ 我们可以通过图 65.4.3.1 上的这个麦克风(MIC)来完成录音测试。 
+ 1、使用 amixer 设置声卡 
+ 同样的，第一次使用声卡录音之前要先使用amixer 设置一下声卡，这里为了方便，我们在
+开发板根文件系统的/music 目录下创建一个名为“mic_in_config.sh”的 shell 脚本，然后在里面
+输入声卡的设置命令。mic_in_config.sh 脚本内容如下所示： 
+示例代码 65.5.3.1 mic_in_config.sh 脚本内容 
+1  #!/bin/sh 
+2  #正点原子@ALIENTEK 
+3  #设置捕获的音量 
+4  amixer cset name='Capture Volume' 90,90 
+5   
+
+=== PAGE 1596 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1596 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+6  #PCM 
+7  amixer sset 'PCM Playback' on 
+8  amixer sset 'Playback' 256 
+9  amixer sset 'Right Output Mixer PCM' on 
+10 amixer sset 'Left Output Mixer PCM' on 
+11  
+12 #ADC PCM 
+13 amixer sset 'ADC PCM' 200 
+14  
+15 #耳机/喇叭（扬声器）设置播放音量，直流/交流 
+16 #Turn on Headphone 
+17 amixer sset 'Headphone Playback ZC' on 
+18 #Set the volume of your headphones(98% volume，127 is the MaxVolume) 
+19 amixer sset Headphone 125,125 
+20 #Turn on the speaker 
+21 amixer sset 'Speaker Playback ZC' on 
+22 #Set the volume of your Speaker(98% volume，127 is the MaxVolume) 
+23 amixer sset Speaker 125,125 
+24 #Set the volume of your Speaker AC(80% volume，100 is the MaxVolume) 
+25 amixer sset 'Speaker AC' 4 
+26 #Set the volume of your Speaker AC(80% volume，5 is the MaxVolume) 
+27 amixer sset 'Speaker DC' 4 
+28  
+29 #音频输入，左声道管理 
+30 #Turn on Left Input Mixer Boost 
+31 amixer sset 'Left Input Mixer Boost' off 
+32 amixer sset 'Left Boost Mixer LINPUT1' off 
+33 amixer sset 'Left Input Boost Mixer LINPUT1' 0 
+34 amixer sset 'Left Boost Mixer LINPUT2' off 
+35 amixer sset 'Left Input Boost Mixer LINPUT2' 0 
+36 #Turn off Left Boost Mixer LINPUT3 
+37 amixer sset 'Left Boost Mixer LINPUT3' off 
+38 amixer sset 'Left Input Boost Mixer LINPUT3' 0 
+39  
+40 #音频输入，右声道管理，全部关闭 
+41 #Turn on Right Input Mixer Boost 
+42 amixer sset 'Right Input Mixer Boost' on 
+43 amixer sset 'Right Boost Mixer RINPUT1' off 
+44 amixer sset 'Right Input Boost Mixer RINPUT2' 0 
+45 amixer sset 'Right Boost Mixer RINPUT2' on 
+46 amixer sset 'Right Input Boost Mixer RINPUT2' 127 
+47 amixer sset 'Right Boost Mixer RINPUT3' off 
+48 amixer sset 'Right Input Boost Mixer RINPUT3' 0 
+=== PAGE 1597 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1597 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 给予 mic_in_config.sh 可执行权限并运行，命令如下： 
+chmod 777 mic_in_config.sh   //给予可执行权限 
+./mic_in_config.sh     //运行 
+ 2、使用 arecord 录制音频 
+ 使用 arecord 来录制一段 10 秒中的音频，arecord 也是 alsa-utils 编译出来的，输入如下命
+令： 
+arecord -f cd -d 10 record.wav 
+ -f 是设置录音质量， “-f cd”表示录音质量为 cd 级别。-d 是指定录音时间，单位是 s，这
+条指令就是录制一段 cd 级别 10s 的 wav 音频，音频名字为 record.wav。录制的时候大家就可
+以对着开发板上的 MIC 说话，直到录制完成。 
+ 录制完成以后使用 aplay 播放刚刚录制的 record.wav 音频，大家会发现只有左声道有声
+音，右声道没有任何声音，这是因为 ALPHA 开发板的 MIC 只接了左声道，因此录出来的音
+频只有左声道有数据。 
+ 3、单声道 MIC 录制立体声音频 
+ 前面测出来 MIC 录出来的只有左声道有声音，那么我们能不能让只接到左声道的 MIC 录
+制出来的音频是双声道的呢？这个就要去看 WM8960 的数据手册了， 看看能不能配置WM8960
+的右声道 ADC 直接使用左声道的数据。这样左右声道就共同使用一个 MIC，录出来的音频就
+是双声道的，虽然两个声道的数据是一模一样的。 
+ 打开 WM8960 数据手册， 找到R23 寄存器(地址为 0X17)，R23 寄存器的 bit3:2 是设置 ADC
+数据的，如图 65.5.3.2 所示： 
+ 
+图 65.5.3.2 WM8960 R23 寄存器 
+ 从图 65.5.3.2 可以看出，R23 的 bit3:2 控制着左右声道数据来自哪里，可选设置如下： 
+ 00：左声道数据使用左 ADC，右声道数据使用右 ADC，这个是默认模式。 
+ 01：左声道数据使用左 ADC，右声道数据使用左 ADC。 
+ 10：左声道数据使用右 ADC，右声道数据使用右 ADC。 
+ 11：左声道数据使用右 ADC，右声道数据使用左 ADC。 
+
+=== PAGE 1598 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1598 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 由于 ALPHA 开发板 MIC 接在了左声道，因此 WM8960 的 R23 寄存器 bit3:2 应该设置为
+01，也就是左右声道的数据都使用左 ADC。 
+ 打开 linux 内核里面的 wm8960.c 这个文件，找到 wm8960_reg_defaults 数组，此数组保存
+着 wm8960 的默认配置值，为<寄存器地址， 值>这样的形式。R23 寄存器地址为 0X17， 因此找
+到 0x17 组， 默认情况下0x17 对应的值为 0X01C0， 我们将bit3:2 改为 01 以后 0x17 寄存器的值
+就变为了 0x01C4，修改后的 wm8960_reg_defaults 寄存器如下所示： 
+示例代码 65.5.3.2 wm8960_reg_defaults 数组 
+1  static const struct reg_default wm8960_reg_defaults[] = { 
+2   {  0x0, 0x00a7 }, 
+...... 
+21  { 0x16, 0x00c3 }, 
+22  /*{ 0x17, 0x01c0 },*/ 
+23  { 0x17, 0x01c4 }, 
+24  { 0x18, 0x0000 }, 
+...... 
+53  { 0x37, 0x00e9 }, 
+54 }; 
+ 第 23 行就是将 R23 寄存器的值改为 0x01c4。 
+ 修改完成以后重新编译 linux 内核，然后使用新的内核启动开发板，重新测试 MIC 录音，
+这个时候录出来的就应该是立体音了。 
+65.5.4 LINE IN 录音测试 
+ 如果在 MIC 录音实验中将 R23 的寄存器改为了 0X01C4， 那么在进行LINE IN 录音测试之
+前先改回原来的 0X01C0，因为 ALPHA 开发板的 LINE IN 接了双声道，不需要共用左声道数
+据。当然了，不修改也是可以直接做测试的！ 
+ 最后进行一下 Line in 测试，也就是线路输入测试，ALPHA 开发板上 Line in 接口如图
+65.5.4.1 所示： 
+ 
+图 65.5.4.1 Line in 接口 
+
+=== PAGE 1599 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1599 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 注意， 图65.5.4.1 中的 Line in 不是用来连接话筒的！ 这里不能接话筒。 使用一根3.5mm 公
+对公音频线，一头连接到手机或者电脑，另外一头连接到图65.5.4.1 中的 Line in 接口上。 
+1、使用 amixer 设置声卡 
+ 同样新建一个名为“line_in_config.sh”的 shell 脚本，在此脚本里面输入如下内容： 
+示例代码 65.5.4.2 line_in_config.sh 脚本内容 
+1  #!/bin/sh 
+2  #正点原子@ALIENTEK 
+3  #设置捕获的音量 
+4  amixer cset name='Capture Volume' 100,100 
+5   
+6  #PCM 
+7  amixer sset 'PCM Playback' on 
+8  amixer sset 'Playback' 256 
+9  amixer sset 'Right Output Mixer PCM' on 
+10 amixer sset 'Left Output Mixer PCM' on 
+11  
+12 #ADC PCM 
+13 amixer sset 'ADC PCM' 200 
+14  
+15 #录音前应该设置耳机或者扬声器的音量为0（下面并没有设置）防止干扰 
+16 #耳机/喇叭（扬声器）设置播放音量，直流/交流 
+17 #Turn on Headphone 
+18 amixer sset 'Headphone Playback ZC' on 
+19 #Set the volume of your headphones(98% volume，127 is the MaxVolume) 
+20 amixer sset Headphone 125,125 
+21 #Turn on the speaker 
+22 amixer sset 'Speaker Playback ZC' on 
+23 #Set the volume of your Speaker(98% volume，127 is the MaxVolume) 
+24 amixer sset Speaker 125,125 
+25 #Set the volume of your Speaker AC(80% volume，100 is the MaxVolume) 
+26 amixer sset 'Speaker AC' 4 
+27 #Set the volume of your Speaker AC(80% volume，5 is the MaxVolume) 
+28 amixer sset 'Speaker DC' 4 
+29  
+30 #音频输入，左声道管理 
+31 #Turn off Left Input Mixer Boost 
+32 amixer sset 'Left Input Mixer Boost' on 
+33 #关闭其他通道输入 
+34 amixer sset 'Left Boost Mixer LINPUT1' off 
+35 amixer sset 'Left Input Boost Mixer LINPUT1' 0 
+36 #关闭麦克风左声道输入 
+37 amixer sset 'Left Boost Mixer LINPUT2' on  
+38 amixer sset 'Left Input Boost Mixer LINPUT2' 127 
+=== PAGE 1600 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1600 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+39 #Line_in 右声道输入关闭 
+40 amixer sset 'Left Boost Mixer LINPUT3' off 
+41 amixer sset 'Left Input Boost Mixer LINPUT3' 0 
+42  
+43  
+44 #音频输入，右声道管理 
+45 #Turn on Right Input Mixer Boost 
+46 amixer sset 'Right Input Mixer Boost' on 
+47 amixer sset 'Right Boost Mixer RINPUT1' off 
+48 amixer sset 'Right Input Boost Mixer RINPUT1' 0 
+49 amixer sset 'Right Boost Mixer RINPUT2' off 
+50 amixer sset 'Right Input Boost Mixer RINPUT2' 0 
+51  
+52 #要想设置成音频输入，请打开RINPUT3,看原理图可知 
+53 #其他的声道通过上面的配置可关闭，这样是为了避免干扰，需要的时候就打开 
+54 #RINPUT3 打开（关键点） 
+55 amixer sset 'Right Boost Mixer RINPUT3' on 
+56 amixer sset 'Right Input Boost Mixer RINPUT3' 127 
+最后，给予 line_in_config.sh 可执行权限并运行，命令如下： 
+chmod 777 line_in_config.sh   //给予可执行权限 
+./line_in_config.sh     //运行 
+ 2、使用 arecord 录制音频 
+ 使用 arecord 来录制一段 10 秒中的音频，输入如下命令： 
+arecord -f cd -d 10 record.wav 
+ 录制完成以后使用 aplay 播放刚刚录制的音频，由于 ALPHA 开发板上 LINE IN 是接了左
+右双声道，因此录制出来的音频是立体声的，不像 MIC 录出来的只有左声道。 
+65.6 开机自动配置声卡 
+ 大家在使用的时候应该会发现开发板重启以后声卡的所有设置都会消失，必须重新设置声
+卡。也就是说我们对声卡的设置不能保存，本小节我们就来学习一下如何保存声卡的设置。 
+ 1、使用 alsactl 保存声卡设置 
+ 声卡设置的保存通过 alsactl 工具来完成， 此工具也是alsa-utils 编译出来的。因为alsactl 默
+认将声卡配置文件保存在/var/lib/alsa 目录下，因此首先在开发板根文件系统下创建/var/lib/alsa
+目录，命令如下： 
+mkdir /var/lib/alsa -p 
+ 首先使用 amixer 设置声卡，然后输入如下命令保存声卡设置 
+alsactl -f /var/lib/alsa/asound.state store   //保存声卡设置 
+ -f 指定声卡配置文件，store 表示保存。关于 alsactl 的详细使用方法，输入“alsactl -h”即
+可。 保存成功以后就会生成/var/lib/alsa/asound.state 这个文件，asound.state 里面就是关于声卡的
+各种设置信息，大家可以打开此文件查看一下里面的内容，如图65.6.1 所示： 
+=== PAGE 1601 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1601 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 
+图 65.6.1 asound.state 文件部分内容 
+ 如果要使用 asound.state 中的配置信息来配置声卡，执行如下命令即可： 
+alsactl -f /var/lib/alsa/asound.state restore  
+ 最后面的参数改为 restore 即可，也就是恢复的意思。 
+ 打开/etc/init.d/rcS 文件，在最后面追加如下内容： 
+示例代码 65.6.1 /etc/init.d/rcS 追加内容 
+1 if [ -f "/var/lib/alsa/asound.state" ]; then 
+2         echo "ALSA: Restoring mixer setting......" 
+3         /sbin/alsactl -f /var/lib/alsa/asound.state restore & 
+4 fi 
+ 第 1 行判断/var/lib/alsa/asound.state 这个文件是否存在，存在的话就执行下面的。首先输出
+一行提示符： “ALSA: Restoring mixer setting......” ，表示设置声卡，最后调用/sbin/alsactl 来执行
+声卡设置工作。 
+ 设置完成以后重启开发板，开发板开机就会自动设置声卡，会输入如图 65.6.2 所示内容： 
+ 
+图 65.6.2 声卡开机自动设置 
+ 直接使用 aplay 播放音乐测试声卡开机自动配置是否正确。 
+65.7 mplayer 播放器移植与使用 
+ 至此，linux 下的 LCD 显示和音频都已经驱动起来了，那么肯定就会有朋友想播放视频。
+本节我们就来学习一下如何移植 mplayer 这个强大的视频播放软件。mplayer 是一款开源的多媒
+体播放器，可以用来播放音视频，mplayer 自带多种格式的解码器，不需要我们再另外安装。 
+65.7.1 mplayer 移植  
+ 1、移植 zlib 库 
+
+=== PAGE 1602 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1602 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ mplayer 用到了 zlib 库，因此要先移植 zlib 库。zlib 源码下载地址为：http://zlib.net/，当前
+最新版本为 1.2.11。 我们已经下载下来放到了开发板光盘中， 路径为：1、 例程源码->7、 第三方
+库源码->zlib-1.2.11.tar.gz。拷贝到 ubuntu 中并解压，命令如下： 
+tar -vxzf zlib-1.2.11.tar.gz  //解压 
+ 解压完成以后得到一个名为“zlib-1.2.11”的 zlib 源码文件。另外新建一个名为“zlib”的
+文件夹来保存 zlib 的编译结果。进入 zlib 源码目录，然后配置并编译，命令如下： 
+cd zlib-1.2.11/            //进去 zlib 源码 
+CC=arm-linux-gnueabihf-gcc LD=arm -linux-gnueabihf-ld AD=arm -linux-gnueabihf-
+as ./configure --prefix=/home/zuozhongkai/linux/IMX6ULL/tool/zlib  //配置 
+make             //编译 
+make install 
+ 编译完成以后的 zlib 目录内容如图 65.7.1.1 所示： 
+ 
+图 65.7.1.1 zlib 目录 
+ 将图 65.7.1.1 中的 lib 目录下的 zlib 库文件拷贝到开发板根文件系统的/lib 目录下， 命令为： 
+sudo cp lib/* /home/zuozhongkai/linux/nfs/rootfs/lib/ -rfa  
+  2、移植 mplayer 
+ mplayer 需要用到 alsa-lib 和 zlib， 因此要先保证这两个已经交叉编译了。mplayer 源码下载
+地址为：http://www.mplayerhq.hu/MPlayer/releases/， 当前最新的为1.4 版本。 我们已经下载下来
+并放到了开发板光盘中， 路径为：1、 例程源码->7、 第三方库源码->MPlayer-1.4.tar.gz。将MPlayer-
+1.4.tar.gz 拷贝到 ubuntu 中并解压，命令如下： 
+tar -vxzf MPlayer-1.4.tar.gz  //解压 
+ 解压完成以后得到一个名为 “MPlayer-1.4”的mplayer 源码文件。 另外新建一个名为 “mplayer”
+的文件夹来保存 mplayer 的编译结果。进入 mplayer 源码目录，然后配置并编译，命令如下： 
+cd MPlayer-1.4/           //进去 mplayer 源码 
+./configure --cc=arm-linux-gnueabihf-gcc --host-cc=gcc --target=arm-linux-gnueabihf --disable-
+ossaudio --enable-alsa --prefix=/home/zuozhongkai/linux/IMX6ULL/tool/mplayer --extra-cflags="-I 
+/home/zuozhongkai/linux/IMX6ULL/tool/zlib/include -I 
+/home/zuozhongkai/linux/IMX6ULL/tool/alsa-lib/include" --extra-ldflags="-
+L/home/zuozhongkai/linux/IMX6ULL/tool/zlib/lib -Iz -
+L/home/zuozhongkai/linux/IMX6ULL/tool/alsa-lib/lib -lasound" --enable-fbdev --disable-mencoder 
+make             //编译 
+ --extra-cflags 指定 zlib 和 alsa-lib 的头文件路径，--extra-ldflags 指定 zlib 和 alsa-lib 的库文
+件路径。编译完成以后打开config.mak 文件， 找到“INSTALLSTRIP = -s”这一行， 取消掉后面
+的“-s” ，否则“make install”命令会失败！结果如图 65.7.1.2 所示： 
+ 
+
+=== PAGE 1603 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1603 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+图 65.7.1.2 修改后的 config.mak 文件 
+ 修改完成以后使用 “make install”安装，安装完成以后mplayer 目录内容如图 65.7.1.3 所示 
+ 
+图 65.4.1.3 安装完成以后的 mplayer 目录  
+ 图 65.4.1.3 中的 bin 目录下有一个叫做 “mplayer” 的可执行文件， 这就是我们需要的mplayer
+播放器！将其拷贝到开发板根文件系统的/bin 目录下，命令为： 
+sudo cp bin/mplayer /home/zuozhongkai/linux/nfs/rootfs/bin/ -f 
+ 至此，mplayer 移植就已经完成了，接下来就是使用 mplayer 播放音视频。 
+65.7.2 mplayer 使用 
+ 1、mplayer 播放音频 
+ 输入 “mplayer -h” 即可查看帮助信息。mplayer 播放歌曲很简单， 不限歌曲格式， “mplayer+
+歌曲名”即可，比如： 
+mplayer test.flac 
+ 播放过程如图 65.7.2.1 所示： 
+ 
+图 65.7.2.1 mplayer 播放界面 
+播放过程中我们可以通过键盘控制播放器，常用的控制方法如下： 
+9：增加音量。 
+0：减小音量。 
+左键：倒退 10 秒 
+右键：快进 10 秒 
+上键：倒退 1 分钟 
+下键：快进 1 分钟 
+空格：暂停和播放 
+ 如果 mplayer 音量已经调到最大了，但是耳机音量依旧很小的话请使用amixer 调大声卡最
+大音量。 
+ 2、视频播放测试 
+
+=== PAGE 1604 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1604 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ 视频播放的方法和音频一样， “mplayer+视频名” 即可， 但是这样的话视频不是居中播放的，
+我们可以加入“-fs”参数让视频居中播放。 
+ 注意！由于 I.MX6ULL 性能比较差，而且没有硬件视频解码，因此6ULL 不能播放高分辨
+率、高码率和高帧率的视频，视频分辨率最好在 640*480 左右！ 
+ 输入如下命令播放视频： 
+mplayer test.avi -fs   //居中播放视频 
+ 如果你所使用的芯片性能比较差的话 mplayer 会给你提示，如图 65.7.2.2 所示： 
+ 
+图 65.7.2.2 提示系统性能差 
+ 关于 mplayer 的更多使用请自行上网搜索，这里就不再赘述了。 
+65.8 alsamixer 简介 
+ 前面在移植 alsa-utils 的时候说过 alsamixer 是一个图形化的声卡设置工具， 但是由于ncurses
+库依赖的原因笔者并没有在 alsa-utils 移植的时候编译出 alsamixer， 不得已放弃编译alsa-utils 中
+的 alsamixer。 但是笔者用了一个投机取巧的方法， 那就是使用buildroot 编译出 alsamixer， 然后
+将其拷贝到开发板根文件系统中。 因此， 如果还没了解过buildroot 的朋友就不需要看本小节了，
+直接使用 amixer 来配置声卡。 从这里也可以看出buildroot 的强大， 再一次建议大家做产品的时
+候使用 buidroot 或 yocto 来构建根文件系统！ 
+ alsamixer 是基于图形化的， 直接输入 “alsamixer” 命令即可打开声卡配置界面， 如图65.8.1
+所示： 
+ 
+图 65.8.1 alsamixer 配置界面 
+ F1 键：查看帮助信息。 
+
+=== PAGE 1605 ===
+                                          
+原子哥在线教学:www.yuanzige.com        论坛:www.openedv.com 
+ 
+ 
+1605 
+I.MX6U 嵌入式 Linux 驱动开发指南 
+ F2 键：查看系统信息。 
+ F3 键：播放设置。 
+ F4 键：录音设置。 
+ F6 键：选择声卡，多声卡情况下。 
+ Item：设置项全名。 
+ 图 65.8.1 最下面一行就是具体的设置项，比如 “Headphone” 、 “Headphone Playback ZC”等
+等，通过键盘上左右键选择设置项。按下上下键来调整大小，比如设置耳机音量大小等。有些
+项目会显示“MM” ，表示静音，按下“M”键修改为“OO”状态打开， “M”键用于修改打开
+或关闭某些项目。 
+ 关于 alsamixer 的介绍就到这里，用起来还是很简单的。 
+  
+  

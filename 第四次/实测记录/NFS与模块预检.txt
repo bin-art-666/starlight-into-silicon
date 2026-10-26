@@ -1,0 +1,15 @@
+mkdir -p /mnt/lab4; mount -t nfs -o vers=3,prot o=tcp,nolock,soft,timeo=20,retrans=1 192.168.1.100:/lab3 /mnt/lab4; ls -l /mnt/l ab4/lab4; echo lab4_nfs_ok > /mnt/lab4/lab4/check.txt; cat /mnt/lab4/lab4/check. txt; cp /mnt/lab4/lab4/beep.ko /tmp/lab4/; cp /mnt/lab4/lab4/beepApp /tmp/lab4/;  chmod +x /tmp/lab4/beepApp; insmod /tmp/lab4/beep.ko; dmesg | tail -n 8
+total 446K
+-rwxrwxrwx 1 root root 438K Oct 16  2026 [0m[01;32mbeepApp[0m
+-rwxrwxrwx 1 root root 8.1K Oct 16  2026 [01;32mbeep.ko[0m
+lab4_nfs_ok
+insmod: ERROR: could not insert module /tmp/lab4/beep.ko: No such device
+[ 2299.333717] nfs: server 192.168.1.100 not responding, timed out
+[ 2305.343689] nfs: server 192.168.1.100 not responding, timed out
+[ 2415.643718] nfs: server 192.168.1.100 not responding, timed out
+[ 3344.583713] nfs: server 192.168.1.100 not responding, timed out
+[ 3350.623710] nfs: server 192.168.1.100 not responding, timed out
+[ 3512.433714] nfs: server 192.168.1.100 not responding, timed out
+[ 3518.443715] nfs: server 192.168.1.100 not responding, timed out
+[ 3524.453691] nfs: server 192.168.1.100 not responding, timed out
+root@ATK-IMX6U:/tmp/lab8-export# 

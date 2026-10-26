@@ -1,0 +1,19 @@
+cd /tmp/lab4; ./beepApp /dev/beep 1; echo ON_EXIT=$?; cat /sys /kernel/debug/gpio | grep lab4; sleep 1; ./beepApp /dev/beep 0; echo OFF_EXIT=$? ; cat /sys/kernel/debug/gpio | grep lab4; rmmod beep; echo RMMOD_EXIT=$?; test !  -e /dev/beep; echo NODE_REMOVED_EXIT=$?; dmesg | tail -n 6
+[   84.108990] beep: ON
+beep: ON
+ON_EXIT=0
+ gpio-129 (lab4-beep           ) out lo    
+[   85.204350] beep: OFF
+beep: OFF
+OFF_EXIT=0
+ gpio-129 (lab4-beep           ) out lo    
+[   85.273001] beep: unloaded, OFF
+RMMOD_EXIT=0
+NODE_REMOVED_EXIT=0
+[   16.850757] ICM20608 ID = 0XAE
+[   20.753917] random: nonblocking pool is initialized
+[   63.759460] beep: /dev/beep ready, gpio=129, major=247, default OFF
+[   84.108990] beep: ON
+[   85.204350] beep: OFF
+[   85.273001] beep: unloaded, OFF
+root@ATK-IMX6U:/tmp/lab4# 
