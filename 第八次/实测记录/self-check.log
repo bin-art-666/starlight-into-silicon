@@ -1,0 +1,4 @@
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/var/volatile/tmp/runtime-root'
+This plugin does not support propagateSizeHints()
+未连接摄像头：/dev/video255 不存在，请接入后刷新设备。
+SELF_CHECK PASS checks: initial states, no-frame guard, BGR conversion, gray conversion, image ownership, empty frame, missing device, UI recovery, screenshots

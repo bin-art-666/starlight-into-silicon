@@ -1353,5 +1353,220 @@
     "path": "第七次/构建记录/arm.log",
     "bytes": 1257,
     "sha256": "e06afa0e0fd636d588006a87586652e1eed24b91959ec1c1f53234d831f6c4d4"
+  },
+  {
+    "path": ".gitattributes",
+    "bytes": 83,
+    "sha256": "ed119102e731e1ec94df4381694dca9c2a303d13c4cfcec04e169e548210e899"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 350,
+    "sha256": "ea4c5086a663171ec0bf467b896ef2430cf333c1edce3c15fb4129a7e61b5c7a"
+  },
+  {
+    "path": "NOTICE.md",
+    "bytes": 1162,
+    "sha256": "9281633fda70f2df6dcb191a7a4580eb1a3d32bfb63c410fbb63c987f5d33fd9"
+  },
+  {
+    "path": "README.md",
+    "bytes": 3300,
+    "sha256": "4da9a5873ab207bdf28914813f992c560934d2b260850cc95122673bfc0ba23b"
+  },
+  {
+    "path": "tools/check_archive.py",
+    "bytes": 1495,
+    "sha256": "3478d0749f025b0da25edab72e5b9e7a84ac46a844ed9a807ede92952b5aabd6"
+  },
+  {
+    "path": "复现说明.md",
+    "bytes": 2956,
+    "sha256": "c7b650d8d14ea3643ae9a2f6b12d669db9df1eed1e78e38aaa88f2fb4297b359"
+  },
+  {
+    "path": "第一次/README.md",
+    "bytes": 1734,
+    "sha256": "9a579b5bff5ba0ea7b092e2ddccc5fb64002edb3308bf5eaa16ef3feca9c76f6"
+  },
+  {
+    "path": "第七次/README.md",
+    "bytes": 2205,
+    "sha256": "56ab0e354c20425bc60ea9ad6fb41195449e8bec019bc8feee6dfd0c534ee4d2"
+  },
+  {
+    "path": "第三次/README.md",
+    "bytes": 1939,
+    "sha256": "d68d3e7c11fa5a382921f4253d2a1782eb1d10a8d969e88edf8ac27c05df5306"
+  },
+  {
+    "path": "第二次/README.md",
+    "bytes": 2075,
+    "sha256": "0129fe5830b4e8409417485b201fb44e0bb3d10a86400b249482876fbf19144c"
+  },
+  {
+    "path": "第五次/README.md",
+    "bytes": 1881,
+    "sha256": "e8935d3733e993db574a1aeaf34b568d5f81112ecfb8290013f0491024cb358c"
+  },
+  {
+    "path": "第八次/README.md",
+    "bytes": 3178,
+    "sha256": "b4247c6ebac212539328c74b0d7fdcaf95ed640454b37d3c6a661eca765a043e"
+  },
+  {
+    "path": "第八次/bin/qt_camera_arm",
+    "bytes": 73808,
+    "sha256": "41d57d6a26b616d03b441eb25507a0d9310de755fb5e2ba93af16b0d0bae97f4"
+  },
+  {
+    "path": "第八次/qt_camera/camerawindow.cpp",
+    "bytes": 7352,
+    "sha256": "00f758a739f666dbdbcc0aa38c2e61c5cee1dc118c143edace70bd0aa00dcbc9"
+  },
+  {
+    "path": "第八次/qt_camera/camerawindow.h",
+    "bytes": 837,
+    "sha256": "1192c2774c4976f12e597d290e6c9550098c924edf1353a7a8323c1d8c1bcbf1"
+  },
+  {
+    "path": "第八次/qt_camera/cameraworker.cpp",
+    "bytes": 3586,
+    "sha256": "61e27c6f01c94a899855c0970eda3399c54a875a3fcbb92359be8845f1481e6f"
+  },
+  {
+    "path": "第八次/qt_camera/cameraworker.h",
+    "bytes": 704,
+    "sha256": "d3496fe67e64f9eac02ac94bf3a902ce39cff033d9da483a30051071c414399d"
+  },
+  {
+    "path": "第八次/qt_camera/main.cpp",
+    "bytes": 1841,
+    "sha256": "5cd3b3fb56d4417863132ce6350076dc554e2831f3630cda7ef20f4489a3b907"
+  },
+  {
+    "path": "第八次/qt_camera/qt_camera.pro",
+    "bytes": 385,
+    "sha256": "5b89e733f5695fd9139788cb853c95a6b0244b32a204037926d5326514fe8241"
+  },
+  {
+    "path": "第八次/run_on_board.sh",
+    "bytes": 473,
+    "sha256": "fcff61816287dc62088c14ebf70a92c2e430d6aa18d41467d0e6220900684b04"
+  },
+  {
+    "path": "第八次/tools/build_arm.sh",
+    "bytes": 938,
+    "sha256": "f0c1076b4f4e1ed1a3c071efc54cb4eb412c103e1403e79b17e9ef9215ce8dd4"
+  },
+  {
+    "path": "第八次/tools/取回实拍照片.ps1",
+    "bytes": 1184,
+    "sha256": "3fd43909bf348974a8c4b253cc5474b8f913df46b758115ffff115dcbf28832e"
+  },
+  {
+    "path": "第八次/参考例程/05_opencv_camera.pro",
+    "bytes": 1500,
+    "sha256": "959495fecef15e1b831e678cffa8ac96abc0f5a57452b3584d968ceb9bc26473"
+  },
+  {
+    "path": "第八次/参考例程/camera.cpp",
+    "bytes": 2222,
+    "sha256": "89dc2638b588cb0298fd9442cd1662d19050ae4954a2a61aa3cda1b878620556"
+  },
+  {
+    "path": "第八次/参考例程/camera.h",
+    "bytes": 1313,
+    "sha256": "e52923fd935bbee9ebafea63846a7f8bbd24e452c9c705133a9e04d5074f9cb4"
+  },
+  {
+    "path": "第八次/参考例程/main.cpp",
+    "bytes": 210,
+    "sha256": "f8a07c7a4de7feabcd61e2fdeedc368f25adb930201722abd0ad3aefca0bdca7"
+  },
+  {
+    "path": "第八次/参考例程/mainwindow.cpp",
+    "bytes": 5960,
+    "sha256": "f277307daad063ca5e8277221cde0cd2517fe275748d4162a6d2f7b228672b0e"
+  },
+  {
+    "path": "第八次/参考例程/mainwindow.h",
+    "bytes": 1929,
+    "sha256": "064ec2e512375024d1295b983fdae6204c5134420d0aeb3a4589503b6c078925"
+  },
+  {
+    "path": "第八次/实测记录/01_接口预留界面.png",
+    "bytes": 58112,
+    "sha256": "b4d0961615d3554d9d911a859e4904f17d0ebe0bc444310bcde10645720f7272"
+  },
+  {
+    "path": "第八次/实测记录/02_设备未连接提示.png",
+    "bytes": 51208,
+    "sha256": "c0a2dd43e2623101775a5bacdc276c90f9a87e620a1b0ab9b6c053617696141d"
+  },
+  {
+    "path": "第八次/实测记录/20210722_052042_655_4e402c2d.png",
+    "bytes": 352739,
+    "sha256": "f428f4944fc3fb1726d401bbdee1da2db9041d6c33faf7c64ecd07deabae9aaf"
+  },
+  {
+    "path": "第八次/实测记录/ARM符号版本.txt",
+    "bytes": 5691,
+    "sha256": "73f59f408d21dc76c4c115c256c8961fd1a1e99407efc09ee0f1ee9563195f87"
+  },
+  {
+    "path": "第八次/实测记录/self-check.log",
+    "bytes": 373,
+    "sha256": "d81c5b214e7794382fb76754c872a3142b7af19c93272d22cd9d804da0c833a3"
+  },
+  {
+    "path": "第八次/实测记录/库依赖导出.txt",
+    "bytes": 300,
+    "sha256": "55eaeb6b3e81534c9bb2cddcd785d802af0955bd066becb06105541901b18e8e"
+  },
+  {
+    "path": "第八次/实测记录/摄像头实测串口验证.txt",
+    "bytes": 873,
+    "sha256": "92e3cd5a7ed58805c407e4052dacc4c7ac3cfb938b0587d32c8907e1e8935835"
+  },
+  {
+    "path": "第八次/实测记录/收尾状态.txt",
+    "bytes": 259,
+    "sha256": "bf287b6d57c6f2a404cbe54230f19f4f980d8c9fa67286d4f938567f2d2d30fe"
+  },
+  {
+    "path": "第八次/实测记录/无摄像头自检.txt",
+    "bytes": 932,
+    "sha256": "f758bdd45fb2268ea3b9ce54df79ee2020e95bcde53b489411cad83f40653604"
+  },
+  {
+    "path": "第八次/实测记录/板端依赖初检.txt",
+    "bytes": 1143,
+    "sha256": "72d3867e3d9e1e936964b2d20f343d76ed3d3a39d0853df7bde657522ea6374b"
+  },
+  {
+    "path": "第八次/实验完成记录.md",
+    "bytes": 2476,
+    "sha256": "a0608d7e09d9e91eeecfd17f38c84297d0c24acf5f881f3b749e00203cc97cf3"
+  },
+  {
+    "path": "第八次/构建记录/arm.log",
+    "bytes": 3383,
+    "sha256": "5219529c77830327eda30b2a45c09197fb0a303139552b157bd0e7b5364510ee"
+  },
+  {
+    "path": "第六次/README.md",
+    "bytes": 1981,
+    "sha256": "62908bc158b64514925f6b253d6e80a8e20505bb30aec4f04eaaea5cef804535"
+  },
+  {
+    "path": "第四次/README.md",
+    "bytes": 2288,
+    "sha256": "fa2d9e0df2f01f3dc6d77f83654ede0980c6ba9aed69ed254592dedd5cc820d5"
+  },
+  {
+    "path": "资料索引.md",
+    "bytes": 2911,
+    "sha256": "339ee07c21922604610a96dd05f02ed347711be5d56ba03233a8e5320a72e980"
   }
 ]

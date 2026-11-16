@@ -1,0 +1,4 @@
+kill 967; echo LAB8_TEMP_SERVER_STOPPED; ps -ef  | grep qt_camera_arm | grep -v grep
+LAB8_TEMP_SERVER_STOPPED
+[1]+  Terminated              nohup python3 -m http.server 18080 --bind 192.168.1.4 > server.log 2>&1 < /dev/null
+root@ATK-IMX6U:/tmp/lab8-export# 

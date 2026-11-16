@@ -1,0 +1,2 @@
+ldd /usr/lib/libopencv_videoio.so /usr/lib/libo pencv_imgproc.so /usr/lib/libopencv_core.so | awk '/=> \// {print $3}' | sort -u  > /tmp/lab8-export/dependencies.txt; tar -chzf /tmp/lab8-export/opencv-deps.tar .gz -T /tmp/lab8-export/dependencies.txt 2>/tmp/lab8-deps.log; echo LAB8_DEPS_RE ADY
+

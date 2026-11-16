@@ -1,0 +1,13 @@
+echo LAB8_READONLY_CHECK; ls /usr/lib/libopencv_core.so*  /usr/lib/libopencv_videoio.so* /usr/lib/libopencv_imgproc.so* /usr/lib/libopencv _imgcodecs.so*; ls /dev/video* 2>/dev/null; ls /usr/bin/opencv* 2>/dev/null
+LAB8_READONLY_CHECK
+[0m[01;36m/usr/lib/libopencv_core.so[0m             [01;36m/usr/lib/libopencv_imgproc.so[0m
+[01;36m/usr/lib/libopencv_core.so.3.1[0m         [01;36m/usr/lib/libopencv_imgproc.so.3.1[0m
+[01;32m/usr/lib/libopencv_core.so.3.1.0[0m       [01;32m/usr/lib/libopencv_imgproc.so.3.1.0[0m
+[01;36m/usr/lib/libopencv_imgcodecs.so[0m        [01;36m/usr/lib/libopencv_videoio.so[0m
+[01;36m/usr/lib/libopencv_imgcodecs.so.3.1[0m    [01;36m/usr/lib/libopencv_videoio.so.3.1[0m
+[01;32m/usr/lib/libopencv_imgcodecs.so.3.1.0[0m  [01;32m/usr/lib/libopencv_videoio.so.3.1.0[0m
+[1]+  Done                    nohup sh ./run_on_board.sh --verify > run2.log 2>&1 < /dev/null
+[0m[01;33m/dev/video0[0m
+[0m[01;32m/usr/bin/opencv_annotation[0m     [01;32m/usr/bin/opencv_traincascade[0m
+[01;32m/usr/bin/opencv_createsamples[0m  [01;32m/usr/bin/opencv_waldboost_detector[0m
+root@ATK-IMX6U:~/lab7# 

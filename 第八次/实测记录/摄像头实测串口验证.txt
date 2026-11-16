@@ -1,0 +1,17 @@
+printf "\nLAB8_FINAL_CHECK\n"; cat /home/root/lab8/camera -session.log; ls -lh /home/root/lab8/photos; for p in /home/root/lab8/photos/*.p ng; do [ -f "$p" ] || continue; echo "$p"; od -An -tx1 -N24 "$p"; done; pidof qt _camera_arm
+
+LAB8_FINAL_CHECK
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/var/volatile/tmp/runtime-root'
+???????????? /dev/video1??????????????????
+????????????/dev/video1????????? 640??480
+total 700K
+-rw-r--r-- 1 root root 345K Jul 22 05:20 20210722_052042_655_4e402c2d.png
+-rw-r--r-- 1 root root 341K Jul 22 05:20 20210722_052050_923_0bc8a675.png
+/home/root/lab8/photos/20210722_052042_655_4e402c2d.png
+ 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52
+ 00 00 02 80 00 00 01 e0
+/home/root/lab8/photos/20210722_052050_923_0bc8a675.png
+ 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52
+ 00 00 02 80 00 00 01 e0
+823
+root@ATK-IMX6U:~/lab8# 
